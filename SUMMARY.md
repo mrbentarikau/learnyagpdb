@@ -4,7 +4,8 @@
 
 ## Beginner
 
-* [Untitled](beginner/untitled.md)
+* [Outputs 1](beginner/untitled/README.md)
+  * [Exercises](beginner/untitled/exercises.md)
 
 ## Intermediate
 
