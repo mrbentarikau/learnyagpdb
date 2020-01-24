@@ -8,7 +8,7 @@
 
 ## Intermediate
 
-* [Untitled](intermediate/untitled.md)
+* [Simple Counting Algorithm](intermediate/untitled.md)
 
 ## Advanced
 
