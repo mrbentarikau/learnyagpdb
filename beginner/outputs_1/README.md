@@ -58,9 +58,9 @@ In the above code we explore how to produce mentions. Simply writing @user or @r
 \*\*\*\*
 
 {% hint style="success" %}
-**Pro Tip:** Did you know you can combine multiple templates such that the output of one template serves as input to another. We can achieve this by enclosing the interior template within parenthesis `()`
+**Pro Tip :** Did you know you can combine multiple templates such that the output of one template serves as input to another. We can achieve this by enclosing the interior template within parenthesis `()`
 
-**Example:**  `{{mult 2 (add 3 2)}}`  
+**Example :**  `{{mult 2 (add 3 2)}}`  
 Produces 10 as output.
 {% endhint %}
 
