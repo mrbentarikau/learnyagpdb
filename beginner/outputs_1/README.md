@@ -28,7 +28,7 @@ Things written inside double curly brackets `{{ tempalate goes here }}` are call
 2.  **Perform an action :** \( _More on this later_ \) 
 3. **Both perform an action + produce an output :**  These templates perform a computation/calculation/action and also produce an output at the end. example: `{{add 1 2}}` adds two numbers and returns their sum.
 
-## Example Code 
+## Example Codes 
 
 ### Example 1
 
@@ -39,7 +39,7 @@ Welcome to our Server : {{.Server.Name}}
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%287%29.png)
+![](../../.gitbook/assets/image%20%286%29.png)
 
 ### Example 2
 

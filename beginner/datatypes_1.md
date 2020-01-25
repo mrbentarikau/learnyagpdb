@@ -93,5 +93,61 @@ Note: All preceding and trailing white spaces \(eg: space, newlines \) are alway
 
 ## Example Codes
 
+### Example 1
 
+```text
+{{$user_string := .User.String}}
+{{$quote_of_the_day := "No one is perfect - that’s why pencils have erasers."}}
+{{$smiley := `                          _ (o\-~-/o) _
+                        (o\ ( ಠ ಠ ) /o)
+                         \ \( (Y) )/ /
+                          \ )     ( /
+                            /       \
+
+                     _____ /   )_(   \ ____
+                     =_==(   (===)   )=_=
+                         |   \   ) (   /  |
+                    \|vVv(__/,v#\__)V/|/|..`}}
+Hello {{$user_string}}
+Remember that : {{$quote_of_the_day}}
+```{{$smiley}}```                  
+```
+
+#### Output :
+
+![](../.gitbook/assets/image%20%287%29.png)
+
+### 
+
+### Example 2
+
+```text
+{{$x := 5}}
+
+{{$x}} X 1  = {{mult $x 1}}
+{{$x}} X 2  = {{mult $x 2}}
+{{$x}} X 3  = {{mult $x 3}}
+{{$x}} X 4  = {{mult $x 4}}
+{{$x}} X 5  = {{mult $x 5}}
+{{$x}} X 6  = {{mult $x 6}}
+{{$x}} X 7  = {{mult $x 7}}
+{{$x}} X 8  = {{mult $x 8}}
+{{$x}} X 9  = {{mult $x 9}}
+{{$x}} X 10 = {{mult $x 10}}
+```
+
+#### Explanation :
+
+Above is an example of how variables can be extremely useful. Notice that by simply changing the value of the number stored in variable x, you can generate it's multiplication table.   
+`mult` here is a function type template which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function templates similar to `mult` accept \(or do their computation on\) are called arguments. The datatype of the value returned by the `mult` template is the datatype of it's first argument.   
+For example : `{{$x := mult 1 2.5}}`       stores `2` in variable x.  
+                         `{{$y := mult 1.0 2.5}}`   stores `2.5` in variable y.  
+The `mult` template can also accept more than 2 arguments and works exactly the same way.  
+For example : `{{$z := mult 2.2 2 4}}`   stores `17.6` in variable z.   
+There are other mathematical templates for addition, subtraction, division etc. which work very similar to the `mult` template elaborated in the [docs](https://docs.yagpdb.xyz/reference/templates#math-functions).  
+
+
+#### Output : 
+
+![](../.gitbook/assets/image.png)
 
