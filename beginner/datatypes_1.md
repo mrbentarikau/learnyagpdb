@@ -153,6 +153,7 @@ There are other mathematical templates for addition, subtraction, division etc. 
 
 {% hint style="success" %}
 **Pro Tip :** You can use the printf template to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).  
+  
 **Example :**  `{{$x := 1.5}} Type : {{printf "%T" $x}} Value : {{printf "%v" $x}}`  
 The above code snippet will output :   
 `Type : float64 Value : 1.5`  
