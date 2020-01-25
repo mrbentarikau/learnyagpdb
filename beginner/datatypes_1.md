@@ -2,7 +2,7 @@
 
 ## Basic Datatypes
 
-### String :
+### String
 
 A string is a sequence of characters. It simply stores textual data .  String literals can be defined in two ways:
 
