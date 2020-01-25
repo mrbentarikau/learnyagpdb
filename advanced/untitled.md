@@ -1,6 +1,6 @@
 # Writing a Sorting Algorithm
 
-Your task is to develop an algorithm that would sort data such as these from least to greatest. Specifically, given an unsorted set of N decimal values, your algorithm should sort them to give an answer of the sorted data. You are given dataset of `3.51 1.46 -0.84 -3.53 0.98`  
+Your task is to formulate an algorithm that sorts given data from least to greatest. Specifically, given an unsorted set of N decimal values, your algorithm should sort them to give an answer of the sorted data. You are given dataset of `3.51 1.46 -0.84 -3.53 0.98`  
 For this set of N = 6, your algorithm should produce: `-3.53 -0.84 0.98 1.46 3.51 3.92`
 
 After creating the algorithm, test your algorithm and finally generalize it to a CC. Test again. Try with different datasets. Try to reverse from least to greatest to greatest to least.
