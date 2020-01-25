@@ -1,3 +1,7 @@
+---
+description: '"It’s not what happens. It’s how you handle it." // Jill Telford'
+---
+
 # Writing a Pattern Algorithm
 
 Let's think about an algorithm from pattern of symbols drawn to xy-coordinate grid. In Discord's context, an embed having emojis would be one way of doing this. 
