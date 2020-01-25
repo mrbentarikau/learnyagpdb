@@ -59,7 +59,7 @@ A boolean value \(named after George Boole\) is a special 1 bit integer type use
 Boolean values are very critical to control flow and are discussed in further detail there. A logical comparison template \( checking if two numbers are equal, checking if one number is greater than another etc.\) and logical operation based templates \( and , or and not operations\) will produce boolean values as output.  
   
 e.g. :   `{{$x := true}} {{$y := not $x}}`  
-Above snippet will store `true` in variable x and `false` in variable y.
+Above snippet will store `true` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) x and `false` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) y.
 
 ## Variables
 
@@ -85,7 +85,7 @@ Done printing code`
 
 **Short Notes :**
 
-In the above code snippet you can notice the `:=` operator. This operator is used to define a new variable and assigns it the value of the template output or literal to its right. Every variable **must** be defined atleast once before using it. Another operator `=` called assignment operator is used to assign a value a previously define variable. This will be covered in further detail later on.
+In the above code snippet you can notice the `:=` operator. This operator is used to define a new variable and assigns it the value of the template output or literal to its right. Every variable **must** be defined at least once before using it. Another operator `=` called assignment operator is used to assign a value a previously define variable. This will be covered in further detail later on.
 
 {% hint style="info" %}
 Note: All preceding and trailing white spaces \(eg: space, newlines \) are always trimmed away in final output matching discord behavior.
@@ -139,7 +139,7 @@ Remember that : {{$quote_of_the_day}}
 #### Explanation :
 
 Above is an example of how variables can be extremely useful. Notice that by simply changing the value of the number stored in variable x, you can generate it's multiplication table.   
-`mult` here is a function type template which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function templates similar to `mult` accept \(or do their computation on\) are called arguments. The datatype of the value returned by the `mult` template is the datatype of it's first argument.   
+`mult` here is a function type template which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function templates similar to `mult` accept \(or do their computation on\) are called **arguments**. The datatype of the value returned by the `mult` template is the datatype of it's first argument.   
 For example : `{{$x := mult 1 2.5}}`       stores `2` in variable x.  
                          `{{$y := mult 1.0 2.5}}`   stores `2.5` in variable y.  
 The `mult` template can also accept more than 2 arguments and works exactly the same way.  
@@ -147,7 +147,17 @@ For example : `{{$z := mult 2.2 2 4}}`   stores `17.6` in variable z.
 There are other mathematical templates for addition, subtraction, division etc. which work very similar to the `mult` template elaborated in the [docs](https://docs.yagpdb.xyz/reference/templates#math-functions).  
 
 
-#### Output : 
+#### Output :
 
 ![](../.gitbook/assets/image.png)
+
+{% hint style="success" %}
+Pro Tip: You can use the printf template to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).  
+eg :  `{{$x := 1.5}} Type : {{printf "%T" $x}} Value : {{printf "%v" $x}}`  
+The above code snippet will output :   
+`Type : float64 Value : 1.5`  
+Notice how printf can accept arguments as well. More on printf can be found [here](https://golang.org/pkg/fmt/).
+{% endhint %}
+
+
 
