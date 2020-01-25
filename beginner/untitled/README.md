@@ -24,9 +24,9 @@ Practice Question: Write a command to output : This is **yag bot**
 
 Things written inside double curly brackets `{{ tempalate goes here }}` are called templates. This structure can basically produce three kind of actions:
 
-1.  Produce an output: Certain templates simply produce an output.  example: {{.Server.Name}} outputs the name of your server. Some other examples are {{.User.Username}} , {{.Channel.Name}} so on. More can be found in the docs \([\[1\]](https://docs.yagpdb.xyz/reference/templates#guild-server) , [\[2\]](https://docs.yagpdb.xyz/reference/templates#channel) , [\[3\]](https://docs.yagpdb.xyz/reference/templates#message) , [\[4\]](https://docs.yagpdb.xyz/reference/templates#member) , [\[5\]](https://docs.yagpdb.xyz/reference/templates#user)\). 
-2.  Perform an action \( _More on this later_ \)
-3. Both perform an action + produce an output  : These templates perform a computation/calculation/action and also produce an output at the end. example: {{add 1 2}} adds two numbers and returns their sum.
+1.  **Produce an output :** Certain templates simply produce an output.  example: `{{.Server.Name}}` outputs the name of your server. Some other examples are `{{.User.Username}}` , `{{.Channel.Name}}` so on. More can be found in the docs \([\[1\]](https://docs.yagpdb.xyz/reference/templates#guild-server) , [\[2\]](https://docs.yagpdb.xyz/reference/templates#channel) , [\[3\]](https://docs.yagpdb.xyz/reference/templates#message) , [\[4\]](https://docs.yagpdb.xyz/reference/templates#member) , [\[5\]](https://docs.yagpdb.xyz/reference/templates#user)\).  
+2.  **Perform an action :** \( _More on this later_ \) 
+3. **Both perform an action + produce an output :**  These templates perform a computation/calculation/action and also produce an output at the end. example: `{{add 1 2}}` adds two numbers and returns their sum.
 
 ## Example Code 
 
@@ -49,7 +49,7 @@ This is <#{{.Channel.ID}}> {{mentionEveryone}}
 
 #### Explanation :
 
-In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _not_ produce a user , channel or role mention. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}` .
+In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _**not**_ produce a user , channel or role mention. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}` .
 
 #### Output :
 
