@@ -33,19 +33,19 @@ By default however \(without explicit `toInt64` conversion\) Integer literals ar
 ### Float
 
 Floating point numbers are numbers that contain a decimal component \(real numbers\). They are specified with a number with a decimal point.   
-eg : `9.5` `12.3` `0.008`
+Example : `9.5` `12.3` `0.008`
 
 Floating point literals also support some other formats such as scientific notation etc. elaborated [here](https://golang.org/ref/spec#Floating-point_literals).
 
 {% hint style="info" %}
 Note `10` represents an integer literal while `10.0` represents a floating point literal.  
-e.g. : `{{num := 20.0}}`   
+Example : `{{num := 20.0}}`   
 Stores 20.0 \(base-10\) in a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num with datatype _float64_ and not _int_. 
 {% endhint %}
 
 {% hint style="info" %}
 template `toFloat` can be used to convert int to _float64_. reverse can be achieved via `toInt` template. However when a float is converted to integer, the decimal part is stripped in place of rounding it to nearest integer.  
-e.g. : `{{$x := toInt 12.98}}`   
+Example : `{{$x := toInt 12.98}}`   
 In the above statement, 12 \(base-10\) is stored in the [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x and not 13. 
 {% endhint %}
 
@@ -58,7 +58,7 @@ Unless otherwise specified, all numbers \(integers/float\) will be base-10 by de
 A boolean value \(named after George Boole\) is a special 1 bit integer type used to represent true and false \(or on and off\). There are two predefined boolean constants \(both lowercase only\) : `true` and `false` .  
 Boolean values are very critical to control flow and are discussed in further detail there. A logical comparison template \( checking if two numbers are equal, checking if one number is greater than another etc.\) and logical operation based templates \( and , or and not operations\) will produce boolean values as output.  
   
-e.g. :   `{{$x := true}} {{$y := not $x}}`  
+Example :   `{{$x := true}} {{$y := not $x}}`  
 Above snippet will store `true` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) x and `false` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) y.
 
 ## Variables
