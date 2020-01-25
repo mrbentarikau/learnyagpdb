@@ -4,7 +4,7 @@ Let's think about an algorithm from pattern of symbols drawn to xy-coordinate gr
 
 ![The output of the algorithm for N=0 to N=5.](../.gitbook/assets/patternofemojis.png)
 
-There are many correct solutions for this problem. You should think of this as top-down xy-coordinate grid \(The coordinate system for pixels in a computer is reversed along the y-axis and not like Cartesian system teached in schools\). and just draw the red/green symbols on a piece of paper and find the patterns for each step of N. Find repetition and counting behaviour.
+There are many correct solutions for this problem. You should think of this as top-down xy-coordinate grid \(The coordinate system for pixels in a computer is reversed along the y-axis and not like Cartesian system teached in schools\) and just draw the red/green symbols on a piece of paper and find the patterns for each step of N. Find repetition and counting behaviour.
 
 ```text
 generalizing steps having N=3
