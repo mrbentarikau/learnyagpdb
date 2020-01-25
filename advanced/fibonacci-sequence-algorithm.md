@@ -1,3 +1,9 @@
+---
+description: >-
+  "The Fibonacci Sequence turns out to be the key to understanding how nature
+  designs... and makes the Universe sing." // Guy Murchie
+---
+
 # Fibonacci Sequence Algorithm
 
 The Fibonacci Sequence is the series of numbers: `0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...` So it's a sequence where the next term is the sum of the previous two terms. The first two N terms of the Fibonacci sequence are N\(0\) = 0 followed by N\(1\) = 1.
