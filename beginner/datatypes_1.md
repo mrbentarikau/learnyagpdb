@@ -152,8 +152,8 @@ There are other mathematical templates for addition, subtraction, division etc. 
 ![](../.gitbook/assets/image.png)
 
 {% hint style="success" %}
-Pro Tip: You can use the printf template to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).  
-eg :  `{{$x := 1.5}} Type : {{printf "%T" $x}} Value : {{printf "%v" $x}}`  
+**Pro Tip :** You can use the printf template to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).  
+**Example :**  `{{$x := 1.5}} Type : {{printf "%T" $x}} Value : {{printf "%v" $x}}`  
 The above code snippet will output :   
 `Type : float64 Value : 1.5`  
 Notice how printf can accept arguments as well. More on printf can be found [here](https://golang.org/pkg/fmt/).
