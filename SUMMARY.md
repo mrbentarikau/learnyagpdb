@@ -15,6 +15,7 @@
 ## Advanced
 
 * [Writing a Pattern Algorithm](advanced/pattern_algorithm.md)
+* [Fibonacci Sequence Algorithm](advanced/fibonacci-sequence-algorithm.md)
 * [Writing a Sorting Algorithm](advanced/sort_algorithm.md)
 
 ## Other
