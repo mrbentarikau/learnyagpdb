@@ -4,7 +4,7 @@
 
 ## Beginner
 
-* [Outputs 1](beginner/outputs_1/README.md)
+* [Outputs 1](beginner/untitled/README.md)
   * [Exercises](beginner/untitled/exercises.md)
 * [Datatypes 1](beginner/datatypes_1.md)
 
