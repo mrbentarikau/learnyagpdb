@@ -48,5 +48,5 @@ Write a CC which makes an embed with that emoji pattern in `cembed` `"descriptio
 
 ![If N=10 this should be returned.](../.gitbook/assets/patternofemojis_n10.png)
 
-[Solution](https://pastebin.com/0VDf2uhT)
+[Answer](https://pastebin.com/0VDf2uhT)
 
