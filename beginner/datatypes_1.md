@@ -13,20 +13,20 @@ A string is a sequence of characters. It simply stores textual data. String lite
 
 Integers \(_int_\) – like their mathematical counterpart – are numbers without a decimal component. In Yagpdb templating code, the maximum range of int datatype is from : -9223372036854775808 to 9223372036854775807. There are [different ways](https://golang.org/ref/spec#Integer_literals) in which an integer literal can be created/specified but irrespective of how they are specified, they all belong to the same datatype and represent an unique number. Some common ways are :
 
-1. **As base 10 number :** As intimidating as it sounds, these are our normal plain numbers. So normal digits can be used to create number literals \(remember that the first digit should be non zero for syntax reasons\).  `$x := 105` Above statement assigns a variable named x with value 105 \(base-10\) 
-2. **As a hexadecimal number :** You might have come across [hexadecimal numbers](https://simple.wikipedia.org/wiki/Hexadecimal) while reading about memory locations or hexadecimal codes for colors etc. While specifying a hexadecimal number, we have to precede the number with `0x` to denote that the following number represents a hexadecimal number. You can use digits from `0` to `9` and letters `a` to `e` to specify a hexadecimal number. Capitalization of the letters no not matter. `$hex := 0xA1` Above statement assigns a variable named hex with value : 161\(base-10\) using an integer literal specified in hexadecimal format.
+1. **As base 10 number :** As intimidating as it sounds, these are our normal plain numbers. So normal digits can be used to create number literals \(remember that the first digit should be non zero for syntax reasons\).  `$x := 105` Above statement assigns a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x with value 105 \(base-10\) 
+2. **As a hexadecimal number :** You might have come across [hexadecimal numbers](https://simple.wikipedia.org/wiki/Hexadecimal) while reading about memory locations or hexadecimal codes for colors etc. While specifying a hexadecimal number, we have to precede the number with `0x` to denote that the following number represents a hexadecimal number. You can use digits from `0` to `9` and letters `a` to `e` to specify a hexadecimal number. Capitalization of the letters no not matter. `$hex := 0xA1` Above statement assigns a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named hex with value : 161\(base-10\) using an integer literal specified in hexadecimal format.
 
 {% hint style="info" %}
 Preceding an integer literal with 0 makes the compiler interpret it as a number specified in [octal](https://simple.wikipedia.org/wiki/Octal) notation \(base-8\).   
 e.g. : `$x := 011`   
-stores 9 \(base-10\) in variable named x and not 11. In fact, `9` is written as `11` in octal notation.
+stores 9 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x and not 11. In fact, `9` is written as `11` in octal notation.
 {% endhint %}
 
 {% hint style="info" %}
 _int64_ is another datatype which is very similar to _int_ but is always 64 bits size irrespective of compiler. int64 can be converted to int using the `toInt` template. Reverse can be achieved using `toInt64` template.
 
 e.g. :  `$num := toInt64 105`  
-Stores 105 \(base-10\) in variable called num but as _int64_ datatype and not _int_.  
+Stores 105 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num but as _int64_ datatype and not _int_.  
 By default however \(without explicit `toInt64` conversion\) Integer literals are stored as _int_ datatype.
 {% endhint %}
 
@@ -40,13 +40,13 @@ Floating point literals also support some other formats such as scientific notat
 {% hint style="info" %}
 Note `10` represents an integer literal while `10.0` represents a floating point literal.  
 e.g. : `$num := 20.0`   
-Stores 20.0 \(base-10\) in a variable called num with datatype _float64_ and not _int_. 
+Stores 20.0 \(base-10\) in a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num with datatype _float64_ and not _int_. 
 {% endhint %}
 
 {% hint style="info" %}
 template `toFloat` can be used to convert int to _float64_. reverse can be achieved via `toInt` template. However when a float is converted to integer, the decimal part is stripped in place of rounding it to nearest integer.  
 e.g. : `$x := toInt 12.98`   
-In the above statement, 12 \(base-10\) is stored in the variable named x and not 13. 
+In the above statement, 12 \(base-10\) is stored in the [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x and not 13. 
 {% endhint %}
 
 {% hint style="warning" %}
@@ -75,9 +75,15 @@ Yagpdb : -1
 3  
 Done printing code`
 
+**Short Notes :**
+
+In the above code snippet you can notice the `:=` operator. This operator is used to define a new variable and assigns it the value of the template output or literal to its right. Every variable **must** be defined atleast once before using it. Another operator `=` called assignment operator is used to assign a value a previously define variable. This will be covered in further detail later on.
+
 {% hint style="info" %}
 Note: All preceding and trailing white spaces \(eg: space, newlines \) are always trimmed away in final output matching discord behavior.
 {% endhint %}
+
+## Example Codes:
 
 
 
