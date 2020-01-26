@@ -21,7 +21,7 @@
 3. Predict the output of of the following code snippet :  
    `{{$int := 015}} {{$value := fdiv $int (sub $int 1)}}   
    {{$value_int := add (toInt $value) 0xa05}}  
-   {{$int}} , {{$value}}, {{$value_int}}`
+   {{$int}}, {{$value}}, {{$value_int}}`
 
 4. Write a program to compute the radius of a circle given Area is 154 square units.  Formula : Area = Pi \* \(r^2\) ; assume Pi = 22/7.  Also, find the perimeter of the circle divided by 3. \(Perimeter = 2\*Pi\*r\) How will you ensure that the answer is in form of a decimal number ? 
 

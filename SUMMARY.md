@@ -6,7 +6,7 @@
 
 * [Outputs 1](beginner/outputs_1/README.md)
   * [Exercises](beginner/outputs_1/exercises.md)
-* [Datatypes 1](beginner/datatypes_1/README.md)
+* [Datatypes 1](beginner/datatypes_1.md)
   * [Exercises](beginner/datatypes_1/exercises.md)
 
 ## Intermediate
