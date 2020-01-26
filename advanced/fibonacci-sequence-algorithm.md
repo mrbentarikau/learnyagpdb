@@ -10,8 +10,14 @@ The Fibonacci Sequence is the series of numbers: `0, 1, 1, 2, 3, 5, 8, 13, 21, 3
 
 This exercise is about formulating an algorithm \(there are many\) and making a CC for Fibonacci sequence, displaying the first `N` terms of Fibonacci series. Argument for`N` is given by user. You also have to consider how to use the value user gives, considering max `N` can be 93 steps due to size of _int64_ \([why1?](https://www.wolframalpha.com/input/?i=2%5E63-1) & [why2?](https://www.wolframalpha.com/input/?i=Fibonacci%5B93%5D)\) - so what number should be inclusive.
 
-Fibonacci sequence is defined by the linear recurrence equation. But recursion as programming algorithm is not the best solution here.  
-  
+Fibonacci sequence is defined by the linear recurrence equation.
+
+$$
+F_n=F_{n-1}+F_{n-2}
+$$
+
+But recursion as programming algorithm is not the best solution here. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using [_Dynamic Programming_](https://weibeld.net/algorithms/recursion.html). 
+
 Using variable switching method &gt; [Solution 1](https://pastebin.com/N8zdwGJx)  
 Using a `cslice` method &gt; [Solution 2](https://pastebin.com/TnS7XpLN)
 
