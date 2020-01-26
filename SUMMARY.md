@@ -1,12 +1,13 @@
 # Table of contents
 
 * [Initial page](README.md)
+* [The Custom Command Interface](the-custom-command-interface.md)
 
 ## Beginner
 
 * [Outputs 1](beginner/outputs_1/README.md)
   * [Exercises](beginner/outputs_1/exercises.md)
-* [Datatypes 1](beginner/datatypes_1.md)
+* [Datatypes 1](beginner/datatypes_1/README.md)
   * [Exercises](beginner/datatypes_1/exercises.md)
 
 ## Intermediate
