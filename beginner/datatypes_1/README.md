@@ -115,7 +115,7 @@ Remember that : {{$quote_of_the_day}}
 
 #### Output :
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../../.gitbook/assets/image%20%287%29.png)
 
 ### 
 
@@ -149,7 +149,7 @@ There are other mathematical templates for addition, subtraction, division etc. 
 
 #### Output :
 
-![](../.gitbook/assets/image.png)
+![](../../.gitbook/assets/image.png)
 
 {% hint style="success" %}
 **Pro Tip :** You can use the printf template to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).  
