@@ -1,6 +1,6 @@
 # Table of contents
 
-* [YAGPDB learning center](README.md)
+* [YAGPDB learning resources](README.md)
 * [The Custom Command Interface](the-custom-command-interface.md)
 
 ## Beginner
