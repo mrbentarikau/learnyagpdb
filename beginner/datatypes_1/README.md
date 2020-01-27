@@ -138,14 +138,19 @@ Remember that : {{$quote_of_the_day}}
 
 #### Explanation :
 
-Above is an example of how variables can be extremely useful. Notice that by simply changing the value of the number stored in variable x, you can generate it's multiplication table.   
+Above is an example of how variables can be extremely useful. Notice that by simply changing the value of the number stored in variable x, you can generate it's multiplication table. 
+
+#### **Mathematical Templates :**
+
 `mult` here is a function type template which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function templates similar to `mult` accept \(or do their computation on\) are called **arguments**. The datatype of the value returned by the `mult` template is the datatype of it's first argument.   
 For example : `{{$x := mult 1 2.5}}`       stores `2` in variable x.  
                          `{{$y := mult 1.0 2.5}}`   stores `2.5` in variable y.  
+  
 The `mult` template can also accept more than 2 arguments and works exactly the same way.  
 For example : `{{$z := mult 2.2 2 4}}`   stores `17.6` in variable z.   
 There are other mathematical templates for addition, subtraction, division etc. which work very similar to the `mult` template elaborated in the [docs](https://docs.yagpdb.xyz/reference/templates#math-functions).  
-
+Further Example : `{{$z := div 12 5}}`  stores `2` in variable z.  
+                                `{{$z := div (toFloat 12) 5}}`  stores `2.4` in variable z.
 
 #### Output :
 
