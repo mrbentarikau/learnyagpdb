@@ -1,3 +1,9 @@
+---
+description: >-
+  In this page, you'll learn about the basic datatypes available in YAGPDB
+  templates.
+---
+
 # Datatypes 1
 
 ## Basic Datatypes

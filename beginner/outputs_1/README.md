@@ -2,7 +2,7 @@
 
 ## Response
 
-With the exception of content enclosed in two brackets `{{ template }}` which denotes a template to be "compiled", any extraneous content which is not enclosed in two brackets will be sent without any modification. This output message is called the custom command **response.** 
+Most characters typed into the response box of a custom command \(unless following the specific template format discussed later\) will be outputted as is without any modification in form of a message by the bot. This output message is called the custom command **response.** 
 
 {% hint style="info" %}
 The response is sent in the same channel that the custom command is triggered.
