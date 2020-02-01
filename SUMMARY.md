@@ -5,10 +5,10 @@
 
 ## Beginner
 
-* [Datatypes 1](beginner/datatypes_1/README.md)
-  * [Exercises](beginner/datatypes_1/exercises.md)
 * [Outputs 1](beginner/outputs_1/README.md)
   * [Exercises](beginner/outputs_1/exercises.md)
+* [Datatypes 1](beginner/datatypes_1/README.md)
+  * [Exercises](beginner/datatypes_1/exercises.md)
 * [Inputs 1](beginner/inputs_1.md)
 
 ## Intermediate
