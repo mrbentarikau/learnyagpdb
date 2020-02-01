@@ -22,10 +22,10 @@ Practice Question: Write a command to output : This is **yag bot**
 
 ## Template
 
-Things written inside double curly brackets `{{ tempalate goes here }}` are called templates. This structure can basically produce three kinds of actions:
+Things written inside double curly brackets `{{ tempalate goes here }}` are called templates. We have seen earlier how we can output specific textual response after invoking a custom command. However, sometimes we want the output to change depending in the person running the command, the channel it is run on etc. Templates help us in such situations. Templates can also be used for much more complex behavior which we will slowly explore over the subsequent sections. Templates can basically produce three kinds of actions/effects:
 
-1.  **Produce an output :** Certain templates simply produce an output.  example: `{{.Server.Name}}` outputs the name of your server. Some other examples are `{{.User.Username}}` , `{{.Channel.Name}}` so on. More can be found in the docs \([\[1\]](https://docs.yagpdb.xyz/reference/templates#guild-server) , [\[2\]](https://docs.yagpdb.xyz/reference/templates#channel) , [\[3\]](https://docs.yagpdb.xyz/reference/templates#message) , [\[4\]](https://docs.yagpdb.xyz/reference/templates#member) , [\[5\]](https://docs.yagpdb.xyz/reference/templates#user)\).  
-2.  **Perform an action :** \( _More on this later_ \) 
+1.  **Produce an output :** Certain templates simply produce an output. The most common templates of this kind are the "property templates" which returns information about the current Server/Channel/Member etc. The property templates always start with a `.` and if they have sub properties \( like current server is the main structure and it has sub fields like Name , ID etc.\), there is a `.` between the main struct and it's sub fields.  example: `{{.Server.Name}}` outputs the name of your server. `{{.CCID}}` is the numerical ID of the current custom command. Some other examples are `{{.User.Username}}` , `{{.Channel.Name}}` so on. More can be found in the docs \([\[1\]](https://docs.yagpdb.xyz/reference/templates#guild-server) , [\[2\]](https://docs.yagpdb.xyz/reference/templates#channel) , [\[3\]](https://docs.yagpdb.xyz/reference/templates#message) , [\[4\]](https://docs.yagpdb.xyz/reference/templates#member) , [\[5\]](https://docs.yagpdb.xyz/reference/templates#user)\).  
+2.  **Perform an action :** These templates do not return any meaningful data; they simply perform an action.  
 3. **Both perform an action + produce an output :**  These templates perform a computation/calculation/action and also produce an output at the end. example: `{{add 1 2}}` adds two numbers and returns their sum.
 
 ## Example Codes 
