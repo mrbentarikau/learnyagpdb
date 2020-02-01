@@ -9,6 +9,7 @@
   * [Exercises](beginner/outputs_1/exercises.md)
 * [Datatypes 1](beginner/datatypes_1/README.md)
   * [Exercises](beginner/datatypes_1/exercises.md)
+* [Control Flow 1](beginner/control_flow_1.md)
 * [Inputs 1](beginner/inputs_1.md)
 
 ## Intermediate
