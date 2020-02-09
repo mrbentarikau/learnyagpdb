@@ -1,5 +1,7 @@
 ---
-description: '"It’s not what happens. It’s how you handle it." // Jill Telford'
+description: >-
+  "If you find yourself in a valley of despair, is to try something new and
+  different." // Sid Meier
 ---
 
 # Writing a Pattern Algorithm
