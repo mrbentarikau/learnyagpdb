@@ -23,7 +23,7 @@ The `and` operation is another boolean operation involving two boolean values wh
 | false | true | false |
 | false | false | false |
 
-You can use the `and` template to for boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic : Consider three boolean values passed to the `and` template. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` template.  
+You can use the `and` template for performing boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic : Consider three boolean values passed to the `and` template. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` template.  
   
 eg:  
 `{{$x := true}} {{$y := true}} {{$z := false}}  
