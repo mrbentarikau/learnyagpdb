@@ -30,7 +30,7 @@ eg:
 {{$Result := and $x $y $z}}`   
 In the above example, first the `and` of variable x and y results in `true`. Then the `and` of the result and z produces `false`. Hence, finally `false` is stored in variable Result.
 
-### 3\) Or Operation :
+### 3\) OR Operation :
 
 The `or` operation similar to `and` operation operates on two boolean literals. It results in `false` when both the operands are `false` and otherwise results in `true` .The following table captures the working of the `or` operation.
 
