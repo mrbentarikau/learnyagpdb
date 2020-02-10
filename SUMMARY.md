@@ -2,6 +2,7 @@
 
 * [YAGPDB learning resources](README.md)
 * [The Custom Command Interface](the-custom-command-interface.md)
+* [The Seven Steps of Programming](the-seven-steps-of-programming.md)
 
 ## Beginner
 

@@ -154,7 +154,7 @@ For example : `{{$x := mult 1 2.5}}`       stores `2` in variable x.
   
 The `mult` template can also accept more than 2 arguments and works exactly the same way.  
 For example : `{{$z := mult 2.2 2 4}}`   stores `17.6` in variable z.   
-There are other mathematical templates for addition, subtraction, division etc. which work very similar to the `mult` template elaborated in the [docs](https://docs.yagpdb.xyz/reference/templates#math-functions).  
+There are other mathematical templates for addition, subtraction, division, exponentiation etc. which work very similar to the `mult` template elaborated in the [docs](https://docs.yagpdb.xyz/reference/templates#math-functions).  
 Further Example : `{{$z := div 12 5}}`  stores `2` in variable z.  
                                 `{{$z := div (toFloat 12) 5}}`  stores `2.4` in variable z.
 
