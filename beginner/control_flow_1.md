@@ -1,6 +1,6 @@
 # Control Flow 1
 
-Up until now we have seen how to produce some outputs and the various datatypes. We have also seen how templates can he very helpful in calculations and computations like generating the table of a number. However what if we want to output a response depending of the value inside a variable. What of we want to run a part of the code under certain conditions and another part in other situations. This is possible through control flow which we will explore in this section.
+Up until now we have seen how to produce some outputs and the various datatypes. We have also seen how templates can he very helpful in calculations and computations like generating the table of a number. However what if we want to output a response depending of the value inside a variable. What if we want to run a part of the code under certain conditions and another part in other situations. This is possible through control flow which we will explore in this section.
 
 ## Boolean Logic
 
@@ -39,12 +39,27 @@ The `or` operation similar to `and` operation operates on two boolean literals. 
 | true | true | true |
 | true  | false | true |
 | false  | true | true |
-| false | false | fa |
+| false | false | false |
 
  The `or` template is used to perform `or` operation. Similar to `and` operator, if more than two values are passed to the `or` template, if first evaluates the result of the first two operands. Then it performs `or` operation on the result from first two operands and the third operand and so on.  
   
 eg:  
-`{{$x := false}} {{$y := falsee}} {{$z := true}}  
+`{{$x := false}} {{$y := false}} {{$z := true}}  
 {{$Result := or $x $y $z}}`   
 In the above example, first the o of variable x and y results in `false`. Then the `or` of the result and z produces `true`. Hence, finally `true` is stored in variable Result.
+
+## Comparison Operators
+
+Having seen boolean operators it is only logical to explore templates that produce boolean values as output. These Templates fall under the general category of comparison operators. The following comparison operators are available as a part of standard golang text template package:
+
+* `eq` : This template checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as datatype must be same. Values of two different datatypes \(eg float64 and int\) are not comparable.
+* `ne` : This template is the reverse of the equality template and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the template returns `true`.
+* `gt` : This returns `true` if `arg1 > arg2` , that is if first argument is strictly greater than second argument.
+* `ge`: This returns `true` if `arg1 >= arg2` , that is if first argument is greater than or equal to second argument.
+* `lt`: This returns `true` if `arg1 < arg2` , that is if first argument is strictly less than second argument.
+* `le`: This returns `true` if `arg1 <= arg2` , that is if first argument is less than or equal to second argument.
+
+{% hint style="info" %}
+
+{% endhint %}
 
