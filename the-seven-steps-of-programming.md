@@ -18,7 +18,9 @@ To write a program which takes any number N and determines if N is prime, we mus
 
 This figure shows a high-level overview of the programming process. A programmer starts by devising the algorithm for the task she is trying to solve. We will split this planning phase into four steps in the process of writing a program, which we will discuss in more detail shortly. At the end of these four steps, the programmer should have a complete plan for the task at hand—and be convinced that the plan is a good one.  
   
-Devising an algorithm takes first four steps: she works on an example, she'll write it down what they did, generalizes those steps and will test them. 
+Devising an algorithm takes first four steps: working on an example, writing it down what they did, generalizing those steps and will testing them. 
+
+![](.gitbook/assets/kbp1hatheeebnhjf9kzsoa_80d7e65e9d1ab2fccd4b1d799964717f_01_steps_new.png)
 
 After devising a proper algorithm, she is ready for Step 5 of the programming process: translating her plan into code in the programming language she is using for her current project. Initially, translation to code will go slowly, as you will be unfamiliar with the syntax, likely needing to look up the specific details often. However, even if slow, it should be fairly straightforward. You already devised the plan, so you should have done all the actual problem-solving tasks already. Your algorithm may have some complex steps, but that is fine. As we will see later, whenever your algorithm calls for a step that is too complicated to be simply translated into a few lines of code, you should turn that step into its own separate programming task and repeat the programming process on it. In the next course, we will discuss translation to code in much more detail, as well as how to turn the code into something that the computer can run.
 
