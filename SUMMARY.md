@@ -15,6 +15,7 @@
 ## Intermediate
 
 * [Simple Counting Algorithm](intermediate/simple_count_algorithm.md)
+* [ROT13 substitution cipher](intermediate/rot13-substitution-cipher.md)
 
 ## Advanced
 
