@@ -14,13 +14,13 @@ When we examine a class of problems, we have parameters which tell us which part
 
 To write a program which takes any number N and determines if N is prime, we must first figure out the algorithm for this class of problems. As we said before, if we attack the problem by blindly writing code, we will end up with a mess—much like constructing a sky scraper with no plan. Coming up with the appropriate algorithm for a class of problems is a challenging task, and typically requires significant work and thought.
 
-![](.gitbook/assets/qxjdiqxceeebgapiskr0eg_0bfe6c1d55d020d7b2180a90443b1c26_01_high_level_prog.png)
+![](../.gitbook/assets/qxjdiqxceeebgapiskr0eg_0bfe6c1d55d020d7b2180a90443b1c26_01_high_level_prog.png)
 
 This figure shows a high-level overview of the programming process. A programmer starts by devising the algorithm for the task they are trying to solve. We will split this planning phase into four steps in the process of writing a program, which we will discuss in more detail shortly. At the end of these four steps, the programmer should have a complete plan for the task at hand—and be convinced that the plan is a good one.  
   
 Devising an algorithm takes first four steps: working on an example, writing it down what they did, generalizing those steps and will testing them. 
 
-![](.gitbook/assets/kbp1hatheeebnhjf9kzsoa_80d7e65e9d1ab2fccd4b1d799964717f_01_steps_new.png)
+![](../.gitbook/assets/kbp1hatheeebnhjf9kzsoa_80d7e65e9d1ab2fccd4b1d799964717f_01_steps_new.png)
 
 After devising a proper algorithm, they are ready for Step 5 of the programming process: translating her plan into code in the programming language they are using for her current project. Initially, translation to code will go slowly, as you will be unfamiliar with the syntax, likely needing to look up the specific details often. However, even if slow, it should be fairly straightforward. You already devised the plan, so you should have done all the actual problem-solving tasks already. Your algorithm may have some complex steps, but that is fine. As we will see later, whenever your algorithm calls for a step that is too complicated to be simply translated into a few lines of code, you should turn that step into its own separate programming task and repeat the programming process on it. In the next course, we will discuss translation to code in much more detail, as well as how to turn the code into something that the computer can run.
 
