@@ -18,10 +18,14 @@
 
 ## Advanced
 
-* [The Seven Steps of Programming](advanced/the-seven-steps-of-programming.md)
 * [Writing a Pattern Algorithm](advanced/pattern_algorithm.md)
 * [Fibonacci Sequence Algorithm](advanced/fibonacci-sequence-algorithm.md)
 * [Writing a Sorting Algorithm](advanced/sort_algorithm.md)
+
+## Programming
+
+* [The Seven Steps of Programming](programming/the-seven-steps-of-programming.md)
+* [Algorithms](programming/algorithms.md)
 
 ## Other
 
