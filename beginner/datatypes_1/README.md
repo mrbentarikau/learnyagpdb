@@ -91,7 +91,7 @@ Done printing code`
 
 **Short Notes :**
 
-In the above code snippet you can notice the `:=` operator. This operator is used to define a new variable and assigns it the value of the template output or literal to its right. Every variable **must** be defined at least once before using it. Another operator `=` called assignment operator is used to assign a value a previously define variable. This will be covered in further detail later on.
+In the above code snippet you can notice the `:=` operator. This operator is used to define a new variable and assigns it the value of the template output or literal to its right. Every variable **must** be defined at least once before using it. Another operator `=` called assignment operator is used to assign a value a previously define variable. This will be covered in further detail later on. [Further reading in context of GO.](https://www.godesignpatterns.com/2014/04/assignment-vs-short-variable-declaration.html)
 
 {% hint style="info" %}
 Note: All preceding and trailing white spaces \(eg: space, newlines \) are always trimmed away in final output matching discord behavior.
