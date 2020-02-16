@@ -4,7 +4,7 @@ Up until now we have seen how to produce some outputs and the various datatypes.
 
 ## Boolean Logic
 
-Before exploring control flow it is important to understand boolean logic \(the mathematics of `true` and `false`\). We have seen in Datatypes 1 that boolean literals can only be of two kinds : `true` and `false`. There are 3 major operations concerning boolean datatype :
+Before exploring control flow it is important to understand [boolean logic](https://en.wikipedia.org/wiki/Boolean_algebra#Basic_operations) \(the mathematics of `true` and `false`\). We have seen in Datatypes 1 that boolean literals can only be of two kinds : `true` and `false`. There are 3 major operations concerning boolean datatype :
 
 ### **1\) NOT Operation**: 
 
@@ -95,8 +95,20 @@ Example:
 {{end}}
 ```
 
-In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the **block** of code/statements following the if  template is executed. In the above example, `Number is more than 0` is printed as output by the bot.
-
+In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the **block** of code/statements following the if  template is executed. In the above example, `Number is more than 0` is printed as output by the bot.  
   
+It is important to note here that the else template along with the code to be executed if condition is false \(can be referred to as the else **block**\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional **block**.
+
+Example:
+
+```text
+{{$name := "Peter"}}
+{{if eq $name "YAGPDB"}}
+    Oh another me!
+{{end}}
+Hello! {{$name}}
+```
+
+In the above example the if **block** will be executed only of $name is `"YAGPDB"` . Since condition is `false`, the if **block** is skipped and the bot simply prints the output : `Hello! Peter`.  
 
 
