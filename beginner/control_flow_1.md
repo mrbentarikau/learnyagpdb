@@ -97,7 +97,7 @@ Example :
 
 In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the **block** of code/statements following the if  template is executed. In the above example, `Number is more than 0` is printed as output by the bot.  
   
-It is important to note here that the else template along with the code to be executed if condition is false \(can be referred to as the else **block**\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional **block**.
+It is important to note here that the else template along with the code to be executed if condition is false \(can be referred to as the else **block**\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional template.
 
 Example :
 
@@ -111,7 +111,7 @@ Hello! {{$name}}
 
 In the above example the if **block** will be executed only of $name is `"YAGPDB"` . Since condition is `false`, the if **block** is skipped and the bot simply prints the output : `Hello! Peter`.
 
-### Blocks and Scope
+## Blocks and Scope
 
 While learning the if-else template you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else template as an example, the statements following `{{if (condition}}` and before `{{else}}` \(or `{{end}}` if there is no else template\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
 
@@ -138,7 +138,39 @@ The above code will Output:
 
 ## If - Else If - Else Branching
 
+Earlier we have seen how to execute a block of statements if condition is true and another block if it is false. However if we have multiple conditions in that case the if - else if - else branching is very helpful. The general syntax is :
 
+```lua
+{{if (condition_1)}}
+    If block
+{{else if (condition_2)}}
+    Else If  Block_1
+{{else if (condition_3)}}
+    Else If Block_2
+{{else}}
+    Else Block
+{{end}}
+```
+
+Note : you are not limited to only two else-if blocks but they can be as many as you want. The final else block can also be skipped if not necessary just like the previous case however the `{{end}}` statement is necessary to mark the end of the branching template.
+
+  
+Example:
+
+```go
+{{$marks := 95}}
+{{if gt $marks 90}}
+    You Passed with Disctiction.
+{{else if gt $marks 35}}
+    You Passed.
+{{else}}
+    You Failed.
+{{end}}
+```
+
+In the above example there are 3 different blocks which are conditionally executed depending on the value of $marks. For the above example, `You Passed with Disctiction` will be printed as output by bot.
+
+## Example Codes
 
 
 
