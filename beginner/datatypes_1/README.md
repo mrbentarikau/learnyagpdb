@@ -31,7 +31,7 @@ stores 9 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginne
 {% hint style="info" %}
 _int64_ is another datatype which is very similar to _int_ but is always 64 bits size irrespective of compiler. int64 can be converted to int using the `toInt` template. Reverse can be achieved using `toInt64` template.
 
-e.g. :  `{{$num := toInt64 105}}`  
+Example :  `{{$num := toInt64 105}}`  
 Stores 105 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num but as _int64_ datatype and not _int_.  
 By default however \(without explicit `toInt64` conversion\) Integer literals are stored as _int_ datatype.
 {% endhint %}
