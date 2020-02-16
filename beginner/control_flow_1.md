@@ -10,7 +10,7 @@ Before exploring control flow it is important to understand boolean logic \(the 
 
 This is the simplest operation concerning booleans. It simply changes `true` to `false` and vice versa. The template associated with this operation is the `not` template. It accepts a single boolean argument and returns its opposite boolean value.  
   
-eg: `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable x. the `not` template then performs a not operation in variable x \(which contains `true`\) returning `false`. Thus eventually `false` is stored in y.
+Example: `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable x. the `not` template then performs a not operation in variable x \(which contains `true`\) returning `false`. Thus eventually `false` is stored in y.
 
 ### **2\) AND Operation**: 
 
@@ -25,7 +25,7 @@ The `and` operation is another boolean operation involving two boolean values wh
 
 You can use the `and` template for performing boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic : Consider three boolean values passed to the `and` template. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` template.  
   
-eg:  
+Example:  
 `{{$x := true}} {{$y := true}} {{$z := false}}  
 {{$Result := and $x $y $z}}`   
 In the above example, first the `and` of variable x and y results in `true`. Then the `and` of the result and z produces `false`. Hence, finally `false` is stored in variable Result.
@@ -43,7 +43,7 @@ The `or` operation similar to `and` operation operates on two boolean literals. 
 
  The `or` template is used to perform `or` operation. Similar to `and` operator, if more than two values are passed to the `or` template, if first evaluates the result of the first two operands. Then it performs `or` operation on the result from first two operands and the third operand and so on.  
   
-eg:  
+Example:  
 `{{$x := false}} {{$y := false}} {{$z := true}}  
 {{$Result := or $x $y $z}}`   
 In the above example, first the o of variable x and y results in `false`. Then the `or` of the result and z produces `true`. Hence, finally `true` is stored in variable Result.
@@ -52,12 +52,16 @@ In the above example, first the o of variable x and y results in `false`. Then t
 
 Having seen boolean operators it is only logical to explore templates that produce boolean values as output. These Templates fall under the general category of comparison operators. The following comparison operators are available as a part of standard golang text template package:
 
-* `eq` : This template checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as datatype must be same. Values of two different datatypes \(eg float64 and int\) are not comparable.
+* `eq` : This template checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as datatype must be same. 
 * `ne` : This template is the reverse of the equality template and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the template returns `true`.
 * `gt` : This returns `true` if `arg1 > arg2` , that is if first argument is strictly greater than second argument.
 * `ge`: This returns `true` if `arg1 >= arg2` , that is if first argument is greater than or equal to second argument.
 * `lt`: This returns `true` if `arg1 < arg2` , that is if first argument is strictly less than second argument.
 * `le`: This returns `true` if `arg1 <= arg2` , that is if first argument is less than or equal to second argument.
+
+{% hint style="danger" %}
+Values of two **different datatypes** \(eg float64 and int\) are **not comparable**.
+{% endhint %}
 
 {% hint style="info" %}
 Although it is most common to use numerical values in comparison operators, they can compare strings as well. Strings are compared using the Unicode values of their constituent runes\(codepoints\). If the first codepoints are equal, the second ones are compared and so on.
@@ -67,5 +71,32 @@ Although it is most common to use numerical values in comparison operators, they
 Only basic datatypes \( int and variants ; float and variants and strings\) can be compared with the comparison operators. The `eq` and `ne` operators can additionally also compare boolean values.
 {% endhint %}
 
+## If - Else Branching
+
+Equipped with the knowledge of Conditional and Boolean operators and their corresponding templates, we can now explore the very first type of control flow: if-else branching. If else branch statements in their most basic form allows you to execute a certain set of instructions or code if a certain condition is satisfied and a different set of instructions/code if it is the condition is not satisfied.  The basic syntax of an if-else template is :  
+
+
+```text
+{{if (condition)}}
+    Statement(s) to be executed if condition is true
+{{else}}
+    Statement(s) to be executed if condition is false
+{{end}}
+```
+
+Example:
+
+```text
+{{$a := 1}}
+{{if gt $a 0}}
+    Number is more than 0
+{{else}}
+    Number id less than 0
+{{end}}
+```
+
+In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the **block** of code/statements following the if  template is executed. In the above example, `Number is more than 0` is printed as output by the bot.
+
+  
 
 
