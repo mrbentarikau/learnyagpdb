@@ -123,19 +123,22 @@ So why are these blocks important anyway? They are important because of an impor
 This code will generate an error because the variable $a was defined inside the if block and ceases to exist after the `{{end}}` statement. It is very important to keep a track on a variable's scope while writing codes to avoid such errors. 
 
 {% hint style="info" %}
-Defining a variable which already exists makes a local copy of that variable which exists within that block while the outer version is not overwritten and comes back into existence outside the block. This can be avoided by using assignment operator `=` instead.  
+Defining a variable which already exists makes a local copy of that variable which exists within that block while the outer version is not overwritten and comes back into existence outside the block. This can be avoided by using assignment operator = instead.  
 Example :  
  `{{$a := 1}}{{$b:= 2}}  
        {{if eq $b 2}}  
-           {{$a := 3}}{{$a}}  
+           {{$a := 3}}{{$b = 2}}{{$a}},{{$b}}  
 {{end}}  
-{{$a}}`
-
+{{$a}},{{$b}}`  
 The above code will Output:  
-`3  
+`3,2  
   
-1`
+1,2`
 {% endhint %}
+
+## If - Else If - Else Branching
+
+
 
 
 
