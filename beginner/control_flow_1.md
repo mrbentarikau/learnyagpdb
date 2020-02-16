@@ -109,6 +109,33 @@ Example:
 Hello! {{$name}}
 ```
 
-In the above example the if **block** will be executed only of $name is `"YAGPDB"` . Since condition is `false`, the if **block** is skipped and the bot simply prints the output : `Hello! Peter`.  
+In the above example the if **block** will be executed only of $name is `"YAGPDB"` . Since condition is `false`, the if **block** is skipped and the bot simply prints the output : `Hello! Peter`.
+
+### Blocks and Scope
+
+While learning the if-else template you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else template as an example, the statements following `{{if (condition}}` and before `{{else}}` \(or `{{end}}` if there is no else template\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
+
+So why are these blocks important anyway? They are important because of an important property of variables called **scope**. A variable declared in a particular block ceases to exist outside it. This can be illustrated as follows:  
+`{{if eq 1 1}}  
+    {{$a := 1}}  
+{{end}}  
+{{$a}}`    
+This code will generate an error because the variable $a was defined inside the if block and ceases to exist after the `{{end}}` statement. It is very important to keep a track on a variable's scope while writing codes to avoid such errors. 
+
+{% hint style="info" %}
+Defining a variable which already exists makes a local copy of that variable which exists within that block while the outer version is not overwritten and comes back into existence outside the block. This can be avoided by using assignment operator `=` instead.  
+Example:  
+ `{{$a := 1}}{{$b:= 2}}  
+       {{if eq $b 2}}  
+           {{$a := 3}}{{$a}}  
+{{end}}  
+{{$a}}`
+
+The above code will Output:  
+`3  
+  
+1`
+{% endhint %}
+
 
 
