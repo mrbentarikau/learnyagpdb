@@ -139,7 +139,7 @@ The above code will Output:
 
 Earlier we have seen how to execute a block of statements if condition is true and another block if it is false. However if we have multiple conditions in that case the if - else if - else branching is very helpful. The general syntax is :
 
-```lua
+```go
 {{if (condition_1)}}
     If block
 {{else if (condition_2)}}
@@ -173,6 +173,47 @@ In the above example there are 3 different blocks which are conditionally execut
 ### Example 1
 
 ```go
-
+{{if .User.Bot}}
+   The newly joined account is a bot!
+{{else}}
+    Hello there {{.User.Mention}}! Welcome to our server {{.Server.Name}}.
+    
+    {{- if eq .Server.MemberCount 100 -}}
+        You are our 100th member!!
+    {{- else if eq .Server.MemberCount 500 -}}
+        You are our 500th member!!
+    {{- else if eq .Server.MemberCount 1000 -}}
+        You are our 500th member!!
+    {{end}}
+{{end}}
 ```
+
+Above is an example code which can be used in [Join Message](https://docs.yagpdb.xyz/notifications-and-feeds/notification-feed#general-feed). \(Note for normal custom commands, bots cant trigger them\).  
+  
+There are two major takeaways from the above example. Firstly notice how an if-else or if-else if-else statement can be used inside another block.In this case it is executed only of the first condition is false for the outer if statement\(that is user joining is not a bot\). This is called nesting and can be very useful for checking a complex set of conditions. Secondly notice the `-` at use in the internal if-else if-else templates. It is used to trim spaces to the left and right of the templates to aid with formatting. It is discussed in more detail [here](https://golang.org/pkg/text/template/#hdr-Text_and_spaces).
+
+#### Output:
+
+Sample output for normal user joining :
+
+![](../.gitbook/assets/image.png)
+
+Sample output for bot user joining :
+
+![](../.gitbook/assets/image%20%281%29.png)
+
+
+
+### Example 2
+
+```go
+{{if .Message.Attachments}}
+    This message has an attachment!
+{{end}}
+```
+
+Notice how in this example we are using .Message.Attachments which is not of boolean datatype as the if statement condition. This is possible because non boolean variables are automatically converted to boolean when used in a condition according to the following logic :   
+If the the data represents the zero value\( nil or empty, zero  or false depending on datatype\) of the associated datatype, it is treated as `false` and otherwise considered as `true`. This helps in determining if a certain value id nil or empty \(or number is zero\) very efficient.
+
+
 
