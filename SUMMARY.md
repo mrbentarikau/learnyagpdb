@@ -7,7 +7,7 @@
 
 * [Outputs 1](beginner/outputs_1/README.md)
   * [Exercises](beginner/outputs_1/exercises.md)
-* [Data types 1](beginner/datatypes_1/README.md)
+* [Data Types 1](beginner/datatypes_1/README.md)
   * [Exercises](beginner/datatypes_1/exercises.md)
 * [Control Flow 1](beginner/control_flow_1/README.md)
   * [Exercises](beginner/control_flow_1/exercises.md)
@@ -16,6 +16,7 @@
 
 ## Intermediate
 
+* [Generalizing Repetitions - Stars](intermediate/generalizing-repetitions-stars.md)
 * [Simple Counting Algorithm](intermediate/simple_count_algorithm.md)
 * [ROT13 substitution cipher](intermediate/rot13-substitution-cipher.md)
 

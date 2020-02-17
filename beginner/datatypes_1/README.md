@@ -4,7 +4,7 @@ description: >-
   templates.
 ---
 
-# Data types 1
+# Data Types 1
 
 ## Basic data types
 
