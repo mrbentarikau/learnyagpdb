@@ -151,8 +151,7 @@ Earlier we have seen how to execute a block of statements if condition is true a
 {{end}}
 ```
 
-Note : you are not limited to only two else-if blocks but they can be as many as you want. The final else block can also be skipped if not necessary just like the previous case however the `{{end}}` statement is necessary to mark the end of the branching template.
-
+Note : you are not limited to only two else-if blocks but they can be as many as you want. The final else block can also be skipped if not necessary just like the previous case however the `{{end}}` statement is necessary to mark the end of the branching template.  
   
 Example:
 
@@ -171,5 +170,9 @@ In the above example there are 3 different blocks which are conditionally execut
 
 ## Example Codes
 
+### Example 1
 
+```go
+
+```
 
