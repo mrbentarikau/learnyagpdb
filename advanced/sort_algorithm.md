@@ -11,8 +11,8 @@ For this set of N = 6, your algorithm should produce: `-3.53 -0.84 0.98 1.46 3.5
 
 After creating the algorithm, test your algorithm and finally generalize it to a CC. Test again. Try with different datasets. Try to reverse from least to greatest to greatest to least.
 
-[Example solution for Bubble Sort](https://pastebin.com/8vg0dehL)  
-[Example solution for Selection Sort](https://pastebin.com/vTN6sfRE)
+[Example solution for Bubble Sort](https://pastebin.com/8vg0dehL).  
+[Example solution for Selection Sort](https://pastebin.com/vTN6sfRE).
 
-Additional reading &gt; [Difference Between Bubble Sort and Selection Sort](https://techdifferences.com/difference-between-bubble-sort-and-selection-sort.html)
+Additional reading &gt; [Difference Between Bubble Sort and Selection Sort](https://techdifferences.com/difference-between-bubble-sort-and-selection-sort.html).
 

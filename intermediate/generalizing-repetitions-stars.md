@@ -28,5 +28,5 @@ print newline`
   
 So try to write down  this algorithm of our stated problem as CC-code in YAGPDB. This exercise needs `range` function for counting the steps.  Also remember the limitations of Discord - 2 000 characters. Why is that and how to prevent it from happening? Why can the max N be 61? Also due to problem statement we have to use a star/asterisk symbol \*. Discord formats it as italics or bold text so we need to use a code-block to get raw output.
 
-[Example solution](https://pastebin.com/UsNfHj6y)
+[Example solution](https://pastebin.com/UsNfHj6y).
 
