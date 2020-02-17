@@ -96,7 +96,7 @@ Let's explain this line by line.
 2. `{{ if $args.IsSet 0 }}` - In this line, we check whether the first argument exists. If so, we send `{{ ($args.Get 0).Mention }}, hello world!`
 3.  `{{ else }} ... {{ end }}`This block is executed when the optional user argument is not there. We default to mentioning the triggering user.
 
-![](../.gitbook/assets/image-2.png)
+![](../../.gitbook/assets/image-2.png)
 
  IsSet is extremely useful if you have several optional arguments and you want to check whether they exist / were provided by the user quickly.
 
