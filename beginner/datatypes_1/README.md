@@ -29,9 +29,9 @@ stores 9 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginne
 {% endhint %}
 
 {% hint style="info" %}
-_int64_ is another datatype which is very similar to _int_ but is always 64 bits size irrespective of compiler. int64 can be converted to int using the `toInt` template. Reverse can be achieved using `toInt64` template. Type conversion templates are listed [here](https://docs.yagpdb.xyz/reference/templates#type-conversion).
+_int64_ is another datatype which is very similar to _int_ but is always 64 bits size irrespective of compiler. int64 can be converted to int using the `toInt` template. Reverse can be achieved using `toInt64` template.
 
-Example :  `{{$num := toInt64 105}}`  
+e.g. :  `{{$num := toInt64 105}}`  
 Stores 105 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num but as _int64_ datatype and not _int_.  
 By default however \(without explicit `toInt64` conversion\) Integer literals are stored as _int_ datatype.
 {% endhint %}
@@ -71,7 +71,7 @@ Above snippet will store `true` in [variable](https://yagpdb.gitbook.io/learnyag
 
 A variable is a storage location, with a specific type and an associated name. It can be used to store the output of a template or literal values\( string , int , float etc\).  Names must start with a letter and may contain letters, numbers or the `_` \(underscore\) symbol. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A template containing just the variable name simply outputs it's contents \(for complex datatypes it follows certain predefined formats\).
 
-```go
+```text
 {{$name1 := "Satty"}} {{$favourite_number1 := 1}}
 {{$name2 := "Yagpdb"}} {{$favourite_number2 := -1}}
 {{$fun := "1\n2\n3\nDone printing code."}} 
@@ -101,7 +101,7 @@ Note: All preceding and trailing white spaces \(eg: space, newlines \) are alway
 
 ### Example 1
 
-```go
+```text
 {{$user_string := .User.String}}
 {{$quote_of_the_day := "No one is perfect - that’s why pencils have erasers."}}
 {{$smiley := `                          _ (o\-~-/o) _
@@ -116,7 +116,7 @@ Note: All preceding and trailing white spaces \(eg: space, newlines \) are alway
                     \|vVv(__/,v#\__)V/|/|..`}}
 Hello {{$user_string}}
 Remember that : {{$quote_of_the_day}}
-```{{$smiley}}```   
+```{{$smiley}}```                  
 ```
 
 #### Output :
@@ -127,7 +127,7 @@ Remember that : {{$quote_of_the_day}}
 
 ### Example 2
 
-```go
+```text
 {{$x := 5}}
 
 {{$x}} X 1  = {{mult $x 1}}
