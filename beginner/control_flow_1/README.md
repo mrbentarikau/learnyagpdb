@@ -64,7 +64,7 @@ Values of two **different data types** \(eg float64 and int\) are **not comparab
 {% endhint %}
 
 {% hint style="info" %}
-Although it is most common to use numerical values in comparison operators, they can compare strings as well. Strings are compared using the Unicode values of their constituent runes\(codepoints\). If the first codepoints are equal, the second ones are compared and so on.
+Although it is most common to use numerical values in comparison operators, they can compare strings as well. Strings are compared using the [Unicode values](https://www.tamasoft.co.jp/en/general-info/unicode-decimal.html) of their constituent runes\(codepoints\). If the first codepoints are equal, the second ones are compared and so on.
 {% endhint %}
 
 {% hint style="info" %}
