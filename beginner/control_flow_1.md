@@ -73,10 +73,9 @@ Only basic datatypes \( int and variants ; float and variants and strings\) can 
 
 ## If - Else Branching
 
-Equipped with the knowledge of Conditional and Boolean operators and their corresponding templates, we can now explore the very first type of control flow: if-else branching. If else branch statements in their most basic form allows you to execute a certain set of instructions or code if a certain condition is satisfied and a different set of instructions/code if it is the condition is not satisfied.  The basic syntax of an if-else template is :  
+Equipped with the knowledge of Conditional and Boolean operators and their corresponding templates, we can now explore the very first type of control flow: if-else branching. If else branch statements in their most basic form allows you to execute a certain set of instructions or code if a certain condition is satisfied and a different set of instructions/code if it is the condition is not satisfied.  The basic syntax of an if-else template is :
 
-
-```text
+```go
 {{if (condition)}}
     Statement(s) to be executed if condition is true
 {{else}}
@@ -86,7 +85,7 @@ Equipped with the knowledge of Conditional and Boolean operators and their corre
 
 Example :
 
-```text
+```go
 {{$a := 1}}
 {{if gt $a 0}}
     Number is more than 0
@@ -101,7 +100,7 @@ It is important to note here that the else template along with the code to be ex
 
 Example :
 
-```text
+```go
 {{$name := "Peter"}}
 {{if eq $name "YAGPDB"}}
     Oh another me!
