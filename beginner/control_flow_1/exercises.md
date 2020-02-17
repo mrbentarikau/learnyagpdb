@@ -6,7 +6,7 @@
 
    *  `{{$num1 := 10}} {{if $num1}}     {{num1 := 6}} {{$num1}} {{end}} {{if not (mod $num1 3)}}     {{$num1}} {{end}} {{$num1}}` 
    *  `{{$name := "John"}} {{if eq $name "John"}}     {{$family_name := "Walters"}} {{end}} My name is: {{$name}} {{$family_name}}`
-   *  `{{$string := "happy"}} {{if gt $string "sad"}}     Be {{$string}}! {{else}}     Dont be {{$string}}! {{end}}`
+   *  `{{$string := "happy"}} {{if gt $string "Sad"}}     Be {{$string}}! {{else}}     Dont be {{$string}}! {{end}}`
 
 3. Write a program to check if the member triggering the command has a nickname. If true, print `Hello` followed by his nickname. Otherwise print `Hello` followed by his username + discriminator. 
 4. Let us assume tax is calculated is follows:     For income between $1 to $1000 : No tax.     For income between $1001 to $2000 : 10% on the amount above $1000     For income between $2001 to $5000 : Previous taxes + 30% tax on amount above $2000     For income over $5000 : Previous taxes + 40% tax on amount above $5000 Write a program to calculate total tax assuming income is stored in a variable called $income. If tax is more than 0, print the exact tax as well as the tax rounded off to the nearest integer. 
