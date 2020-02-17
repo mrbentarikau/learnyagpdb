@@ -1,6 +1,6 @@
 # Exercises
 
-1. Write a program to determine if the number stored in a variable $a is even or odd and print : `Number is Even` or `Number is Odd` depending on case. Verify the output for the following values of $a : 1 , 9 , 0, 10021 , -5 
+1. Write a program to determine if the number stored in a variable `$a` is even or odd and print : `Number is Even` or `Number is Odd` depending on case. Verify the output for the following values of `$a` : 1 , 9 , 0, 10021 , -5 
 2. Predict the output of the following code snippets. If there is an error in the snippet what is the cause of the error and how can it be fixed ?  
 
 
