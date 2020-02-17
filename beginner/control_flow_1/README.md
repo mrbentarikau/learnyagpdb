@@ -196,11 +196,11 @@ There are two major takeaways from the above example. Firstly notice how an if-e
 
 Sample output for normal user joining :
 
-![](../.gitbook/assets/image.png)
+![](../../.gitbook/assets/image.png)
 
 Sample output for bot user joining :
 
-![](../.gitbook/assets/image%20%281%29.png)
+![](../../.gitbook/assets/image%20%281%29.png)
 
 
 
