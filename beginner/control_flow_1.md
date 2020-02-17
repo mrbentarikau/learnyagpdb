@@ -90,7 +90,7 @@ Example :
 {{if gt $a 0}}
     Number is more than 0
 {{else}}
-    Number id less than 0
+    Number is less than 0
 {{end}}
 ```
 
