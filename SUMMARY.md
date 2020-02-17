@@ -30,6 +30,7 @@
 * [The Seven Steps of Programming](programming/the-seven-steps-of-programming.md)
 * [Algorithms](programming/algorithms.md)
 * [Planning](programming/planning.md)
+* [Top-down design & composability](programming/top-down-design-and-composability.md)
 
 ## Other
 
