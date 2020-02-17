@@ -1,12 +1,12 @@
 ---
 description: >-
-  In this page, you'll learn about the basic datatypes available in YAGPDB
+  In this page, you'll learn about the basic data types available in YAGPDB
   templates.
 ---
 
-# Datatypes 1
+# Data types 1
 
-## Basic Datatypes
+## Basic data types
 
 ### String
 
@@ -17,7 +17,7 @@ A string is a sequence of characters. It simply stores textual data. String lite
 
 ### Integer
 
-Integers \(_int_\) – like their mathematical counterpart – are numbers without a decimal component. In Yagpdb templating code, the maximum range of int datatype is from : -9223372036854775808 to 9223372036854775807. There are [different ways](https://golang.org/ref/spec#Integer_literals) in which an integer literal can be created/specified but irrespective of how they are specified, they all belong to the same datatype and represent an unique number. Some common ways are :
+Integers \(_int_\) – like their mathematical counterpart – are numbers without a decimal component. In Yagpdb templating code, the maximum range of int data type is from : -9223372036854775808 to 9223372036854775807. There are [different ways](https://golang.org/ref/spec#Integer_literals) in which an integer literal can be created/specified but irrespective of how they are specified, they all belong to the same data type and represent an unique number. Some common ways are :
 
 1. **As base 10 number :** As intimidating as it sounds, these are our normal plain numbers. So normal digits can be used to create number literals \(remember that the first digit should be non zero for syntax reasons\).  `{{$x := 105}}` Above statement assigns a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x with value 105 \(base-10\) 
 2. **As a hexadecimal number :** You might have come across [hexadecimal numbers](https://simple.wikipedia.org/wiki/Hexadecimal) while reading about memory locations or hexadecimal codes for colors etc. While specifying a hexadecimal number, we have to precede the number with `0x` to denote that the following number represents a hexadecimal number. You can use digits from `0` to `9` and letters `a` to `e` to specify a hexadecimal number. Capitalization of the letters do not matter. `{{$hex := 0xA1}}` Above statement assigns a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named hex with value : 161\(base-10\) using an integer literal specified in hexadecimal format.
@@ -29,11 +29,11 @@ stores 9 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginne
 {% endhint %}
 
 {% hint style="info" %}
-_int64_ is another datatype which is very similar to _int_ but is always 64 bits size irrespective of compiler. int64 can be converted to int using the `toInt` template. Reverse can be achieved using `toInt64` template. Type conversion templates are listed [here](https://docs.yagpdb.xyz/reference/templates#type-conversion).
+_int64_ is another data type which is very similar to _int_ but is always 64 bits size irrespective of compiler. int64 can be converted to int using the `toInt` template. Reverse can be achieved using `toInt64` template. Type conversion templates are listed [here](https://docs.yagpdb.xyz/reference/templates#type-conversion).
 
 Example :  `{{$num := toInt64 105}}`  
-Stores 105 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num but as _int64_ datatype and not _int_.  
-By default however \(without explicit `toInt64` conversion\) Integer literals are stored as _int_ datatype.
+Stores 105 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num but as _int64_ data type and not _int_.  
+By default however \(without explicit `toInt64` conversion\) Integer literals are stored as _int_ data type.
 {% endhint %}
 
 ### Float
@@ -46,7 +46,7 @@ Floating point literals also support some other formats such as scientific notat
 {% hint style="info" %}
 Note `10` represents an integer literal while `10.0` represents a floating point literal.  
 Example : `{{num := 20.0}}`   
-Stores 20.0 \(base-10\) in a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num with datatype _float64_ and not _int_. 
+Stores 20.0 \(base-10\) in a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num with data type _float64_ and not _int_. 
 {% endhint %}
 
 {% hint style="info" %}
@@ -69,7 +69,7 @@ Above snippet will store `true` in [variable](https://yagpdb.gitbook.io/learnyag
 
 ## Variables
 
-A variable is a storage location, with a specific type and an associated name. It can be used to store the output of a template or literal values\( string , int , float etc\).  Names must start with a letter and may contain letters, numbers or the `_` \(underscore\) symbol. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A template containing just the variable name simply outputs it's contents \(for complex datatypes it follows certain predefined formats\).
+A variable is a storage location, with a specific type and an associated name. It can be used to store the output of a template or literal values\( string , int , float etc\).  Names must start with a letter and may contain letters, numbers or the `_` \(underscore\) symbol. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A template containing just the variable name simply outputs it's contents \(for complex data types it follows certain predefined formats\).
 
 ```go
 {{$name1 := "Satty"}} {{$favourite_number1 := 1}}
@@ -148,7 +148,7 @@ Above is an example of how variables can be extremely useful. Notice that by sim
 
 #### **Mathematical Templates :**
 
-`mult` here is a function type template which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function templates similar to `mult` accept \(or do their computation on\) are called **arguments**. The datatype of the value returned by the `mult` template is the datatype of it's first argument.   
+`mult` here is a function type template which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function templates similar to `mult` accept \(or do their computation on\) are called **arguments**. The data type of the value returned by the `mult` template is the data type of it's first argument.   
 For example : `{{$x := mult 1 2.5}}`       stores `2` in variable x.  
                          `{{$y := mult 1.0 2.5}}`   stores `2.5` in variable y.  
   

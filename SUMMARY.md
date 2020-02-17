@@ -7,7 +7,7 @@
 
 * [Outputs 1](beginner/outputs_1/README.md)
   * [Exercises](beginner/outputs_1/exercises.md)
-* [Datatypes 1](beginner/datatypes_1/README.md)
+* [Data types 1](beginner/datatypes_1/README.md)
   * [Exercises](beginner/datatypes_1/exercises.md)
 * [Control Flow 1](beginner/control_flow_1/README.md)
   * [Exercises](beginner/control_flow_1/exercises.md)
