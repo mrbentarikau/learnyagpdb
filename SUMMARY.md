@@ -29,6 +29,7 @@
 
 * [The Seven Steps of Programming](programming/the-seven-steps-of-programming.md)
 * [Algorithms](programming/algorithms.md)
+* [Planning](programming/planning.md)
 
 ## Other
 
