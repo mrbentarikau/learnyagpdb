@@ -64,7 +64,7 @@ Values of two **different data types** \(eg float64 and int\) are **not comparab
 {% endhint %}
 
 {% hint style="info" %}
-Although it is most common to use numerical values in comparison operators, they can compare strings as well. Strings are compared using the Unicode values of their constituent runes\(codepoints\). If the first codepoints are equal, the second ones are compared and so on.
+Although it is most common to use numerical values in comparison operators, they can compare strings as well. Strings are compared using the [Unicode values](https://www.tamasoft.co.jp/en/general-info/unicode-decimal.html) of their constituent runes\(codepoints\). If the first codepoints are equal, the second ones are compared and so on.
 {% endhint %}
 
 {% hint style="info" %}
@@ -137,7 +137,7 @@ The above code will Output:
 
 ### If - Else If - Else Branching
 
-Earlier we have seen how to execute a block of statements if condition is true and another block if it is false. However if we have multiple conditions in that case the if - else if - else branching is very helpful. The general syntax is :
+Earlier we have seen how to execute a block of statements if condition is true and another block if it is false. However if we have multiple conditions in that case the if - else if - else branching is very helpful. This is often called if-else chaining. The general syntax is :
 
 ```go
 {{if (condition_1)}}
@@ -213,7 +213,7 @@ Sample output for bot user joining :
 ```
 
 Above snippet will print `This message has an attachment` if triggering message has an attachment. Notice how in this example we are using .Message.Attachments which is not of boolean data type as the if statement's condition. This is possible because non boolean variables are automatically converted to boolean when used in a condition according to the following logic :   
-If the the data represents the zero value\( nil or empty, zero  or false depending on data type\) of the associated data type, it is treated as `false` and otherwise considered as `true`. This helps in determining if a certain value is nil or empty \(or number is zero\) very efficient.  
+If the the data represents the **zero value**\( nil or empty, zero  or false depending on data type\) of the associated data type, it is treated as `false` and otherwise considered as `true`. This helps in determining if a certain value is nil or empty \(or number is zero\) very efficient.  
 
 
 {% hint style="success" %}
