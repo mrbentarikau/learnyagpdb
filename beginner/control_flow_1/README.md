@@ -137,7 +137,7 @@ The above code will Output:
 
 ### If - Else If - Else Branching
 
-Earlier we have seen how to execute a block of statements if condition is true and another block if it is false. However if we have multiple conditions in that case the if - else if - else branching is very helpful. The general syntax is :
+Earlier we have seen how to execute a block of statements if condition is true and another block if it is false. However if we have multiple conditions in that case the if - else if - else branching is very helpful. This is often called if-else chaining. The general syntax is :
 
 ```go
 {{if (condition_1)}}
