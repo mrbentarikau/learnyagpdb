@@ -1,6 +1,6 @@
 # Control Flow 1
 
-Up until now we have seen how to produce some outputs and the various datatypes. We have also seen how templates can he very helpful in calculations and computations like generating the table of a number. However what if we want to output a response depending of the value inside a variable. What if we want to run a part of the code under certain conditions and another part in other situations. This is possible through control flow which we will explore in this section.
+Up until now we have seen how to produce some outputs and the various data types. We have also seen how templates can be very helpful in calculations and computations like generating the table of a number. However what if we want to output a response depending of the value inside a variable. What if we want to run a part of the code under certain conditions and another part in other situations. This is possible through control flow which we will explore in this section.
 
 ## Boolean Logic
 
@@ -10,7 +10,7 @@ Before exploring control flow it is important to understand [boolean logic](http
 
 This is the simplest operation concerning booleans. It simply changes `true` to `false` and vice versa. The template associated with this operation is the `not` template. It accepts a single boolean argument and returns its opposite boolean value.  
   
-Example : `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable x. the `not` template then performs a not operation in variable x \(which contains `true`\) returning `false`. Thus eventually `false` is stored in y.
+Example : `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable `$x`. the `not` template then performs a not operation in variable `$x` \(which contains `true`\) returning `false`. Thus eventually `false` is stored in $y.
 
 ### **2\) AND Operation**: 
 
@@ -23,16 +23,16 @@ The `and` operation is another boolean operation involving two boolean values wh
 | false | true | false |
 | false | false | false |
 
-You can use the `and` template for performing boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic : Consider three boolean values passed to the `and` template. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` template.  
+You can use the `and` template for performing boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic: Consider three boolean values passed to the `and` template. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` template.  
   
 Example :  
 `{{$x := true}} {{$y := true}} {{$z := false}}  
 {{$Result := and $x $y $z}}`   
-In the above example, first the `and` of variable x and y results in `true`. Then the `and` of the result and z produces `false`. Hence, finally `false` is stored in variable Result.
+In the above example, first the `and` of variables `$x` and `$y` results in `true`. Then the `and` of the result and `$z` produces `false`. Hence, finally `false` is stored in variable Result.
 
 ### 3\) OR Operation :
 
-The `or` operation similar to `and` operation operates on two boolean literals. It results in `false` when both the operands are `false` and otherwise results in `true` .The following table captures the working of the `or` operation.
+The `or` operation similar to `and` operation operates on two boolean literals. It results in `false` when both the operands are `false` and otherwise results in `true` . The following table captures the working of the `or` operation.
 
 | Operand 1 | Operand 2 | operand 3 |
 | :--- | :--- | :--- |
@@ -46,13 +46,13 @@ The `or` operation similar to `and` operation operates on two boolean literals. 
 Example :  
 `{{$x := false}} {{$y := false}} {{$z := true}}  
 {{$Result := or $x $y $z}}`   
-In the above example, first the o of variable x and y results in `false`. Then the `or` of the result and z produces `true`. Hence, finally `true` is stored in variable Result.
+In the above example, first the o of variable `$x` and `$y` results in `false`. Then the `or` of the result and `$z` produces `true`. Hence, finally `true` is stored in variable Result.
 
 ## Comparison Operators
 
 Having seen boolean operators it is only logical to explore templates that produce boolean values as output. These Templates fall under the general category of comparison operators. The following comparison operators are available as a part of standard golang text template package:
 
-* `eq` : This template checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as datatype must be same. 
+* `eq` : This template checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as data type must be same. 
 * `ne` : This template is the reverse of the equality template and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the template returns `true`.
 * `gt` : This returns `true` if `arg1 > arg2` , that is if first argument is strictly greater than second argument.
 * `ge`: This returns `true` if `arg1 >= arg2` , that is if first argument is greater than or equal to second argument.
@@ -60,7 +60,7 @@ Having seen boolean operators it is only logical to explore templates that produ
 * `le`: This returns `true` if `arg1 <= arg2` , that is if first argument is less than or equal to second argument.
 
 {% hint style="danger" %}
-Values of two **different datatypes** \(eg float64 and int\) are **not comparable**.
+Values of two **different data types** \(eg float64 and int\) are **not comparable**.
 {% endhint %}
 
 {% hint style="info" %}
@@ -68,7 +68,7 @@ Although it is most common to use numerical values in comparison operators, they
 {% endhint %}
 
 {% hint style="info" %}
-Only basic datatypes \( int and variants ; float and variants and strings\) can be compared with the comparison operators. The `eq` and `ne` operators can additionally also compare boolean values.
+Only basic data types \(int and variants ; float and variants and strings\) can be compared with the comparison operators. The `eq` and `ne` operators can additionally also compare boolean values.
 {% endhint %}
 
 ## If - Else Branching
@@ -108,7 +108,7 @@ Example :
 Hello! {{$name}}
 ```
 
-In the above example the if **block** will be executed only of $name is `"YAGPDB"` . Since condition is `false`, the if **block** is skipped and the bot simply prints the output : `Hello! Peter`.
+In the above example the if **block** will be executed only of `$name` is `"YAGPDB"` . Since condition is `false`, the if **block** is skipped and the bot simply prints the output : `Hello! Peter`.
 
 ### Blocks and Scope
 
@@ -188,9 +188,9 @@ In the above example there are 3 different blocks which are conditionally execut
 {{end}}
 ```
 
-Above is an example code which can be used in [Join Message](https://docs.yagpdb.xyz/notifications-and-feeds/notification-feed#general-feed). \(Note for normal custom commands, bots cant trigger them\).  
+Above is an example code which can be used in [Join Message](https://docs.yagpdb.xyz/notifications-and-feeds/notification-feed#general-feed). \(Note for normal custom commands, bots can't trigger them\).  
   
-There are two major takeaways from the above example. Firstly notice how an if-else or if-else if-else statement can be used inside another block.In this case it is executed only of the first condition is false for the outer if statement\(that is user joining is not a bot\). This is called nesting and can be very useful for checking a complex set of conditions. Secondly notice the `-` at use in the internal if-else if-else templates. It is used to trim spaces to the left and right of the templates to aid with formatting. It is discussed in more detail [here](https://golang.org/pkg/text/template/#hdr-Text_and_spaces).
+There are two major takeaways from the above example. Firstly notice how an if-else or if-else if-else statement can be used inside another block. In this case it is executed only of the first condition is false for the outer if statement \(that is user joining is not a bot\). This is called nesting and can be very useful for checking a complex set of conditions. Secondly notice the `-` at use in the internal if-else if-else templates. It is used to trim spaces to the left and right of the templates to aid with formatting. It is discussed in more detail [here](https://golang.org/pkg/text/template/#hdr-Text_and_spaces).
 
 #### Output:
 
@@ -212,8 +212,8 @@ Sample output for bot user joining :
 {{end}}
 ```
 
-Above snippet will print `This message has an attachment` if triggering message has an attachment. Notice how in this example we are using .Message.Attachments which is not of boolean datatype as the if statement's condition. This is possible because non boolean variables are automatically converted to boolean when used in a condition according to the following logic :   
-If the the data represents the zero value\( nil or empty, zero  or false depending on datatype\) of the associated datatype, it is treated as `false` and otherwise considered as `true`. This helps in determining if a certain value is nil or empty \(or number is zero\) very efficient.  
+Above snippet will print `This message has an attachment` if triggering message has an attachment. Notice how in this example we are using .Message.Attachments which is not of boolean data type as the if statement's condition. This is possible because non boolean variables are automatically converted to boolean when used in a condition according to the following logic :   
+If the the data represents the zero value\( nil or empty, zero  or false depending on data type\) of the associated data type, it is treated as `false` and otherwise considered as `true`. This helps in determining if a certain value is nil or empty \(or number is zero\) very efficient.  
 
 
 {% hint style="success" %}
