@@ -217,6 +217,14 @@ If the the data represents the zero value\( nil or empty, zero  or false dependi
 
 
 {% hint style="success" %}
-Pro Tip:
+Pro Tip:  
+Existence of multiple data values can be determined by using the Boolean operators. The logic follows the same logic as for boolean literals after the data values are converted to `true` or `false` depending on their stored value and datatype.  
+Example:  
+`{{if or .Message.Attachments .Message.Embeds}}  
+     This is not a simple text message   
+{{end}}`  
+The above example prints `This is not a simple text message` if  the triggering message consists any attachments or embeds.
 {% endhint %}
+
+
 
