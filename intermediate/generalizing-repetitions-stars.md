@@ -9,7 +9,7 @@ important part of generalizing an algorithm is to look for repetitions of the sa
 Let's look at this problem:    
 **Given an integer N \(&gt;0\), print a right triangle of \*s, with height N and base N.**
 
-![In case of N being 4.](../../.gitbook/assets/stars_4.png)
+![In case of N being 4.](../.gitbook/assets/stars_4.png)
 
 Looking at the printout above \(you should draw these out by hand\), try to recognize the patterns.  
 `Print 1 star  

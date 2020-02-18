@@ -8,5 +8,5 @@ Your task is to formulate an algorithm and make a CC that works with numbers. Le
 
 If you do these steps for `N=3`, you should come up with the sequence of numbers `0 -6 -18 -45 24`.  
   
-[Example solution](https://pastebin.com/vNfc73zG).
+[Example solution](https://pastebin.com/vNfc73zG)
 
