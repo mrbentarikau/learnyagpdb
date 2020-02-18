@@ -16,6 +16,7 @@
 
 ## Intermediate
 
+* [Sum of Arithmetic Sequence](intermediate/sum-of-arithmetic-sequence.md)
 * [Generalizing Repetitions - Stars](intermediate/generalizing-repetitions-stars.md)
 * [Simple Counting Algorithm](intermediate/simple_count_algorithm.md)
 * [ROT13 substitution cipher](intermediate/rot13-substitution-cipher.md)
