@@ -8,7 +8,7 @@ description: >-
 
 Let's think about an algorithm from pattern of symbols drawn to xy-coordinate grid. In Discord's context, an embed having emojis would be one way of doing this. 
 
-![The output of the algorithm for N=0 to N=5.](../.gitbook/assets/patternofemojis.png)
+![The output of the algorithm for N=0 to N=5.](../../.gitbook/assets/patternofemojis.png)
 
 There are many correct solutions for this problem. You should think of this as top-down xy-coordinate grid \(The coordinate system for pixels in a computer is reversed along the y-axis and not like Cartesian system teached in schools\) and just draw the red/green symbols on a piece of paper and find the patterns for each step of N. Find repetition and counting behaviour.
 
@@ -52,7 +52,7 @@ So we can generalize it to an algorithm: _Counting from 0 to `N` \(both inclusiv
 
 Write a CC which makes an embed with that emoji pattern in `cembed` `"description"` field and can take only an _int_ from 0 to 15 as `N`, use `carg` as limiter. Also try to use emojis \(:circle\_red: and :circle\_green:\) as codepoints with `printf` not copy/paste them directly as Unicode.
 
-![If N=10 this should be returned.](../.gitbook/assets/patternofemojis_n10.png)
+![If N=10 this should be returned.](../../.gitbook/assets/patternofemojis_n10.png)
 
-[Example solution](https://pastebin.com/0VDf2uhT)
+[Example solution](https://pastebin.com/0VDf2uhT).
 

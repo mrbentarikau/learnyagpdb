@@ -18,6 +18,6 @@ $$
 
 But recursion as programming algorithm is not the best solution here because of time complexity which is exponential. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using [_Dynamic Programming_](https://weibeld.net/algorithms/recursion.html). 
 
-Using variable switching method &gt; [Example solution 1](https://pastebin.com/N8zdwGJx)  
-Using a `cslice` method &gt; [Example solution 2](https://pastebin.com/TnS7XpLN)
+Using variable switching method &gt; [Example solution 1](https://pastebin.com/N8zdwGJx).  
+Using a `cslice` method &gt; [Example solution 2](https://pastebin.com/TnS7XpLN).
 
