@@ -26,6 +26,7 @@
 ## Advanced
 
 * [Exercises level 3](advanced/exercises-level-3/README.md)
+  * [Division using Addition](advanced/exercises-level-3/division-using-addition.md)
   * [Writing a Pattern Algorithm](advanced/pattern_algorithm.md)
   * [Fibonacci Sequence Algorithm](advanced/fibonacci-sequence-algorithm.md)
   * [Writing a Sorting Algorithm](advanced/sort_algorithm.md)
