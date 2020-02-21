@@ -18,18 +18,18 @@
 
 * [Exercises level 2](intermediate/exercises-level-2/README.md)
   * [Duplicates in a List](intermediate/exercises-level-2/duplicates-in-a-list.md)
-  * [Simple Counting Algorithm](intermediate/simple_count_algorithm.md)
-  * [Generalizing Repetitions - Stars](intermediate/generalizing-repetitions-stars.md)
-  * [ROT13 substitution cipher](intermediate/rot13-substitution-cipher.md)
-  * [Sum of Arithmetic Sequence](intermediate/sum-of-arithmetic-sequence.md)
+  * [Simple Counting Algorithm](intermediate/exercises-level-2/simple_count_algorithm.md)
+  * [Generalizing Repetitions - Stars](intermediate/exercises-level-2/generalizing-repetitions-stars.md)
+  * [ROT13 substitution cipher](intermediate/exercises-level-2/rot13-substitution-cipher.md)
+  * [Sum of Arithmetic Sequence](intermediate/exercises-level-2/sum-of-arithmetic-sequence.md)
 
 ## Advanced
 
 * [Exercises level 3](advanced/exercises-level-3/README.md)
   * [Division using Addition](advanced/exercises-level-3/division-using-addition.md)
-  * [Writing a Pattern Algorithm](advanced/pattern_algorithm.md)
-  * [Fibonacci Sequence Algorithm](advanced/fibonacci-sequence-algorithm.md)
-  * [Writing a Sorting Algorithm](advanced/sort_algorithm.md)
+  * [Writing a Pattern Algorithm](advanced/exercises-level-3/pattern_algorithm.md)
+  * [Fibonacci Sequence Algorithm](advanced/exercises-level-3/fibonacci-sequence-algorithm.md)
+  * [Writing a Sorting Algorithm](advanced/exercises-level-3/sort_algorithm.md)
 
 ## Programming
 
