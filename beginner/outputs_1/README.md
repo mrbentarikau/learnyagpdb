@@ -16,7 +16,7 @@ Hello World.
 
 The above will make the bot print out "Hello World." in form of a response message when the command gets **triggered**.
 
-![](../../.gitbook/assets/image%20%286%29.png)
+![](../../.gitbook/assets/image%20%287%29.png)
 
 Practice Question: Write a command to output : This is **yag bot**
 
@@ -39,7 +39,7 @@ Welcome to our Server : {{.Server.Name}}
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2812%29.png)
 
 ### Example 2
 
@@ -52,11 +52,11 @@ This is <#{{.Channel.ID}}> {{mentionEveryone}}
 In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _**not**_ produce a user , channel or role mention. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}` .  
 
 
-![](../../.gitbook/assets/image%20%2810%29.png)
+![](../../.gitbook/assets/image%20%281%29.png)
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%288%29.png)
+![](../../.gitbook/assets/image%20%289%29.png)
 
 \*\*\*\*
 

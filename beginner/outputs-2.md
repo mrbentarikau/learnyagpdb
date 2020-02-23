@@ -28,7 +28,7 @@ It is important to note that `sendMessage` template by itself is an **action typ
   
 **Output:**
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 **Explanation:**  
 As discussed earlier, the `sendMessage` template here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -40,7 +40,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 **Output:**  
 
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 **Explanation :**  
   
@@ -51,7 +51,7 @@ In the previous example it is important to note that the `sendMessage` template'
 Example:   
 `third{{sendMessage nil "first"}}{{sendMessage nil "second"}}`  
 Output:  
- ![](../.gitbook/assets/image%20%2814%29.png)
+ ![](../.gitbook/assets/image%20%2815%29.png)
 {% endhint %}
 
 
