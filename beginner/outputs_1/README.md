@@ -39,7 +39,7 @@ Welcome to our Server : {{.Server.Name}}
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%2810%29.png)
+![](../../.gitbook/assets/image%20%2811%29.png)
 
 ### Example 2
 
@@ -49,7 +49,10 @@ This is <#{{.Channel.ID}}> {{mentionEveryone}}
 
 #### Explanation :
 
-In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _**not**_ produce a user , channel or role mention. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}` .
+In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _**not**_ produce a user , channel or role mention. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}` .  
+
+
+![](../../.gitbook/assets/image%20%2810%29.png)
 
 #### Output :
 
