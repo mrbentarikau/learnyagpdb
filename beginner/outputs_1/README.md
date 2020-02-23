@@ -51,7 +51,7 @@ This is <#{{.Channel.ID}}> {{mentionEveryone}}
 
 In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _**not**_ produce a user , channel or role mention.
 
-#### Mentions
+#### Mentions an Custom Emojis
 
 Before understanding mentions it is important to understand what IDs are. For this we recommend to have a look at the official discord guide. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). In general channel mentions are `<#Channel_ID>` , User Mentions are `<@User_ID>` , Role Mentions are  `<@&Role_ID>` and custom emojis are `<:emoji_name:emoji_id>` or `<a:emoji_name:emoji_id>` . Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}`. Some templates for role mentions are `mentionRoleName` and `mentionRoleID`.  
 
