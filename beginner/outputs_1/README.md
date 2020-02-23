@@ -49,10 +49,18 @@ This is <#{{.Channel.ID}}> {{mentionEveryone}}
 
 #### Explanation :
 
-In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _**not**_ produce a user , channel or role mention. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}` .  
+In the above code we explore how to produce mentions. Simply writing @user or @role or \#channel will _**not**_ produce a user , channel or role mention.
+
+#### Mentions
+
+Before understanding mentions it is important to understand what IDs are. For this we recommend to have a look at the official discord guide. Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). In general channel mentions are `<#Channel_ID>` , User Mentions are `<@User_ID>` , Role Mentions are  `<@&Role_ID>` and custom emojis are `<:emoji_name:emoji_id>` or `<a:emoji_name:emoji_id>` . Also, by default role mentions will be escaped\(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}`. Some templates for role mentions are `mentionRoleName` and `mentionRoleID`.  
 
 
 ![](../../.gitbook/assets/image%20%281%29.png)
+
+{% hint style="info" %}
+Note: A bot has the same restrictions as that of a regular user with nitro and cannot use emojis of servers they have no access to. For the bot to use external custom emojis, they must be present in that server where the emojis belong to and they must have permissions to use external emojis.
+{% endhint %}
 
 #### Output :
 
