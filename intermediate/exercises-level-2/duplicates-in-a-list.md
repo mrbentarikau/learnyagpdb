@@ -1,5 +1,5 @@
 ---
-description: '"Sometimes the most beautiful words are beautifully arrayed." // Raveen Paudel'
+description: '"...everything that is made, is not necessary." // Arvo Pärt'
 ---
 
 # Duplicates in a List
