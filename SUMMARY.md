@@ -20,6 +20,7 @@
 * [Exercises level 2](intermediate/exercises-level-2/README.md)
   * [Duplicates in a List](intermediate/exercises-level-2/duplicates-in-a-list.md)
   * [Simple Counting Algorithm](intermediate/exercises-level-2/simple_count_algorithm.md)
+  * [Finding Primes](intermediate/exercises-level-2/finding-primes.md)
   * [Generalizing Repetitions - Stars](intermediate/exercises-level-2/generalizing-repetitions-stars.md)
   * [ROT13 substitution cipher](intermediate/exercises-level-2/rot13-substitution-cipher.md)
   * [Sum of Arithmetic Sequence](intermediate/exercises-level-2/sum-of-arithmetic-sequence.md)
