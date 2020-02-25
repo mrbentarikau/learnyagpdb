@@ -16,7 +16,7 @@ So first you have to learn/search for what is a prime number; then test out find
 7/6 = 1 remainder 1
 ```
 
-Because we've tried all numbers from 2 to 6 and found that 7 is not divisible by any of them, so we can say 7 is a prime. Do like this for 13 or 14. What differs?
+Because we've tried all numbers from 2 to 6 and found that 7 is not divisible by any of them, so we can say 7 is a prime \(why don't we use 1?\). Do the same for 13 or 42. What differs?
 
 Generalized algorithm would go like this:
 
@@ -28,6 +28,8 @@ count from 2 to N (exclusive)
             if so, return "not a prime"
 if counting ends and "not a prime" is returned, retur "N is a prime"
 ```
+
+So your task for this exercise is to translate this algorithm to CC-code.
 
 Hint: Remember `seq` function's max limit.
 
