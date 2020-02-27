@@ -28,7 +28,7 @@ It is important to note that `sendMessage` template by itself is an **action typ
   
 **Output:**
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2817%29.png)
 
 **Explanation:**  
 As discussed earlier, the `sendMessage` template here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -40,7 +40,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 **Output:**  
 
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%287%29.png)
 
 **Explanation :**  
   
@@ -51,19 +51,27 @@ In the previous example it is important to note that the `sendMessage` template'
 Example:   
 `third{{sendMessage nil "first"}}{{sendMessage nil "second"}}`  
 Output:  
- ![](../.gitbook/assets/image%20%2815%29.png)
+ ![](../.gitbook/assets/image%20%2816%29.png)
 {% endhint %}
 
 ### `sendMessageNoEscape` Template
 
-As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` template as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` template.  
+As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` template as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` template. It is important to note that unlike response, using mention based templates such as `mentionHere` does not create a mention with `sendMessage` template. You must use `sendMessageNoEscape` for these special mentions to work.  
   
 Example :
 
 ```text
-{{sendMessage nil "@here"}}
+{{sendMessage nil "@here"}}{{sendMessage nil (mentionEveryone)}}
 {{sendMessageNoEscape nil "@here"}}
 ```
 
+Output:
 
+![](../.gitbook/assets/image%20%284%29.png)
+
+Explanation :
+
+In the above example, as already discussed `sendMessage` template never produces a special mention no matter how the special mention is produced. The third output belongs to the `sendMessageNoEscape` template which produces a mention.
+
+### `sendMessageRetID` and `sendMessageNoEscapeRetID` Templates
 
