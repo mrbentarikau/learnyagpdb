@@ -28,7 +28,7 @@ It is important to note that `sendMessage` template by itself is an **action typ
   
 **Output:**
 
-![](../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
 
 **Explanation:**  
 As discussed earlier, the `sendMessage` template here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -40,7 +40,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 **Output:**  
 
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 **Explanation :**  
   
@@ -51,7 +51,7 @@ In the previous example it is important to note that the `sendMessage` template'
 Example:   
 `third{{sendMessage nil "first"}}{{sendMessage nil "second"}}`  
 Output:  
- ![](../.gitbook/assets/image%20%2816%29.png)
+ ![](../.gitbook/assets/image%20%2817%29.png)
 {% endhint %}
 
 
@@ -69,7 +69,7 @@ Example :
 
 Output:
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
 Explanation :
 
@@ -83,5 +83,19 @@ These templates function very similar  to their counterparts `sendMessage` and `
 
 Example :
 
+```text
+First Message ID = {{sendMessageRetID nil "Yag is cool"}}
+{{$ID:= sendMessageRetID nil "I know!" -}}
+Second Message ID = {{$ID}}
+```
 
+Output :
+
+![](../.gitbook/assets/image%20%282%29.png)
+
+Explanation :
+
+The execution order is as follows - initially the first `sendMessage` template is executed and posts a message `Yag is cool`. It outputs it's message ID which becomes a part of the response since it is not captured by a variable. Then, the second `sendMessage` template is executed and posts the second message `I know!`. The ID of this message is captured by a variable $ID later used for forming the response. At the end of program execution, response is  posted as a separate message.
+
+## Editing Messages
 

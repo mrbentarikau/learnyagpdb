@@ -121,7 +121,7 @@ Remember that : {{$quote_of_the_day}}
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%2818%29.png)
+![](../../.gitbook/assets/image%20%2819%29.png)
 
 ### 
 
@@ -160,7 +160,7 @@ Further Example : `{{$z := div 12 5}}`  stores `2` in variable z.
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%283%29.png)
+![](../../.gitbook/assets/image%20%284%29.png)
 
 {% hint style="success" %}
 **Pro Tip :** You can use the printf template to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).  
