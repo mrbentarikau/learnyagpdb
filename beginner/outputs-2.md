@@ -54,5 +54,16 @@ Output:
  ![](../.gitbook/assets/image%20%2815%29.png)
 {% endhint %}
 
+### `sendMessageNoEscape` Template
+
+As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` template as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` template.  
+  
+Example :
+
+```text
+{{sendMessage nil "@here"}}
+{{sendMessageNoEscape nil "@here"}}
+```
+
 
 
