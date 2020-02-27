@@ -56,8 +56,6 @@ Output:
 
 
 
-
-
 ### `sendMessageNoEscape` Template
 
 As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` template as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` template. It is important to note that unlike response, using mention based templates such as `mentionHere` does not create a mention with `sendMessage` template. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based template producing no meaningful/usable output.  
@@ -76,8 +74,6 @@ Output:
 Explanation :
 
 In the above example, as already discussed `sendMessage` template never produces a special mention no matter how the special mention is produced. The third output belongs to the `sendMessageNoEscape` template which produces a mention.
-
-
 
 
 
