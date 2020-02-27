@@ -42,7 +42,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 
 ![](../.gitbook/assets/image%20%288%29.png)
 
-**Explanation :**  
+**Explanation:**  
   
 As discussed earlier, the `sendMessage` template sends a **separate message** as output which is different from the custom command's default response message. The `sendMessage` template being an action type template producing no meaningful output is also shown in the above example. That is the reason why the `!` appears directly after `message` in the response message although if you look at the original code the `sendMessage` template was placed between them.
 
@@ -60,18 +60,18 @@ Output:
 
 As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` template as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` template. It is important to note that unlike response, using mention based templates such as `mentionHere` does not create a mention with `sendMessage` template. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based template producing no meaningful/usable output.  
   
-Example :
+**Example:**
 
 ```text
 {{sendMessage nil "@here"}}{{sendMessage nil (mentionEveryone)}}
 {{sendMessageNoEscape nil "@here"}}
 ```
 
-Output:
+**Output:**
 
 ![](../.gitbook/assets/image%20%285%29.png)
 
-Explanation :
+**Explanation:**
 
 In the above example, as already discussed `sendMessage` template never produces a special mention no matter how the special mention is produced. The third output belongs to the `sendMessageNoEscape` template which produces a mention.
 
@@ -81,7 +81,7 @@ In the above example, as already discussed `sendMessage` template never produces
 
 These templates function very similar  to their counterparts `sendMessage` and `sendMessageNoEscape` except that they also output the ID of the discord message posted by them during execution. Hence these two templates both perform and action and produce an output placing them under the third category of templates. This is especially useful for editing messages. The ID output by them can be simply captured by any variable just like any other template which produces an output for later use.
 
-Example :
+**Example:**
 
 ```text
 First Message ID = {{sendMessageRetID nil "Yag is cool"}}
@@ -89,11 +89,11 @@ First Message ID = {{sendMessageRetID nil "Yag is cool"}}
 Second Message ID = {{$ID}}
 ```
 
-Output :
+**Output:**
 
 ![](../.gitbook/assets/image%20%282%29.png)
 
-Explanation :
+**Explanation:**
 
 The execution order is as follows - initially the first `sendMessage` template is executed and posts a message `Yag is cool`. It outputs it's message ID which becomes a part of the response since it is not captured by a variable. Then, the second `sendMessage` template is executed and posts the second message `I know!`. The ID of this message is captured by a variable $ID later used for forming the response. At the end of program execution, response is  posted as a separate message.
 
