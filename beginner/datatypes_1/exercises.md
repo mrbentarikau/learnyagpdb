@@ -1,7 +1,7 @@
 # Exercises
 
-1. Write a program to store number `10` in variable called x and number `0x1A` in a variable called y. Also store the sum of x and y in a variable called z. Store the following string :                                                         `Yag  likes  emojis ^_^`  into a variable called a. Output a followed by x , y and z each in a new line.  
-2. Write a program to find the datatype and value of the following variables :
+1. Write a CC to store number `10` in variable called x and number `0x1A` in a variable called y. Also store the sum of x and y in a variable called z. Store the following string :                                                         `Yag  likes  emojis ^_^`  into a variable called a. Output a followed by x , y and z each in a new line.  
+2. Write a CC to find the datatype and value of the following variables :
 
    1.  `{{$x := 10.0}}`
    2.  `{{$x := .Server.MemberCount}}`
@@ -26,5 +26,5 @@
    {{$value_int := add (toInt $value) 0xa05}}  
    {{$int}}, {{$value}}, {{$value_int}}`
 
-5. Write a program to compute the radius of a circle given Area is 154 square units.  Formula : Area = Pi \* \(r^2\) ; assume Pi = 22/7.  Also, find the perimeter of the circle divided by 3. \(Perimeter = 2\*Pi\*r\) How will you ensure that the answer is in form of a decimal number ? 
+5. Write a CC to compute the radius of a circle given Area is 154 square units.  Formula : Area = Pi \* \(r^2\) ; assume Pi = 22/7.  Also, find the perimeter of the circle divided by 3. \(Perimeter = 2\*Pi\*r\) How will you ensure that the answer is in form of a decimal number ? 
 
