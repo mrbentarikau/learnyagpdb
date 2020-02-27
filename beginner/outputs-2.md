@@ -97,5 +97,9 @@ Explanation :
 
 The execution order is as follows - initially the first `sendMessage` template is executed and posts a message `Yag is cool`. It outputs it's message ID which becomes a part of the response since it is not captured by a variable. Then, the second `sendMessage` template is executed and posts the second message `I know!`. The ID of this message is captured by a variable $ID later used for forming the response. At the end of program execution, response is  posted as a separate message.
 
+{% hint style="info" %}
+Note: These templates output and ID only if the bot was succesful in posting a message. If it was unable to post an output, due to bot lacking permissions or invalid channel id passed, it produces no meaningful output just like `sendMessage` . \(The output in these cases is simply an empty string "" which corresponds to the zero value of String datatype!\)
+{% endhint %}
+
 ## Editing Messages
 
