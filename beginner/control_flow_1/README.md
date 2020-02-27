@@ -213,7 +213,7 @@ Sample output for bot user joining :
 ```
 
 Above snippet will print `This message has an attachment` if triggering message has an attachment. Notice how in this example we are using .Message.Attachments which is not of boolean data type as the if statement's condition. This is possible because non boolean variables are automatically converted to boolean when used in a condition according to the following logic :   
-If the the data represents the **zero value**\( nil or empty, zero  or false depending on data type\) of the associated data type, it is treated as `false` and otherwise considered as `true`. This helps in determining if a certain value is nil or empty \(or number is zero\) very efficient.  
+If the the data represents the **zero value**\( nil or empty, zero  or false depending on data type\) of the associated data type, it is treated as `false` and otherwise considered as `true`. This makes determining if a certain value is nil or empty \(or number is zero\) very efficient.  
 
 
 {% hint style="success" %}
