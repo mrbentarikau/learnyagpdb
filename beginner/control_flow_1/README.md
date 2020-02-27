@@ -10,7 +10,7 @@ Before exploring control flow it is important to understand [boolean logic](http
 
 This is the simplest operation concerning booleans. It simply changes `true` to `false` and vice versa. The template associated with this operation is the `not` template. It accepts a single boolean argument and returns its opposite boolean value.  
   
-Example : `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable `$x`. the `not` template then performs a not operation in variable `$x` \(which contains `true`\) returning `false`. Thus eventually `false` is stored in $y.
+**Example :** `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable `$x`. the `not` template then performs a not operation in variable `$x` \(which contains `true`\) returning `false`. Thus eventually `false` is stored in $y.
 
 ### **2\) AND Operation**: 
 
@@ -25,7 +25,7 @@ The `and` operation is another boolean operation involving two boolean values wh
 
 You can use the `and` template for performing boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic: Consider three boolean values passed to the `and` template. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` template.  
   
-Example :  
+**Example :**  
 `{{$x := true}} {{$y := true}} {{$z := false}}  
 {{$Result := and $x $y $z}}`   
 In the above example, first the `and` of variables `$x` and `$y` results in `true`. Then the `and` of the result and `$z` produces `false`. Hence, finally `false` is stored in variable Result.
@@ -43,7 +43,7 @@ The `or` operation similar to `and` operation operates on two boolean literals. 
 
  The `or` template is used to perform `or` operation. Similar to `and` operator, if more than two values are passed to the `or` template, if first evaluates the result of the first two operands. Then it performs `or` operation on the result from first two operands and the third operand and so on.  
   
-Example :  
+**Example :**  
 `{{$x := false}} {{$y := false}} {{$z := true}}  
 {{$Result := or $x $y $z}}`   
 In the above example, first the o of variable `$x` and `$y` results in `false`. Then the `or` of the result and `$z` produces `true`. Hence, finally `true` is stored in variable Result.
@@ -83,7 +83,7 @@ Equipped with the knowledge of Conditional and Boolean operators and their corre
 {{end}}
 ```
 
-Example :
+**Example :**
 
 ```go
 {{$a := 1}}
@@ -98,7 +98,7 @@ In the above example first the conditional operator gt checks if the variable `$
   
 It is important to note here that the else template along with the code to be executed if condition is false \(can be referred to as the else **block**\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional template.
 
-Example :
+**Example :**
 
 ```go
 {{$name := "Peter"}}
@@ -153,7 +153,7 @@ Earlier we have seen how to execute a block of statements if condition is true a
 
 Note : you are not limited to only two else-if blocks but they can be as many as you want. The final else block can also be skipped if not necessary just like the previous case however the `{{end}}` statement is necessary to mark the end of the branching template.  
   
-Example:
+**Example :**
 
 ```go
 {{$marks := 95}}

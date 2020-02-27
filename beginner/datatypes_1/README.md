@@ -12,8 +12,8 @@ description: >-
 
 A string is a sequence of characters. It simply stores textual data. String literals can be created in two ways:
 
-1.  **Using Double Quotes :**  String literals can be created by enclosing a sequence of characters within double quotation marks `"` . It can cannot contain newlines and allows usage of special escape sequences to represent certain characters. Some of them are :  `\n` This produces a newline character \(similar to pressing the enter key\) `\"` This produces a double quotation mark `"` . This allows us to use double quotes inside quoted       string literals. `\\` This creates a backslash character. \(only using a single backslash character denotes an escape sequence hence this is necessary\)  A more detailed list of other escape sequences can be found [here](http://xahlee.info/golang/golang_string_backslash_escape.html). Example : `"Yagpdb is a nice bot.\nI like it very much."` 
-2. **Using Backticks :** String literals can also be created in form of a _raw string literal_ by enclosing it in backticks `````. It can contain all characters including newlines except for the backtick character. It does not support any escape sequences and is usually used to conveniently produce string literals which span multiple lines.  Example :  ```Yagpdb is a nice bot. I like it very much```
+1.  **Using Double Quotes :**  String literals can be created by enclosing a sequence of characters within double quotation marks `"` . It can cannot contain newlines and allows usage of special escape sequences to represent certain characters. Some of them are :  `\n` This produces a newline character \(similar to pressing the enter key\) `\"` This produces a double quotation mark `"` . This allows us to use double quotes inside quoted       string literals. `\\` This creates a backslash character. \(only using a single backslash character denotes an escape sequence hence this is necessary\)  A more detailed list of other escape sequences can be found [here](http://xahlee.info/golang/golang_string_backslash_escape.html). **Example :** `"Yagpdb is a nice bot.\nI like it very much."` 
+2. **Using Backticks :** String literals can also be created in form of a _raw string literal_ by enclosing it in backticks `````. It can contain all characters including newlines except for the backtick character. It does not support any escape sequences and is usually used to conveniently produce string literals which span multiple lines.  **Example :**  ```Yagpdb is a nice bot. I like it very much```
 
 ### Integer
 
@@ -24,7 +24,7 @@ Integers \(_int_\) – like their mathematical counterpart – are numbers witho
 
 {% hint style="info" %}
 Preceding an integer literal with 0 makes the compiler interpret it as a number specified in [octal](https://simple.wikipedia.org/wiki/Octal) notation \(base-8\).   
-e.g. : `{{$x := 011}}`   
+Example : `{{$x := 011}}`   
 stores 9 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x and not 11. In fact, `9` is written as `11` in octal notation.
 {% endhint %}
 
@@ -64,12 +64,14 @@ Unless otherwise specified, all numbers \(integers/float\) will be base-10 by de
 A boolean value \(named after George Boole\) is a special 1 bit integer type used to represent true and false \(or on and off\). There are two predefined boolean constants \(both lowercase only\) : `true` and `false` .  
 Boolean values are very critical to control flow and are discussed in further detail there. A logical comparison template \( checking if two numbers are equal, checking if one number is greater than another etc.\) and logical operation based templates \( and , or and not operations\) will produce boolean values as output.  
   
-Example :   `{{$x := true}} {{$y := not $x}}`  
+**Example :**   `{{$x := true}} {{$y := not $x}}`  
 Above snippet will store `true` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) x and `false` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) y.
 
 ## Variables
 
 A variable is a storage location, with a specific type and an associated name. It can be used to store the output of a template or literal values\( string , int , float etc\).  Names must start with a letter and may contain letters, numbers or the `_` \(underscore\) symbol. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A template containing just the variable name simply outputs it's contents \(for complex data types it follows certain predefined formats\).
+
+**Example :**
 
 ```go
 {{$name1 := "Satty"}} {{$favourite_number1 := 1}}
@@ -80,7 +82,7 @@ A variable is a storage location, with a specific type and an associated name. I
 {{$fun}}
 ```
 
-The output is :
+**Output :**
 
 `Satty : 1  
 Yagpdb : -1  
