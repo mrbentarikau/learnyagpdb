@@ -157,5 +157,5 @@ After second edit by `editMessageNoEscape`
 
 **Explanation :**
 
-The first message is send used `sendMessageNoEscape` and hence produces an `@everyone` mention. It also outputs the ID of the message posted which is stored in variable $ID. Using this message ID, and with `nil` as channel ID, `editMessage` performs the first edit to the message after 1 second \(due to `{{sleep 1}}` . `editMessage` template escapes all special mentions and hence the `@everyone` appears as plain text. After another 1 second, `editMessageNoEscape` re-edits the message producing the `@everyone` again.
+The first message is send used `sendMessageNoEscape` and hence produces an `@everyone` mention. It also outputs the ID of the message posted which is stored in variable $ID. Using this message ID, and with `nil` as channel ID, `editMessage` performs the first edit to the message after 1 second \(due to `{{sleep 1}}`. `editMessage` template escapes all special mentions and hence the `@everyone` appears as plain text. After another 1 second, `editMessageNoEscape` re-edits the message producing the `@everyone` again.
 
