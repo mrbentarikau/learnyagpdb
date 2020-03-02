@@ -16,7 +16,7 @@ This is the most basic and simple form of an output template. The general syntax
 {{sendMessage channel_id message_to_be_sent}}
 ```
 
-The `channel_id` is the id of the channel in which the message is to be sent. For sending the message in the same channel as the one in which the custom command is running, `channel_id` can be set to `nil`.
+The `channel_id` is the ID of the channel in which the message is to be sent. For sending the message in the same channel as the one in which the custom command is running, `channel_id` can be set to `nil`.
 
 `message_to_be_sent` denotes the output that is to be sent as a message.In this chapter we will deal with only simple textual output \(strings\).   
   
@@ -28,7 +28,7 @@ It is important to note that `sendMessage` template by itself is an **action typ
   
 **Output:**
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2821%29.png)
 
 **Explanation :**  
 As discussed earlier, the `sendMessage` template here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -40,7 +40,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 **Output :**  
 
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 **Explanation :**  
   
@@ -51,7 +51,7 @@ In the previous example it is important to note that the `sendMessage` template'
 Example:   
 `third{{sendMessage nil "first"}}{{sendMessage nil "second"}}`  
 Output:  
- ![](../.gitbook/assets/image%20%2817%29.png)
+ ![](../.gitbook/assets/image%20%2819%29.png)
 {% endhint %}
 
 
@@ -69,7 +69,7 @@ As we have already mentioned earlier in case of **response**, certain mentions s
 
 **Output :**
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 **Explanation :**
 
@@ -103,4 +103,59 @@ The output in these cases is simply an empty string "" which corresponds to the 
 {% endhint %}
 
 ## Editing Messages
+
+We have seen how to send messages. Editing messages is an almost similar except it additionally requires you to also specify the ID of the message to edit. It is important to note that bots can only edit messages sent by the bot itself. 
+
+### `editMessage` Template
+
+This template is very similar to the `sendMessage` template and just requires and additional message ID argument. The syntax is :
+
+```text
+{{editMessage channel_id message_id new_message}}
+```
+
+The `channel_id` is the ID of the channel in which the message to be edited exists and `message_id` is the ID of the message to be edited. `new_message` contains the new output or modification. In this chapter we will deal with only simple textual output \(strings\). 
+
+**Example :**
+
+```text
+{{$ID := sendMessageRetID nil "Yag is ..."}}{{sleep 1}}
+{{editMessage nil $ID "Yag is ... very nice"}}
+```
+
+**Explanation :** 
+
+In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMessageRetID` template is used, the ID of the message posted by the bot is also output by the template and stored in a variable $ID.  Notice the usage of a new template called `sleep`. `sleep` template makes the bot wait without performing any action for a given amount in seconds\(maximum cumulative 60 seconds of sleep per CC\). In this case, `{{sleep 1}}` instructs the bot to not perform any action for 1 second. After that the message posted earlier is edited by using the `editMessage` template. Notice that `editMessage` template requires both the ID of the channel and the message itself to be edited. In the above case the channel id is `nil` since it refers to the same channel in which the CC is executed. The message id is stored in the variable $ID. The final edited output is : `Yag is ... very nice` .
+
+### `editMessageNoEscape` Template
+
+`editMessageNoEscape` is very similar to the `sendMessageNoEscape` template and simply requited the message id as an additional argument. Similar to `sendMessage` , `editMessage` template always suppresses/escapes all special mentions in message content \(role mentions or @here or @everyone\). Escape as usual means that the output will not create any mentions and output plain text instead. In order for special mentions to work, `editMessageNoEscape` must be used. 
+
+**Example :**
+
+```text
+{{$ID := sendMessageNoEscapeRetID nil "Hello @everyone"}}
+{{sleep 1}}
+{{editMessage nil $ID "Hello @everyone! Good Day!"}}
+{{sleep 1}}
+{{editMessageNoEscape nil $ID "Hello @everyone! Good Day!"}}
+```
+
+**Output :**
+
+Initial Message sent  by `sendMessageNoEscapeRetID`
+
+![](../.gitbook/assets/image%20%288%29.png)
+
+After first edit by `editMessage`
+
+![](../.gitbook/assets/image%20%2820%29.png)
+
+After second edit by `editMessageNoEscape`
+
+![](../.gitbook/assets/image%20%283%29.png)
+
+**Explanation :**
+
+The first message is send used `sendMessageNoEscape` and hence produces an `@everyone` mention. It also outputs the ID of the message posted which is stored in variable $ID. Using this message ID, and with `nil` as channel ID, `editMessage` performs the first edit to the message after 1 second \(due to `{{sleep 1}}` . `editMessage` template escapes all special mentions and hence the `@everyone` appears as plain text. After another 1 second, `editMessageNoEscape` re-edits the message producing the `@everyone` again.
 

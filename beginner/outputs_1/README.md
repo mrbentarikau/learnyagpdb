@@ -16,7 +16,7 @@ Hello World.
 
 The above will make the bot print out "Hello World." in form of a response message when the command gets **triggered**.
 
-![](../../.gitbook/assets/image%20%289%29.png)
+![](../../.gitbook/assets/image%20%2811%29.png)
 
 Practice Question: Write a command to output : This is **yag bot**
 
@@ -39,7 +39,7 @@ Welcome to our Server : {{.Server.Name}}
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%2814%29.png)
+![](../../.gitbook/assets/image%20%2816%29.png)
 
 ### Example 2
 
@@ -68,7 +68,7 @@ You will sometimes notice user mentions are produced by &lt;@!UserID&gt;. This i
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2813%29.png)
 
 \*\*\*\*
 
