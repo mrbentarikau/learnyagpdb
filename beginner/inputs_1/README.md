@@ -15,11 +15,11 @@ YAGPDB's templates provide several ways of working with arguments, the two most 
 
 We'll be going through both of these in order. Note that in addition to these, there are also several other ways of working with arguments which include using `.StrippedMsg`, `.Args`, and to a certain degree `.Cmd` \(which does not concern arguments, but the trigger used\). However, we'll be talking about `.CmdArgs` and `parseArgs` today, with the others coming in a later chapter.
 
-## parseArgs
+## `parseArgs`
 
 For beginners going into intermediate level custom commands, it's likely that you'll want to start off with the `parseArgs` function. It works like any other function, with the syntax `parseArgs <minimum number of args> <error message> ...cargs`.
 
-### parseArgs Syntax
+### `parseArgs` Syntax
 
 This may seem quite confusing at first, so we'll go over each of the required arguments for parseArgs.
 
@@ -35,7 +35,7 @@ This may seem quite confusing at first, so we'll go over each of the required ar
 
      The `<description>` of the `carg` is what we were talking about earlier: If a user does not execute a command with the arguments expect, YAGPDB with construct an error message from this description.
 
-### Examples of parseArgs usage
+### Examples of `parseArgs` usage
 
 Here are some examples of possible usage of `parseArgs`, in case you are still confused:
 
@@ -77,7 +77,7 @@ An example of a _complete_ command using parseArgs is the following \(very simpl
 {{ sendMessage ($args.Get 0).ID ($args.Get 1) }}
 ```
 
-### IsSet
+### `IsSet`
 
 `parseArgs` has a slightly "hidden" or unknown feature called `IsSet`. When you have a number of optional arguments in your `parseArgs`, you can use `IsSet` to check whether these arguments exist. This is a little difficult to explain, so let's take the example here:
 
