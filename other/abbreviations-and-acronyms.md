@@ -14,6 +14,7 @@ This section presents most commonly used short literals from ****[**support serv
 **DB** - in context of YAGPDB it generally means its own lightweight [database](https://docs.yagpdb.xyz/reference/templates#database). So dbquery, dbvalue etc... are all usually describing YAG's database.  
 **hex** - [Hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) is a positional system representing numbers using a base of 16.  
 **postgres** - [PostgreSQL](https://www.postgresql.org/), also known as Postgres, is a free and open-source relational database management system which holds YAGPDB's main database.  
+**redbar** - red error bar top of the screen YAGPDB's control panel displays if any error is detected.  
 **redis** - The name [Redis](https://github.com/antirez/redis) means REmote DIctionary Server.  is an in-memory data structure project implementing a distributed, in-memory key-value database with optional durability.  
 **regex\(p\)** -  A regular expression, regex or regexp \(sometimes called a rational expression\) is a sequence of characters that define a search pattern. Good websites - [1](http://www.regular-expressions.info/), [2](https://regex101.com/?flavor=golang).
 
