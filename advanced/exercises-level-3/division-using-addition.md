@@ -10,5 +10,5 @@ Your task is to **write a CC "old-school way" which calculates division using in
 
 For example:  `-div 9973 26` will return `9973 divided by 26 equals 383.57`
 
-[Example Solution](https://pastebin.com/PgzakUnP).
+Example Solution.
 

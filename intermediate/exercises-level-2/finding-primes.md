@@ -33,5 +33,5 @@ So your task for this exercise is to translate this algorithm to CC-code.
 
 Hint: Remember `seq` function's max limit.
 
-[Example solution](https://pastebin.com/rcYbgdAf)
+Example solution
 

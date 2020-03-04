@@ -10,5 +10,5 @@ If you do these steps for `N=3`, you should come up with the sequence of numbers
 
 Generally, when we're programming, we don't like capital letters for variables. All capital letters is usually reserved for a constant, so we'll use lowercase `$n` for this variable henceforth.  
   
-[Example solution](https://pastebin.com/vNfc73zG).
+Example solution.
 
