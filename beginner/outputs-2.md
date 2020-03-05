@@ -161,7 +161,7 @@ The first message is send used `sendMessageNoEscape` and hence produces an `@eve
 
 ## Example Codes
 
-## Example 1
+### Example 1
 
 ```go
 {{$args := parseArgs 2 "Syntax is -announce <channel> <text>" 
@@ -171,5 +171,13 @@ The first message is send used `sendMessageNoEscape` and hence produces an `@eve
 {{sendMessageNoEscape ($args.Get 0) ($args.Get 1)}}
 ```
 
+#### Explanation :
 
+Above example represents a simple "announce" command. It accepts two arguments, the first being the channel \(ID/Mention\) of the channel to send message to and the second is the string which consists of all text passed after the first argument. Note that we use `sendMessageNoEscape` here rather than simple `sendMessage` because announcements often have certain special mentions which we do not intend to escape here.
+
+### Example 2
+
+```go
+{{$args := 
+```
 
