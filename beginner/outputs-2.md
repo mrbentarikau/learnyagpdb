@@ -159,3 +159,17 @@ After second edit by `editMessageNoEscape`
 
 The first message is send used `sendMessageNoEscape` and hence produces an `@everyone` mention. It also outputs the ID of the message posted which is stored in variable $ID. Using this message ID, and with `nil` as channel ID, `editMessage` performs the first edit to the message after 1 second \(due to `{{sleep 1}}`. `editMessage` template escapes all special mentions and hence the `@everyone` appears as plain text. After another 1 second, `editMessageNoEscape` re-edits the message producing the `@everyone` again.
 
+## Example Codes
+
+## Example 1
+
+```go
+{{$args := parseArgs 2 "Syntax is -announce <channel> <text>" 
+(carg "channel" "channel to send to")
+(carg "string" "text to send")}}
+
+{{sendMessageNoEscape ($args.Get 0) ($args.Get 1)}}
+```
+
+
+
