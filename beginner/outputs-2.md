@@ -28,7 +28,7 @@ It is important to note that `sendMessage` template by itself is an **action typ
   
 **Output:**
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 **Explanation :**  
 As discussed earlier, the `sendMessage` template here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -40,7 +40,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 **Output :**  
 
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 **Explanation :**  
   
@@ -51,7 +51,7 @@ In the previous example it is important to note that the `sendMessage` template'
 Example:   
 `third{{sendMessage nil "first"}}{{sendMessage nil "second"}}`  
 Output:  
- ![](../.gitbook/assets/image%20%2819%29.png)
+ ![](../.gitbook/assets/image%20%2821%29.png)
 {% endhint %}
 
 
@@ -69,7 +69,7 @@ As we have already mentioned earlier in case of **response**, certain mentions s
 
 **Output :**
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 **Explanation :**
 
@@ -91,7 +91,7 @@ Second Message ID = {{$ID}}
 
 **Output :**
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
 
 **Explanation :**
 
@@ -145,15 +145,15 @@ In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMess
 
 Initial Message sent  by `sendMessageNoEscapeRetID`
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 After first edit by `editMessage`
 
-![](../.gitbook/assets/image%20%2820%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 After second edit by `editMessageNoEscape`
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
 **Explanation :**
 

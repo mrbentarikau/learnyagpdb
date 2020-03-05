@@ -16,7 +16,7 @@ Hello World.
 
 The above will make the bot print out "Hello World." in form of a response message when the command gets **triggered**.
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2813%29.png)
 
 Practice Question: Write a command to output : This is **yag bot**
 
@@ -39,7 +39,7 @@ Welcome to our Server : {{.Server.Name}}
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%2816%29.png)
+![](../../.gitbook/assets/image%20%2818%29.png)
 
 ### Example 2
 
@@ -56,7 +56,7 @@ In the above code we explore how to produce mentions. Simply writing @user or @r
 Before understanding mentions it is important to understand what IDs are. For this we recommend to have a look at the [official discord guide](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-). Mentions follow a specific format which is elaborated [here](https://docs.yagpdb.xyz/reference/templates#mentions). In general channel mentions are `<#Channel_ID>` , User Mentions are `<@User_ID>` , Role Mentions are  `<@&Role_ID>` and custom emojis are `<:emoji_name:emoji_id>` or `<a:emoji_name:emoji_id>` . Also, by default role mentions will be escaped \(not produce a mention\). You will have to use special templates to produce a role mention as seen in the above code with `{{mentionEveryone}}`. Some templates for role mentions are `mentionRoleName` and `mentionRoleID`.  
 
 
-![](../../.gitbook/assets/image%20%281%29.png)
+![](../../.gitbook/assets/image%20%282%29.png)
 
 {% hint style="info" %}
 Note: A bot has the same restrictions as that of a regular user with nitro and cannot use emojis of servers they have no access to. For the bot to use external custom emojis, they must be present in that server where the emojis belong to and they must have permissions to use external emojis.
@@ -68,7 +68,7 @@ You will sometimes notice user mentions are produced by &lt;@!UserID&gt;. This i
 
 #### Output :
 
-![](../../.gitbook/assets/image%20%2813%29.png)
+![](../../.gitbook/assets/image%20%2815%29.png)
 
 \*\*\*\*
 

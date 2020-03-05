@@ -28,8 +28,9 @@ This may seem quite confusing at first, so we'll go over each of the required ar
 3. `...cargs` - parseArgs is a variadic function of sorts, which means it can allow as many or as little `carg`s as you wish. `carg` is a template itself, describing the argument you want to parse. It takes the syntax `carg <type> <description>`, where type is one of the following types \(enclosed in quotes, like `"int"`\):
    * `int` \(whole number\)
    * `string` \(text\)
-   * `user` \(user mentions, resolves to the user structure\)
+   * `user` \(user mentions, resolves to the [user](https://docs.yagpdb.xyz/reference/templates#user) structure\)
    * `userid` \(mentions or user IDs, resolves to the ID itself\)
+   * `member` \(mentions or user IDs, resolves to the [member](https://docs.yagpdb.xyz/reference/templates#member) structure\)
    * `channel` \(channel mention or ID, resolves to the channel structure\)
    * `duration` \(duration that is human-readable, i.e `10h5m` or `10 hour 5 minutes` would both resolve to the same duration\)
 
@@ -61,21 +62,36 @@ This is because `parseArgs` returns either an error message \(if the arguments p
 {{ ($args.Get 0).Mention }} {{/* We .Get() the first argument, which is a user object, and then we call the .Mention property which mentions the user */}}
 ```
 
-This would mention the user which you provided.
+The above example would mention the user which you provided. Notice that there is some text enclosed within `{{/*` and `*/}}`. Text enclosed within this is a comment and it is completely ignored by the compiler and does not produce an output \(response\) either.
 
 {% hint style="info" %}
 In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted to get the first argument from parseArgs, you'd use `($args.Get 0)`, not `($args.Get 1)`. The latter would actually get the _second_ argument from parseArgs, rather than the first.
 {% endhint %}
 
-An example of a _complete_ command using parseArgs is the following \(very simple\) command which sends a message to a given channel. _This was taken from the_ [_documentation_](https://docs.yagpdb.xyz/reference/custom-command-examples#parseargs-example)\_\_
+**Example**:
 
 ```go
-{{ $args := parseArgs 2 "Syntax is <channel> <text>"
-    (carg "channel" "channel to send to")
-    (carg "string" "text to send") }}
+{{$args := parseArgs 2 "Syntax is <user> <message>" 
+(carg "member" "member to imitate")
+(carg "string" "message")}}
 
-{{ sendMessage ($args.Get 0).ID ($args.Get 1) }}
+{{$member := $args.Get 0}}
+{{if $member.Nick}}
+    {{$member.Nick}} : {{$args.Get 1}}
+{{else}}
+    {{$member.User.Username}} : {{$args.Get 1}}
+{{end}}
 ```
+
+**Output:**
+
+![Output for Member with Nickname](../../.gitbook/assets/image%20%2822%29.png)
+
+![Output for Member without Nickname](../../.gitbook/assets/image%20%2823%29.png)
+
+**Explanation**:
+
+In the above example, the command accepts two arguments- a member and a string. Member argument can be passed by providing the underlying user's id or by mentioning the user. The rest of the text following the first argument is parsed as string. If the member has a nickname , their nickname is used at the start of the message , otherwise their username is used. The rest of the message is then output as is.
 
 ### `IsSet`
 
@@ -113,7 +129,7 @@ Sometimes, you will want to use `.CmdArgs` instead of `parseArgs`. `.CmdArgs` is
 
 ```go
 {{ $allArgs := .CmdArgs }}
-{{ sendMessage nil (joinStr ", " $allArgs) }}
+{{ joinStr ", " $allArgs}}
 ```
 
 Let's say we used `-seeargs "hello world"`. As YAGPDB sees text enclosed in quotations as one argument, it would repeat back to us `hello world!`. However, let's say we used `-seeargs hello world` instead. Instead of giving us the same output, it would instead repeat `hello, world`.
@@ -136,7 +152,7 @@ The first method is using an `if` statement with just `.CmdArgs`:
 
 ```go
 {{ if .CmdArgs }}
-    {{ sendMessage nil (index .CmdArgs 0) }}
+    {{index .CmdArgs 0}}
 {{ else }}
     You provided no arguments.
 {{ end }}
@@ -148,7 +164,7 @@ We can fix this by using a comparison operator, like `eq` or `ge` and comparing 
 
 ```go
 {{ if eq (len .CmdArgs) 2 }}
-    {{ sendMessage nil (index .CmdArgs 1) }}
+    {{index .CmdArgs 1}}
 {{ else }}
     You need to provide at least 2 arguments.
 {{ end }}
