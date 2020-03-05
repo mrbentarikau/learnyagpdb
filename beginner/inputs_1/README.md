@@ -114,7 +114,7 @@ Let's explain this line by line.
 
 ![](../../.gitbook/assets/image-2.png)
 
- IsSet is extremely useful if you have several optional arguments and you want to check whether they exist / were provided by the user quickly.
+ `IsSet` is extremely useful if you have several optional arguments and you want to check whether they exist / were provided by the user quickly.
 
 ### Activities
 
