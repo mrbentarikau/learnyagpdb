@@ -12,7 +12,7 @@ Up until now we have seen how to use the default **response** to send an output.
 
 This is the most basic and simple form of an output template. The general syntax for `sendMessage` template is :
 
-```text
+```go
 {{sendMessage channel_id message_to_be_sent}}
 ```
 
@@ -62,7 +62,7 @@ As we have already mentioned earlier in case of **response**, certain mentions s
   
 **Example :**
 
-```text
+```go
 {{sendMessage nil "@here"}}{{sendMessage nil (mentionEveryone)}}
 {{sendMessageNoEscape nil "@here"}}
 ```
@@ -83,7 +83,7 @@ These templates function very similar  to their counterparts `sendMessage` and `
 
 **Example :**
 
-```text
+```go
 First Message ID = {{sendMessageRetID nil "Yag is cool"}}
 {{$ID:= sendMessageRetID nil "I know!" -}}
 Second Message ID = {{$ID}}
@@ -110,7 +110,7 @@ We have seen how to send messages. Editing messages is an almost similar except 
 
 This template is very similar to the `sendMessage` template and just requires and additional message ID argument. The syntax is :
 
-```text
+```go
 {{editMessage channel_id message_id new_message}}
 ```
 
@@ -118,7 +118,7 @@ The `channel_id` is the ID of the channel in which the message to be edited exis
 
 **Example :**
 
-```text
+```go
 {{$ID := sendMessageRetID nil "Yag is ..."}}{{sleep 1}}
 {{editMessage nil $ID "Yag is ... very nice"}}
 ```
@@ -133,7 +133,7 @@ In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMess
 
 **Example :**
 
-```text
+```go
 {{$ID := sendMessageNoEscapeRetID nil "Hello @everyone"}}
 {{sleep 1}}
 {{editMessage nil $ID "Hello @everyone! Good Day!"}}
