@@ -62,7 +62,7 @@ This is because `parseArgs` returns either an error message \(if the arguments p
 {{ ($args.Get 0).Mention }} {{/* We .Get() the first argument, which is a user object, and then we call the .Mention property which mentions the user */}}
 ```
 
-The above example would mention the user which you provided. Notice that there is some text enclosed within `{{/*` and `*/}}`. Text enclosed within this is a comment and it is completely ignored by the compiler and does not produce an output \(response\) either.
+The above example would mention the user which you provided. Notice that there is some text enclosed within `{{/*` and `*/}}`. Text enclosed within this is a **comment** and it is completely ignored by the compiler and does not produce an output \(response\) either.
 
 {% hint style="info" %}
 In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted to get the first argument from parseArgs, you'd use `($args.Get 0)`, not `($args.Get 1)`. The latter would actually get the _second_ argument from parseArgs, rather than the first.
@@ -170,7 +170,7 @@ We can fix this by using a comparison operator, like `eq` or `ge` and comparing 
 {{ end }}
 ```
 
-Voila! No more errors. You can do this with any comparison operator you want.
+Voila! No more errors. You can do this with any comparison operator you want. Note in the above example, we have used a new template called `len`. It is a special template which outputs the size of a collection \(like `.CmdArgs` here\) or byte-length of a string, depending on datatype passed.
 
 Hopefully this chapter helped you understand retrieving and parsing user input a little better. Good luck!
 
