@@ -163,6 +163,8 @@ The first message is send used `sendMessageNoEscape` and hence produces an `@eve
 
 ### Example 1
 
+Following is a simple announce command.
+
 ```go
 {{$args := parseArgs 2 "Syntax is -announce <channel> <text>" 
 (carg "channel" "channel to send to")
@@ -176,6 +178,8 @@ The first message is send used `sendMessageNoEscape` and hence produces an `@eve
 Above example represents a simple "announce" command. It accepts two arguments, the first being the channel \(ID/Mention\) of the channel to send message to and the second is the string which consists of all text passed after the first argument. Note that we use `sendMessageNoEscape` here rather than simple `sendMessage` because announcements often have certain special mentions which we do not intend to escape here.
 
 ### Example 2
+
+Following is a command to edit a message previously sent by bot with new content passed as argument.
 
 ```go
 {{$channel := .Channel}}{{$error := ""}}
