@@ -178,6 +178,44 @@ Above example represents a simple "announce" command. It accepts two arguments, 
 ### Example 2
 
 ```go
-{{$args := 
+{{$channel := .Channel}}{{$error := ""}}
+
+{{if gt (len .CmdArgs) 1}}
+
+	{{$newmessage := joinStr "" (slice .CmdArgs 1)}}
+	
+	{{if toInt (index .CmdArgs 0) }}
+	
+		{{if gt (len .CmdArgs) 2}}
+			{{if getChannel (index .CmdArgs 1)}}
+				{{$channel =  getChannel (index .CmdArgs 1)}}
+				{{$newmessage = joinStr "" (slice .CmdArgs 2)}}
+			{{end}}
+		{{end}}
+		
+		{{$message := getMessage $channel.ID (index .CmdArgs 0)}}
+		{{if  $message }}
+		
+			{{if eq $message.Author.ID 204255221017214977}}
+				{{editMessageNoEscape $channel.ID (index .CmdArgs 0) $newmessage}}
+			{{else}}
+				{{$error = "Only messages sent by the bot itself can be edited! Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+			{{end}}
+			
+		{{else}}
+			{{$error = "Invalid Message ID. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+		{{end}}
+		
+	{{else}}
+		{{$error = "Invalid Message ID. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+	{{end}}
+	
+{{else}}
+	{{$error = "Insufficient arguments passed. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+{{end}}
+
+{{if $error}}
+	{{$error}}
+{{end}}
 ```
 
