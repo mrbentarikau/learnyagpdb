@@ -192,7 +192,7 @@ Above is an example code which can be used in [Join Message](https://docs.yagpdb
   
 There are two major takeaways from the above example. Firstly notice how an if-else or if-else if-else statement can be used inside another block. In this case it is executed only of the first condition is false for the outer if statement \(that is user joining is not a bot\). This is called nesting and can be very useful for checking a complex set of conditions. Secondly notice the `-` at use in the internal if-else if-else templates. It is used to trim spaces to the left and right of the templates to aid with formatting. It is discussed in more detail [here](https://golang.org/pkg/text/template/#hdr-Text_and_spaces).
 
-#### Output:
+#### Output :
 
 Sample output for normal user joining :
 

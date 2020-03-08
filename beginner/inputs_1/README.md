@@ -68,7 +68,7 @@ The above example would mention the user which you provided `$args.Get 0` repres
 In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted to get the first argument from parseArgs, you'd use `($args.Get 0)`, not `($args.Get 1)`. The latter would actually get the _second_ argument from parseArgs, rather than the first.
 {% endhint %}
 
-**Example**:
+**Example :**
 
 ```go
 {{$args := parseArgs 2 "Syntax is <user> <message>" 
@@ -83,13 +83,13 @@ In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted t
 {{end}}
 ```
 
-**Output:**
+**Output :**
 
 ![Output for Member with Nickname](../../.gitbook/assets/image%20%2822%29.png)
 
 ![Output for Member without Nickname](../../.gitbook/assets/image%20%2823%29.png)
 
-**Explanation**:
+**Explanation :**
 
 In the above example, the command accepts two arguments- a member and a string. Member argument can be passed by providing the underlying user's id or by mentioning the user. The rest of the text following the first argument is parsed as string. If the member has a nickname , their nickname is used at the start of the message , otherwise their username is used. The rest of the message is then output as is.
 
@@ -141,23 +141,23 @@ There's nothing too crazy about `.CmdArgs` - it's simply a slice\(collection\) o
 In the above example we see a new template called joinStr which belongs to the category of string manipulation templates documented [here](https://docs.yagpdb.xyz/reference/templates#string-manipulation). Some basic string manipulation templates with usage will be explained below :
 
 1. `lower` : Syntax is `lower string` . This is a template which converts all letters into lower case. Other characters which do not have a defined lower case remain unaffected. 
-2. `upper`: Syntax is `upper string` . This is a template which converts all letters into upper\(title\) case. 
+2. `upper` : Syntax is `upper string` . This is a template which converts all letters into upper\(title\) case. 
 
    Other characters which do not have a defined upper\(title\) case remain unaffected.  
 
-3. `title`: Syntax is `title string`. It returns a string with the first letter of each word capitalized\(in title case\). Subsequent characters in the word remain unaffected. Note that word here is not delimited by only whitespace. Some other characters \(like ; or \#\) behave have word separators and the first letter following them is capitalized as well.     **Example:** `{{title "hellO World! | @m g00d o_k. ää##spam;a"}}` ****will return      Above will return : `HellO World! | @M G00d O_k. Ää##Spam;A` . 
-4. `joinStr`: Syntax is `joinStr separator string_or_string_slice(s)`. This is a very useful template used for joining strings or string slices together into a single string. Separator is the character\(s\) that is inserted between each element while forming the final string. It can be a null string `""` as which which simply joins all elements together without placing any extra character in between while joining them. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal.  
+3. `title` : Syntax is `title string`. It returns a string with the first letter of each word capitalized\(in title case\). Subsequent characters in the word remain unaffected. Note that word here is not delimited by only whitespace. Some other characters \(like ; or \#\) behave have word separators and the first letter following them is capitalized as well.     **Example:** `{{title "hellO World! | @m g00d o_k. ää##spam;a"}}` ****will return      Above will return : `HellO World! | @M G00d O_k. Ää##Spam;A` . 
+4. `joinStr` : Syntax is `joinStr separator string_or_string_slice(s)`. This is a very useful template used for joining strings or string slices together into a single string. Separator is the character\(s\) that is inserted between each element while forming the final string. It can be a null string `""` as which which simply joins all elements together without placing any extra character in between while joining them. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal.  
  
 
-   1. **Example 1:** `{{$x := joinStr "," "word1" "word no 2" "" "3"}}{{$x}}`  ****Above code will create a single string `word1,word no 2,,3` and assign it to variable $x which is output as response. Note how each element is joined by the separator `,` . Also note how while joining blank strings, multiple separators simply placed side-by-side. 
-   2. **Example 2:** `{{$s := joinStr "++" "0" .CmdArgs "last"}}{{$s}}`  ****In the above code, let us assume we invoke the code with following Arguments : `one two 3`. `joinStr` template will produce a single string `0++one++two++3++last`. Note how the separator can be multiple characters. Also note that each entry of the slice\(collection\) `.CmdArgs` is treated as a separate element.
+   1. **Example 1 :** `{{$x := joinStr "," "word1" "word no 2" "" "3"}}{{$x}}`  ****Above code will create a single string `word1,word no 2,,3` and assign it to variable $x which is output as response. Note how each element is joined by the separator `,` . Also note how while joining blank strings, multiple separators simply placed side-by-side. 
+   2. **Example 2 :** `{{$s := joinStr "++" "0" .CmdArgs "last"}}{{$s}}`  ****In the above code, let us assume we invoke the code with following Arguments : `one two 3`. `joinStr` template will produce a single string `0++one++two++3++last`. Note how the separator can be multiple characters. Also note that each entry of the slice\(collection\) `.CmdArgs` is treated as a separate element.
 
 5. `split` : Syntax is `split string separator`This is almost the reverse of the `joinStr` template and it splits a string at the specified separator producing a string slice. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal. Separator can be multiple characters. 
-   1. **Example:** `{{$s := split "this-is-what-it-is" "is"}}`  Above template produces a string slice by breaking the string at every occurrence of the separator. It produces the following string slice\(collection\) `["th" "-" "-what-it-" ""]` as output which is stored into the variable called $s.
+   1. **Example :** `{{$s := split "this-is-what-it-is" "is"}}`  Above template produces a string slice by breaking the string at every occurrence of the separator. It produces the following string slice\(collection\) `["th" "-" "-what-it-" ""]` as output which is stored into the variable called $s.
 
 {% hint style="info" %}
 Note that `joinStr`template ignores the all initial null string characters while forming the final string. Subsequent null string characters after a non null element are not ignored.  
-**Example:** `{{joinStr "," "" "hehe" "" ""}}` produces the output `hehe,,`
+Example : `{{joinStr "," "" "hehe" "" ""}}` produces the output `hehe,,`
 {% endhint %}
 
 ### Working with `.CmdArgs`
@@ -199,10 +199,10 @@ Voila! No more errors. You can do this with any comparison operator you want. No
 Hopefully this chapter helped you understand retrieving and parsing user input a little better. Good luck!
 
 {% hint style="success" %}
-**Pro Tip:** A good way to view string slices is using the printf template as follows.   
+**Pro Tip :** A good way to view string slices is using the printf template as follows.   
 `{{printf "%q" $slice}}.`
 
-**Example:** `{{printf "%q" (split "ok.gg." ".")}}`  
+**Example:**  `{{printf "%q" (split "ok.gg." ".")}}`  
 Produces the output : `["ok" "gg" ""]`  
 %q stands for quoted string. Thus, it outputs each element in form of of a quoted string making it easier to spot invisible characters and spaces. Also note that the output might represent certain special characters using escape sequences as discussed earlier.
 {% endhint %}
