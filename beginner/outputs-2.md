@@ -48,9 +48,9 @@ As discussed earlier, the `sendMessage` template sends a **separate message** as
 
 {% hint style="info" %}
 In the previous example it is important to note that the `sendMessage` template's output message is sent before the custom command's response message. The reason for this is that the response is generated only after the execution of the custom command is finished however the `sendMessage` template directs the bot to send a message during its execution.  
-Example:   
+Example :   
 `third{{sendMessage nil "first"}}{{sendMessage nil "second"}}`  
-Output:  
+Output :  
  ![](../.gitbook/assets/image%20%2821%29.png)
 {% endhint %}
 
@@ -98,7 +98,7 @@ Second Message ID = {{$ID}}
 The execution order is as follows - initially the first `sendMessage` template is executed and posts a message `Yag is cool`. It outputs it's message ID which becomes a part of the response since it is not captured by a variable. Then, the second `sendMessage` template is executed and posts the second message `I know!`. The ID of this message is captured by a variable $ID later used for forming the response. At the end of program execution, response is  posted as a separate message.
 
 {% hint style="info" %}
-Note: These templates output an ID only if the bot was successful in posting a message. If it was unable to post an output, due to bot lacking permissions or invalid channel id passed, it produces no meaningful output just like `sendMessage` .   
+Note : These templates output an ID only if the bot was successful in posting a message. If it was unable to post an output, due to bot lacking permissions or invalid channel id passed, it produces no meaningful output just like `sendMessage` .   
 The output in these cases is simply an empty string "" which corresponds to the zero value of String datatype! Interestingly, all pure action based templates also output an empty string.
 {% endhint %}
 
