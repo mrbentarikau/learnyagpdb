@@ -62,7 +62,7 @@ This is because `parseArgs` returns either an error message \(if the arguments p
 {{ ($args.Get 0).Mention }} {{/* We .Get() the first argument, which is a user object, and then we call the .Mention property which mentions the user */}}
 ```
 
-The above example would mention the user which you provided. Notice that there is some text enclosed within `{{/*` and `*/}}`. Text enclosed within this is a **comment** and it is completely ignored by the compiler and does not produce an output \(response\) either.
+The above example would mention the user which you provided `$args.Get 0` represents the fist parsed argument which is an user structure here and we can use `.Mention` on it to fetch the user's mention. Notice that there is some text enclosed within `{{/*` and `*/}}`. Text enclosed within this is a **comment** and it is completely ignored by the compiler and does not produce an output \(response\) either.
 
 {% hint style="info" %}
 In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted to get the first argument from parseArgs, you'd use `($args.Get 0)`, not `($args.Get 1)`. The latter would actually get the _second_ argument from parseArgs, rather than the first.
@@ -134,7 +134,15 @@ Sometimes, you will want to use `.CmdArgs` instead of `parseArgs`. `.CmdArgs` is
 
 Let's say we used `-seeargs "hello world"`. As YAGPDB sees text enclosed in quotations as one argument, it would repeat back to us `hello world!`. However, let's say we used `-seeargs hello world` instead. Instead of giving us the same output, it would instead repeat `hello, world`.
 
-There's nothing too crazy about `.CmdArgs` - it's simply a slice or array of string arguments that are unparsed. If you want to parse the arguments, you will have to do it manually. Say you wanted to parse a user out of an argument, you'd have to do it with `userArg` \(which we will talk about in a later chapter\).
+There's nothing too crazy about `.CmdArgs` - it's simply a slice\(collection\) or array of string arguments that are unparsed\(in their original state\). If you want to parse the arguments, you will have to do it manually. This will be explored in a later chapter.
+
+### String Manipulation Templates
+
+In the above example we see a new template called joinStr which belongs to the category of string manipulation templates documented [here](https://docs.yagpdb.xyz/reference/templates#string-manipulation). Some basic string manipulation templates with usage will be explained below :
+
+1. `lower` : Syntax is `lower string` . This is 
+
+
 
 ### Working with `.CmdArgs`
 
