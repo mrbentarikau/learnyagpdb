@@ -4,6 +4,8 @@ description: ©Duke University
 
 # Algorithms
 
+Algorithm is not a word used by programmers when they do not want to explain the magic of what they just did.
+
 As we discussed earlier, an algorithm is a clear set of steps to solve any problem in a particular class. Typically, algorithms have at least one parameter; however, algorithms with no parameters exist—they are simply restricted to one specific problem, rather than a more general class. We can discuss and think about algorithms in the absence of any particular knowledge of computers—a _good_ algorithm can not only be translated into code, but could also be executed by a person with no particular knowledge of the problem at hand.
 
 Algorithms that computers work on deal with numbers—in fact the module **Types** will discuss the concept of "Everything is a number," which is a key principle in programming. Computers can only compute on numbers; however, this course will also illustrate how we can represent a variety of useful things \(letters, words, images, videos, sound, etc.\) as numbers so that computers can compute on them. As a simple example of an algorithm that works with numbers, we might consider the following algorithm \(which takes one parameter _N_, a non-negative integer\):
