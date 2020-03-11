@@ -15,7 +15,7 @@
   * [Exercises](beginner/inputs_1/exercises.md)
 * [Outputs 2](beginner/outputs-2.md)
 
-## Programming
+## 🤖 Programming
 
 * [The Seven Steps of Programming](programming/the-seven-steps-of-programming.md)
 * [Algorithms](programming/algorithms.md)
