@@ -33,7 +33,7 @@
   * [Fibonacci Sequence Algorithm](advanced/exercises-level-3/fibonacci-sequence-algorithm.md)
   * [Writing a Sorting Algorithm](advanced/exercises-level-3/sort_algorithm.md)
 
-## Programming
+## 🤖 Programming
 
 * [The Seven Steps of Programming](programming/the-seven-steps-of-programming.md)
 * [Algorithms](programming/algorithms.md)

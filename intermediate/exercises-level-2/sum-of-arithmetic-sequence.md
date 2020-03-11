@@ -4,7 +4,7 @@ description: '"Programming is not a zero-sum game..." // John Carmack'
 
 # Sum of Arithmetic Sequence
 
-A sequence with same common difference is known as **arithmetic sequence**.  The first term of sequence is **a** and common difference is **d**. The series looks like **a, a + d, a + 2d, a + 3d, . . .**  How many terms to go is **n.**
+A sequence with same common difference is known as **arithmetic sequence**. The first term of sequence is **a** and common difference is **d**. The series looks like **a, a + d, a + 2d, a + 3d, . . .** How many terms to go is **n.**
 
 Arithmetic sum formula is shown below - this is all domain knowledge required for this exercise.
 

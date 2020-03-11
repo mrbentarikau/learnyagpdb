@@ -6,7 +6,7 @@ description: >-
 
 # Writing a Pattern Algorithm
 
-Let's think about an algorithm from pattern of symbols drawn to xy-coordinate grid. In Discord's context, an embed having emojis would be one way of doing this. 
+Let's think about an algorithm from pattern of symbols drawn to xy-coordinate grid. In Discord's context, an embed having emojis would be one way of doing this.
 
 ![The output of the algorithm for N=0 to N=5.](../../.gitbook/assets/patternofemojis.png)
 
@@ -18,18 +18,18 @@ generalizing steps having N=3
     red emoji at (0,1)
     red emoji at (0,2)
     green emoji at (0,3)
-    
+
     red emoji at (1,1)
     green emoji at (1,2)
     red emoji at (1,3)
-    
+
     red emoji at (2,2)
     red emoji at (2,3)
-    
+
     green emoji at (3,3)
 ```
 
-In code-block above there's repetition and counting. You see x-coordinate increase by each step and these  are grouped in separate paragraphs. So we are counting x and repeating somewhat similar colour and y- coordinate changes.
+In code-block above there's repetition and counting. You see x-coordinate increase by each step and these are grouped in separate paragraphs. So we are counting x and repeating somewhat similar colour and y- coordinate changes.
 
 Looking at y-coordinates first. If we look at this first group of steps, we see that the y-coordinates go from zero to three, then from one to three and then from two to three. In general for N=3 we are counting from x to 3 for y.
 
@@ -46,7 +46,7 @@ generalizing green emoji having N=5 steps
     green at (4,5)
 ```
 
-We can see that the repeating pattern for green here is x+y being multiple  of 3. 
+We can see that the repeating pattern for green here is x+y being multiple of 3.
 
 So we can generalize it to an algorithm: _Counting from 0 to `N` \(both inclusive\), call each number `x` and from 0 to `x` \(both inclusive\), call each number `y`. If x+y is multiple of three, place green emoji, otherwise place red emoji._
 

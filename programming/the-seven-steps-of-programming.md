@@ -16,9 +16,9 @@ To write a program which takes any number N and determines if N is prime, we mus
 
 ![](../.gitbook/assets/qxjdiqxceeebgapiskr0eg_0bfe6c1d55d020d7b2180a90443b1c26_01_high_level_prog.png)
 
-This figure shows a high-level overview of the programming process. A programmer starts by devising the algorithm for the task they are trying to solve. We will split this planning phase into four steps in the process of writing a program, which we will discuss in more detail shortly. At the end of these four steps, the programmer should have a complete plan for the task at hand—and be convinced that the plan is a good one.  
-  
-Devising an algorithm takes first four steps: working on an example, writing it down what they did, generalizing those steps and will testing them. 
+This figure shows a high-level overview of the programming process. A programmer starts by devising the algorithm for the task they are trying to solve. We will split this planning phase into four steps in the process of writing a program, which we will discuss in more detail shortly. At the end of these four steps, the programmer should have a complete plan for the task at hand—and be convinced that the plan is a good one.
+
+Devising an algorithm takes first four steps: working on an example, writing it down what they did, generalizing those steps and will testing them.
 
 ![](../.gitbook/assets/kbp1hatheeebnhjf9kzsoa_80d7e65e9d1ab2fccd4b1d799964717f_01_steps_new.png)
 

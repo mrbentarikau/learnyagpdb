@@ -18,17 +18,17 @@ This is the most basic and simple form of an output template. The general syntax
 
 The `channel_id` is the ID of the channel in which the message is to be sent. For sending the message in the same channel as the one in which the custom command is running, `channel_id` can be set to `nil`.
 
-`message_to_be_sent` denotes the output that is to be sent as a message.In this chapter we will deal with only simple textual output \(strings\).   
-  
+`message_to_be_sent` denotes the output that is to be sent as a message.In this chapter we will deal with only simple textual output \(strings\).
+
 It is important to note that `sendMessage` template by itself is an **action type** template , that is it does not produce a meaningful/usable output by itself. It simply directs the bot to send the content that is passed to it in a **separate message** from the custom command's default **response** message.
 
 #### Example 1 :
 
-`{{sendMessage nil "Hello World"}}`  
-  
+`{{sendMessage nil "Hello World"}}`
+
 **Output:**
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](https://github.com/mrbentarikau/learnyagpdb/tree/3bbd6d54cc5a5e41eeecd0098ec6e9a33f02b447/.gitbook/assets/image%20%2825%29.png)
 
 **Explanation :**  
 As discussed earlier, the `sendMessage` template here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -37,29 +37,26 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 
 `This is the response message{{sendMessage nil "This is a separate message"}}!`
 
-**Output :**  
+**Output :**
 
+![](../.gitbook/assets/image-12.png)
 
-![](../.gitbook/assets/image%20%2812%29.png)
+**Explanation :**
 
-**Explanation :**  
-  
 As discussed earlier, the `sendMessage` template sends a **separate message** as output which is different from the custom command's default response message. The `sendMessage` template being an action type template producing no meaningful output is also shown in the above example. That is the reason why the `!` appears directly after `message` in the response message although if you look at the original code the `sendMessage` template was placed between them.
 
 {% hint style="info" %}
 In the previous example it is important to note that the `sendMessage` template's output message is sent before the custom command's response message. The reason for this is that the response is generated only after the execution of the custom command is finished however the `sendMessage` template directs the bot to send a message during its execution.  
-Example :   
+Example :  
 `third{{sendMessage nil "first"}}{{sendMessage nil "second"}}`  
 Output :  
- ![](../.gitbook/assets/image%20%2821%29.png)
+![](https://github.com/mrbentarikau/learnyagpdb/tree/3bbd6d54cc5a5e41eeecd0098ec6e9a33f02b447/.gitbook/assets/image%20%2821%29.png)
 {% endhint %}
-
-
 
 ### `sendMessageNoEscape` Template
 
-As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` template as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` template. It is important to note that unlike response, using mention based templates such as `mentionHere` does not create a mention with `sendMessage` template. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based template producing no meaningful/usable output.  
-  
+As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` template as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` template. It is important to note that unlike response, using mention based templates such as `mentionHere` does not create a mention with `sendMessage` template. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based template producing no meaningful/usable output.
+
 **Example :**
 
 ```go
@@ -69,17 +66,15 @@ As we have already mentioned earlier in case of **response**, certain mentions s
 
 **Output :**
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image-8.png)
 
 **Explanation :**
 
 In the above example, as already discussed `sendMessage` template never produces a special mention no matter how the special mention is produced. The third output belongs to the `sendMessageNoEscape` template which produces a mention.
 
-
-
 ### `sendMessageRetID` and `sendMessageNoEscapeRetID` Templates
 
-These templates function very similar  to their counterparts `sendMessage` and `sendMessageNoEscape` except that they also output the ID of the discord message posted by them during execution. Hence these two templates both perform and action and produce an output placing them under the third category of templates. This is especially useful for editing messages. The ID output by them can be simply captured by any variable just like any other template which produces an output for later use.
+These templates function very similar to their counterparts `sendMessage` and `sendMessageNoEscape` except that they also output the ID of the discord message posted by them during execution. Hence these two templates both perform and action and produce an output placing them under the third category of templates. This is especially useful for editing messages. The ID output by them can be simply captured by any variable just like any other template which produces an output for later use.
 
 **Example :**
 
@@ -91,20 +86,20 @@ Second Message ID = {{$ID}}
 
 **Output :**
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image-3.png)
 
 **Explanation :**
 
-The execution order is as follows - initially the first `sendMessage` template is executed and posts a message `Yag is cool`. It outputs it's message ID which becomes a part of the response since it is not captured by a variable. Then, the second `sendMessage` template is executed and posts the second message `I know!`. The ID of this message is captured by a variable $ID later used for forming the response. At the end of program execution, response is  posted as a separate message.
+The execution order is as follows - initially the first `sendMessage` template is executed and posts a message `Yag is cool`. It outputs it's message ID which becomes a part of the response since it is not captured by a variable. Then, the second `sendMessage` template is executed and posts the second message `I know!`. The ID of this message is captured by a variable $ID later used for forming the response. At the end of program execution, response is posted as a separate message.
 
 {% hint style="info" %}
-Note : These templates output an ID only if the bot was successful in posting a message. If it was unable to post an output, due to bot lacking permissions or invalid channel id passed, it produces no meaningful output just like `sendMessage` .   
+Note : These templates output an ID only if the bot was successful in posting a message. If it was unable to post an output, due to bot lacking permissions or invalid channel id passed, it produces no meaningful output just like `sendMessage` .  
 The output in these cases is simply an empty string "" which corresponds to the zero value of String datatype! Interestingly, all pure action based templates also output an empty string.
 {% endhint %}
 
 ## Editing Messages
 
-We have seen how to send messages. Editing messages is an almost similar except it additionally requires you to also specify the ID of the message to edit. It is important to note that bots can only edit messages sent by the bot itself. 
+We have seen how to send messages. Editing messages is an almost similar except it additionally requires you to also specify the ID of the message to edit. It is important to note that bots can only edit messages sent by the bot itself.
 
 ### `editMessage` Template
 
@@ -114,7 +109,7 @@ This template is very similar to the `sendMessage` template and just requires an
 {{editMessage channel_id message_id new_message}}
 ```
 
-The `channel_id` is the ID of the channel in which the message to be edited exists and `message_id` is the ID of the message to be edited. `new_message` contains the new output or modification. In this chapter we will deal with only simple textual output \(strings\). 
+The `channel_id` is the ID of the channel in which the message to be edited exists and `message_id` is the ID of the message to be edited. `new_message` contains the new output or modification. In this chapter we will deal with only simple textual output \(strings\).
 
 **Example :**
 
@@ -123,13 +118,13 @@ The `channel_id` is the ID of the channel in which the message to be edited exis
 {{editMessage nil $ID "Yag is ... very nice"}}
 ```
 
-**Explanation :** 
+**Explanation :**
 
-In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMessageRetID` template is used, the ID of the message posted by the bot is also output by the template and stored in a variable $ID.  Notice the usage of a new template called `sleep`. `sleep` template makes the bot wait without performing any action for a given amount in seconds\(maximum cumulative 60 seconds of sleep per CC\). In this case, `{{sleep 1}}` instructs the bot to not perform any action for 1 second. After that the message posted earlier is edited by using the `editMessage` template. Notice that `editMessage` template requires both the ID of the channel and the message itself to be edited. In the above case the channel id is `nil` since it refers to the same channel in which the CC is executed. The message id is stored in the variable $ID. The final edited output is : `Yag is ... very nice` .
+In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMessageRetID` template is used, the ID of the message posted by the bot is also output by the template and stored in a variable $ID. Notice the usage of a new template called `sleep`. `sleep` template makes the bot wait without performing any action for a given amount in seconds\(maximum cumulative 60 seconds of sleep per CC\). In this case, `{{sleep 1}}` instructs the bot to not perform any action for 1 second. After that the message posted earlier is edited by using the `editMessage` template. Notice that `editMessage` template requires both the ID of the channel and the message itself to be edited. In the above case the channel id is `nil` since it refers to the same channel in which the CC is executed. The message id is stored in the variable $ID. The final edited output is : `Yag is ... very nice` .
 
 ### `editMessageNoEscape` Template
 
-`editMessageNoEscape` is very similar to the `sendMessageNoEscape` template and simply requited the message id as an additional argument. Similar to `sendMessage` , `editMessage` template always suppresses/escapes all special mentions in message content \(role mentions or @here or @everyone\). Escape as usual means that the output will not create any mentions and output plain text instead. In order for special mentions to work, `editMessageNoEscape` must be used. 
+`editMessageNoEscape` is very similar to the `sendMessageNoEscape` template and simply requited the message id as an additional argument. Similar to `sendMessage` , `editMessage` template always suppresses/escapes all special mentions in message content \(role mentions or @here or @everyone\). Escape as usual means that the output will not create any mentions and output plain text instead. In order for special mentions to work, `editMessageNoEscape` must be used.
 
 **Example :**
 
@@ -143,17 +138,17 @@ In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMess
 
 **Output :**
 
-Initial Message sent  by `sendMessageNoEscapeRetID`
+Initial Message sent by `sendMessageNoEscapeRetID`
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](../.gitbook/assets/image-10.png)
 
 After first edit by `editMessage`
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](https://github.com/mrbentarikau/learnyagpdb/tree/3bbd6d54cc5a5e41eeecd0098ec6e9a33f02b447/.gitbook/assets/image%20%2824%29.png)
 
 After second edit by `editMessageNoEscape`
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image-4.png)
 
 **Explanation :**
 
@@ -186,40 +181,40 @@ Following is a command to edit a message previously sent by bot with new content
 
 {{if gt (len .CmdArgs) 1}}
 
-	{{$newmessage := joinStr "" (slice .CmdArgs 1)}}
-	
-	{{if toInt (index .CmdArgs 0) }}
-	
-		{{if gt (len .CmdArgs) 2}}
-			{{if getChannel (index .CmdArgs 1)}}
-				{{$channel =  getChannel (index .CmdArgs 1)}}
-				{{$newmessage = joinStr "" (slice .CmdArgs 2)}}
-			{{end}}
-		{{end}}
-		
-		{{$message := getMessage $channel.ID (index .CmdArgs 0)}}
-		{{if  $message }}
-		
-			{{if eq $message.Author.ID 204255221017214977}}
-				{{editMessageNoEscape $channel.ID (index .CmdArgs 0) $newmessage}}
-			{{else}}
-				{{$error = "Only messages sent by the bot itself can be edited! Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
-			{{end}}
-			
-		{{else}}
-			{{$error = "Invalid Message ID. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
-		{{end}}
-		
-	{{else}}
-		{{$error = "Invalid Message ID. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
-	{{end}}
-	
+    {{$newmessage := joinStr "" (slice .CmdArgs 1)}}
+
+    {{if toInt (index .CmdArgs 0) }}
+
+        {{if gt (len .CmdArgs) 2}}
+            {{if getChannel (index .CmdArgs 1)}}
+                {{$channel =  getChannel (index .CmdArgs 1)}}
+                {{$newmessage = joinStr "" (slice .CmdArgs 2)}}
+            {{end}}
+        {{end}}
+
+        {{$message := getMessage $channel.ID (index .CmdArgs 0)}}
+        {{if  $message }}
+
+            {{if eq $message.Author.ID 204255221017214977}}
+                {{editMessageNoEscape $channel.ID (index .CmdArgs 0) $newmessage}}
+            {{else}}
+                {{$error = "Only messages sent by the bot itself can be edited! Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+            {{end}}
+
+        {{else}}
+            {{$error = "Invalid Message ID. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+        {{end}}
+
+    {{else}}
+        {{$error = "Invalid Message ID. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+    {{end}}
+
 {{else}}
-	{{$error = "Insufficient arguments passed. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
+    {{$error = "Insufficient arguments passed. Usage : `-edit <message_ID> [Channel_ID(optional)] <message>`"}}
 {{end}}
 
 {{if $error}}
-	{{$error}}
+    {{$error}}
 {{end}}
 ```
 

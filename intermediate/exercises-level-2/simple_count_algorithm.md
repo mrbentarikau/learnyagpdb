@@ -8,7 +8,7 @@ Your task is to formulate an algorithm and make a CC that works with numbers. Le
 
 If you do these steps for `N=3`, you should come up with the sequence of numbers `0 -6 -18 -45 24`.
 
-Generally, when we're programming, we don't like capital letters for variables. All capital letters is usually reserved for a constant, so we'll use lowercase `$n` for this variable henceforth.  
-  
+Generally, when we're programming, we don't like capital letters for variables. All capital letters is usually reserved for a constant, so we'll use lowercase `$n` for this variable henceforth.
+
 Example solution.
 

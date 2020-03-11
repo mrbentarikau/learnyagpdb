@@ -16,7 +16,7 @@ $$
 F_n=F_{n-1}+F_{n-2}
 $$
 
-But recursion as programming algorithm is not the best solution here because of time complexity which is exponential. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using [_Dynamic Programming_](https://weibeld.net/algorithms/recursion.html). 
+But recursion as programming algorithm is not the best solution here because of time complexity which is exponential. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using [_Dynamic Programming_](https://weibeld.net/algorithms/recursion.html).
 
 Using variable switching method &gt; Example solution 1.  
 Using a `cslice` method &gt; Example solution 2.
