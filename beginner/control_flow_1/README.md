@@ -50,10 +50,10 @@ In the above example, first the o of variable `$x` and `$y` results in `false`. 
 
 ## Comparison Actions
 
-Having seen boolean operators it is only logical to explore actions that produce boolean values as output. These actions fall under the general category of comparison actions. The following comparison operators are available as a part of standard golang text template package:
+Having seen boolean operators it is only logical to explore actions that produce boolean values as output. These actions fall under the general category of comparison actions. The following comparison template-structures are available as a part of standard golang text template package:
 
 * `eq` : This function checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as data type must be same. 
-* `ne` : This function is the reverse of the equality template and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the function returns `true`.
+* `ne` : This function is the reverse of the equality function and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the function returns `true`.
 * `gt` : This returns `true` if `arg1 > arg2` , that is if first argument is strictly greater than second argument.
 * `ge`: This returns `true` if `arg1 >= arg2` , that is if first argument is greater than or equal to second argument.
 * `lt`: This returns `true` if `arg1 < arg2` , that is if first argument is strictly less than second argument.
