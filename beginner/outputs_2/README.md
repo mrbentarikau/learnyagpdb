@@ -28,7 +28,7 @@ It is important to note that `sendMessage` function by itself is an **task type*
   
 **Output:**
 
-![](../../.gitbook/assets/image%20%2825%29.png)
+![](../../.gitbook/assets/image%20%2826%29.png)
 
 **Explanation :**  
 As discussed earlier, the `sendMessage` action here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -145,15 +145,9 @@ In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMess
 
 Initial Message sent  by `sendMessageNoEscapeRetID`
 
-![](../../.gitbook/assets/image%20%2810%29.png)
-
 After first edit by `editMessage`
 
-![](../../.gitbook/assets/image%20%2824%29.png)
-
 After second edit by `editMessageNoEscape`
-
-![](../../.gitbook/assets/image%20%284%29.png)
 
 **Explanation :**
 
