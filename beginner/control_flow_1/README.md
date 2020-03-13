@@ -94,9 +94,9 @@ Equipped with the knowledge of Conditional and Boolean operators and their corre
 {{end}}
 ```
 
-In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the **block** of code/statements following the if  action is executed. In the above example, `Number is more than 0` is printed as output by the bot.  
+In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the [block](https://yagpdb.gitbook.io/learnyagpdb/beginner/control_flow_1#blocks-and-scope) of code/statements following the if  action is executed. In the above example, `Number is more than 0` is printed as output by the bot.  
   
-It is important to note here that the else action along with the code to be executed if condition is false \(can be referred to as the else **block**\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional template-structure.
+It is important to note here that the else action along with the code to be executed if condition is false \(can be referred to as the else [block](https://yagpdb.gitbook.io/learnyagpdb/beginner/control_flow_1#blocks-and-scope)\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional template-structure.
 
 **Example :**
 

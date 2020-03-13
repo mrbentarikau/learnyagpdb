@@ -6,7 +6,7 @@ description: Advanced sending and editing messages.
 
 ## Sending Messages
 
-Up until now we have seen how to use the default **response** to send an output. However it is sometimes a bit inconvenient to use the response for producing an output. Also the output is always sent in the same channel in which the custom command is running. To solve these issues and offer more flexibility in terms of producing outputs there are specific output actions.
+Up until now we have seen how to use the default [response](https://yagpdb.gitbook.io/learnyagpdb/beginner/outputs_1#response) to send an output. However it is sometimes a bit inconvenient to use the response for producing an output. Also the output is always sent in the same channel in which the custom command is running. To solve these issues and offer more flexibility in terms of producing outputs there are specific output actions.
 
 ### `sendMessage` Action
 
@@ -20,7 +20,7 @@ The `channel_id` is the ID of the channel in which the message is to be sent. Fo
 
 `message_to_be_sent` denotes the output that is to be sent as a message.In this chapter we will deal with only simple textual output \(strings\).   
   
-It is important to note that `sendMessage` function by itself is an **task type** action , that is it does not produce a meaningful/usable output by itself. It simply directs the bot to send the content that is passed to it in a **separate message** from the custom command's default **response** message.
+It is important to note that `sendMessage` function by itself is an **task type** action , that is it does not produce a meaningful/usable output by itself. It simply directs the bot to send the content that is passed to it in a **separate message** from the custom command's default [response](https://yagpdb.gitbook.io/learnyagpdb/beginner/outputs_1#response) message.
 
 #### Example 1 :
 
@@ -58,7 +58,7 @@ Output :
 
 ### `sendMessageNoEscape` Action
 
-As we have already mentioned earlier in case of **response**, certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` function as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` function. It is important to note that unlike response, using mention based functions such as `mentionHere` does not create a mention with `sendMessage` function. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based function producing no meaningful/usable output.  
+As we have already mentioned earlier in case of [response](https://yagpdb.gitbook.io/learnyagpdb/beginner/outputs_1#response), certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` function as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` function. It is important to note that unlike response, using mention based functions such as `mentionHere` does not create a mention with `sendMessage` function. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based function producing no meaningful/usable output.  
   
 **Example :**
 
