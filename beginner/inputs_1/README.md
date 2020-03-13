@@ -8,7 +8,7 @@ description: >-
 
 When you starting making custom commands, it's likely that you'll be starting off with basic "tag-like" commands which respond with constant \(unchanging\) output when you run them. However, as you delve deeper into custom commands, it's likely that you'll have to work with the arguments that users provide.
 
-YAGPDB's templates provide several ways of working with arguments, the two most popular of which are:
+YAGPDB's template-structures provide several ways of working with arguments, the two most popular of which are:
 
 * the `parseArgs` "function"
 * `.CmdArgs`
@@ -25,7 +25,7 @@ This may seem quite confusing at first, so we'll go over each of the required ar
 
 1. `<number of args>` - This is the minumum number of args you want parseArgs to parse or expect. For example, if you wanted to parse a user argument and a string argument, this would be `2`. If you wanted to parse a user argument which is _optional_, this would be `0`.
 2. `<error message>` - This is the message that YAGPDB will send if the command was used with incorrect arguments. You can leave this blank for YAGPDB to automatically construct an error message from the descriptions of the `carg`s provided \(we'll talk about this later\).
-3. `...cargs` - parseArgs is a variadic function of sorts, which means it can allow as many or as little `carg`s as you wish. `carg` is a template itself, describing the argument you want to parse. It takes the syntax `carg <type> <description>`, where type is one of the following types \(enclosed in quotes, like `"int"`\):
+3. `...cargs` - parseArgs is a variadic function of sorts, which means it can allow as many or as little `carg`s as you wish. `carg` is a function itself, describing the argument you want to parse. It takes the syntax `carg <type> <description>`, where type is one of the following types \(enclosed in quotes, like `"int"`\):
    * `int` \(whole number\)
    * `string` \(text\)
    * `user` \(user mentions, resolves to the [user](https://docs.yagpdb.xyz/reference/templates#user) structure\)
@@ -136,27 +136,27 @@ Let's say we used `-seeargs "hello world"`. As YAGPDB sees text enclosed in quot
 
 There's nothing too crazy about `.CmdArgs` - it's simply a slice\(collection\) or array of string arguments that are unparsed\(in their original state\). If you want to parse the arguments, you will have to do it manually. This will be explored in a later chapter.
 
-### String Manipulation Templates
+### String Manipulation Action
 
-In the above example we see a new template called joinStr which belongs to the category of string manipulation templates documented [here](https://docs.yagpdb.xyz/reference/templates#string-manipulation). Some basic string manipulation templates with usage will be explained below :
+In the above example we see a new function called joinStr which belongs to the category of string manipulation function documented [here](https://docs.yagpdb.xyz/reference/templates#string-manipulation). Some basic string manipulation function with usage will be explained below :
 
-1. `lower` : Syntax is `lower string` . This is a template which converts all letters into lower case. Other characters which do not have a defined lower case remain unaffected. 
-2. `upper` : Syntax is `upper string` . This is a template which converts all letters into upper\(title\) case. 
+1. `lower` : Syntax is `lower string` . This is a action which converts all letters into lower case. Other characters which do not have a defined lower case remain unaffected. 
+2. `upper` : Syntax is `upper string` . This is a a which converts all letters into upper\(title\) case. 
 
    Other characters which do not have a defined upper\(title\) case remain unaffected.  
 
 3. `title` : Syntax is `title string`. It returns a string with the first letter of each word capitalized\(in title case\). Subsequent characters in the word remain unaffected. Note that word here is not delimited by only whitespace. Some other characters \(like ; or \#\) behave have word separators and the first letter following them is capitalized as well.     **Example:** `{{title "hellO World! | @m g00d o_k. ää##spam;a"}}` ****will return      Above will return : `HellO World! | @M G00d O_k. Ää##Spam;A` . 
-4. `joinStr` : Syntax is `joinStr separator string_or_string_slice(s)`. This is a very useful template used for joining strings or string slices together into a single string. Separator is the character\(s\) that is inserted between each element while forming the final string. It can be a null string `""` as which which simply joins all elements together without placing any extra character in between while joining them. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal.  
+4. `joinStr` : Syntax is `joinStr separator string_or_string_slice(s)`. This is a very useful action used for joining strings or string slices together into a single string. Separator is the character\(s\) that is inserted between each element while forming the final string. It can be a null string `""` as which which simply joins all elements together without placing any extra character in between while joining them. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal.  
  
 
    1. **Example 1 :** `{{$x := joinStr "," "word1" "word no 2" "" "3"}}{{$x}}`  ****Above code will create a single string `word1,word no 2,,3` and assign it to variable $x which is output as response. Note how each element is joined by the separator `,` . Also note how while joining blank strings, multiple separators simply placed side-by-side. 
-   2. **Example 2 :** `{{$s := joinStr "++" "0" .CmdArgs "last"}}{{$s}}`  ****In the above code, let us assume we invoke the code with following Arguments : `one two 3`. `joinStr` template will produce a single string `0++one++two++3++last`. Note how the separator can be multiple characters. Also note that each entry of the slice\(collection\) `.CmdArgs` is treated as a separate element.
+   2. **Example 2 :** `{{$s := joinStr "++" "0" .CmdArgs "last"}}{{$s}}`  ****In the above code, let us assume we invoke the code with following Arguments : `one two 3`. `joinStr` action will produce a single string `0++one++two++3++last`. Note how the separator can be multiple characters. Also note that each entry of the slice\(collection\) `.CmdArgs` is treated as a separate element.
 
-5. `split` : Syntax is `split string separator`This is almost the reverse of the `joinStr` template and it splits a string at the specified separator producing a string slice. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal. Separator can be multiple characters. 
-   1. **Example :** `{{$s := split "this-is-what-it-is" "is"}}`  Above template produces a string slice by breaking the string at every occurrence of the separator. It produces the following string slice\(collection\) `["th" "-" "-what-it-" ""]` as output which is stored into the variable called $s.
+5. `split` : Syntax is `split string separator`This is almost the reverse of the `joinStr` action and it splits a string at the specified separator producing a string slice. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal. Separator can be multiple characters. 
+   1. **Example :** `{{$s := split "this-is-what-it-is" "is"}}`  Above action produces a string slice by breaking the string at every occurrence of the separator. It produces the following string slice\(collection\) `["th" "-" "-what-it-" ""]` as output which is stored into the variable called $s.
 
 {% hint style="info" %}
-Note that `joinStr`template ignores the all initial null string characters while forming the final string. Subsequent null string characters after a non null element are not ignored.  
+Note that `joinStraction` ignores the all initial null string characters while forming the final string. Subsequent null string characters after a non null element are not ignored.  
 Example : `{{joinStr "," "" "hehe" "" ""}}` produces the output `hehe,,`
 {% endhint %}
 
@@ -194,12 +194,12 @@ We can fix this by using a comparison operator, like `eq` or `ge` and comparing 
 {{ end }}
 ```
 
-Voila! No more errors. You can do this with any comparison operator you want. Note in the above example, we have used a new template called `len`. It is a special template which outputs the size of a collection \(like `.CmdArgs` here\) or byte-length of a string, depending on datatype passed.
+Voila! No more errors. You can do this with any comparison operator you want. Note in the above example, we have used a new function called `len`. It is a special functiom which outputs the size of a collection \(like `.CmdArgs` here\) or byte-length of a string, depending on datatype passed.
 
 Hopefully this chapter helped you understand retrieving and parsing user input a little better. Good luck!
 
 {% hint style="success" %}
-**Pro Tip :** A good way to view string slices is using the printf template as follows.   
+**Pro Tip :** A good way to view string slices is using the printf action as follows.   
 `{{printf "%q" $slice}}.`
 
 **Example:**  `{{printf "%q" (split "ok.gg." ".")}}`  

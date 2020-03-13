@@ -1,6 +1,6 @@
 # Control Flow 1
 
-Up until now we have seen how to produce some outputs and the various data types. We have also seen how templates can be very helpful in calculations and computations like generating the table of a number. However what if we want to output a response depending of the value inside a variable. What if we want to run a part of the code under certain conditions and another part in other situations. This is possible through control flow which we will explore in this section.
+Up until now we have seen how to produce some outputs and the various data types. We have also seen how template-structures can be very helpful in calculations and computations like generating the table of a number. However what if we want to output a response depending of the value inside a variable. What if we want to run a part of the code under certain conditions and another part in other situations. This is possible through control flow which we will explore in this section.
 
 ## Boolean Logic
 
@@ -8,9 +8,9 @@ Before exploring control flow it is important to understand [boolean logic](http
 
 ### **1\) NOT Operation**: 
 
-This is the simplest operation concerning booleans. It simply changes `true` to `false` and vice versa. The template associated with this operation is the `not` template. It accepts a single boolean argument and returns its opposite boolean value.  
+This is the simplest operation concerning booleans. It simply changes `true` to `false` and vice versa. The action associated with this operation is the `not` function. It accepts a single boolean argument and returns its opposite boolean value.  
   
-**Example :** `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable `$x`. the `not` template then performs a not operation in variable `$x` \(which contains `true`\) returning `false`. Thus eventually `false` is stored in $y.
+**Example :** `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable `$x`. the `not` function then performs a not operation in variable `$x` \(which contains `true`\) returning `false`. Thus eventually `false` is stored in $y.
 
 ### **2\) AND Operation**: 
 
@@ -23,7 +23,7 @@ The `and` operation is another boolean operation involving two boolean values wh
 | false | true | false |
 | false | false | false |
 
-You can use the `and` template for performing boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic: Consider three boolean values passed to the `and` template. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` template.  
+You can use the `and` function for performing boolean `and` operation. It accepts more than two arguments. The evaluated result follows the following logic: Consider three boolean values passed to the `and` function. It finds the `and` of first and second value. Then it finds the `and` of the result from the first two values and the third value. Similar logic applies for more than 3 arguments passed the the `and` function.  
   
 **Example :**  
 `{{$x := true}} {{$y := true}} {{$z := false}}  
@@ -41,19 +41,19 @@ The `or` operation similar to `and` operation operates on two boolean literals. 
 | false  | true | true |
 | false | false | false |
 
- The `or` template is used to perform `or` operation. Similar to `and` operator, if more than two values are passed to the `or` template, if first evaluates the result of the first two operands. Then it performs `or` operation on the result from first two operands and the third operand and so on.  
+ The `or` function is used to perform `or` operation. Similar to `and` operator, if more than two values are passed to the `or` function, if first evaluates the result of the first two operands. Then it performs `or` operation on the result from first two operands and the third operand and so on.  
   
 **Example :**  
 `{{$x := false}} {{$y := false}} {{$z := true}}  
 {{$Result := or $x $y $z}}`   
 In the above example, first the o of variable `$x` and `$y` results in `false`. Then the `or` of the result and `$z` produces `true`. Hence, finally `true` is stored in variable Result.
 
-## Comparison Operators
+## Comparison Actions
 
-Having seen boolean operators it is only logical to explore templates that produce boolean values as output. These Templates fall under the general category of comparison operators. The following comparison operators are available as a part of standard golang text template package:
+Having seen boolean operators it is only logical to explore actions that produce boolean values as output. These actions fall under the general category of comparison actions. The following comparison operators are available as a part of standard golang text template package:
 
-* `eq` : This template checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as data type must be same. 
-* `ne` : This template is the reverse of the equality template and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the template returns `true`.
+* `eq` : This function checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as data type must be same. 
+* `ne` : This function is the reverse of the equality template and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the function returns `true`.
 * `gt` : This returns `true` if `arg1 > arg2` , that is if first argument is strictly greater than second argument.
 * `ge`: This returns `true` if `arg1 >= arg2` , that is if first argument is greater than or equal to second argument.
 * `lt`: This returns `true` if `arg1 < arg2` , that is if first argument is strictly less than second argument.
@@ -73,7 +73,7 @@ Only basic data types \(int and variants ; float and variants and strings\) can 
 
 ## If - Else Branching
 
-Equipped with the knowledge of Conditional and Boolean operators and their corresponding templates, we can now explore the very first type of control flow: if-else branching. If else branch statements in their most basic form allows you to execute a certain set of instructions or code if a certain condition is satisfied and a different set of instructions/code if it is the condition is not satisfied.  The basic syntax of an if-else template is :
+Equipped with the knowledge of Conditional and Boolean operators and their corresponding actions, we can now explore the very first type of control flow: if-else branching. If else branch statements in their most basic form allows you to execute a certain set of instructions or code if a certain condition is satisfied and a different set of instructions/code if it is the condition is not satisfied.  The basic syntax of an if-else action is :
 
 ```go
 {{if (condition)}}
@@ -94,9 +94,9 @@ Equipped with the knowledge of Conditional and Boolean operators and their corre
 {{end}}
 ```
 
-In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the **block** of code/statements following the if  template is executed. In the above example, `Number is more than 0` is printed as output by the bot.  
+In the above example first the conditional operator gt checks if the variable `$a` contains a number that is more than `0` . Since this condition is satisfied gt returns `true`. Since the condition is true, the **block** of code/statements following the if  action is executed. In the above example, `Number is more than 0` is printed as output by the bot.  
   
-It is important to note here that the else template along with the code to be executed if condition is false \(can be referred to as the else **block**\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional template.
+It is important to note here that the else action along with the code to be executed if condition is false \(can be referred to as the else **block**\) is not compulsory. However, the `{{end}}` statement is compulsory and marks the end of the if-else conditional template-structure.
 
 **Example :**
 
@@ -112,7 +112,7 @@ In the above example the if **block** will be executed only of `$name` is `"YAGP
 
 ### Blocks and Scope
 
-While learning the if-else template you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else template as an example, the statements following `{{if (condition}}` and before `{{else}}` \(or `{{end}}` if there is no else template\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
+While learning the if-else action you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else action as an example, the statements following `{{if (condition}}` and before `{{else}}` \(or `{{end}}` if there is no else action\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
 
 So why are these blocks important anyway? They are important because of an important property of variables called **scope**. A variable declared in a particular block ceases to exist outside it. This can be illustrated as follows:  
 `{{if eq 1 1}}  
@@ -151,7 +151,7 @@ Earlier we have seen how to execute a block of statements if condition is true a
 {{end}}
 ```
 
-Note : you are not limited to only two else-if blocks but they can be as many as you want. The final else block can also be skipped if not necessary just like the previous case however the `{{end}}` statement is necessary to mark the end of the branching template.  
+Note : you are not limited to only two else-if blocks but they can be as many as you want. The final else block can also be skipped if not necessary just like the previous case however the `{{end}}` statement is necessary to mark the end of the branching action.  
   
 **Example :**
 
@@ -190,7 +190,7 @@ In the above example there are 3 different blocks which are conditionally execut
 
 Above is an example code which can be used in [Join Message](https://docs.yagpdb.xyz/notifications-and-feeds/notification-feed#general-feed). \(Note for normal custom commands, bots can't trigger them\).  
   
-There are two major takeaways from the above example. Firstly notice how an if-else or if-else if-else statement can be used inside another block. In this case it is executed only of the first condition is false for the outer if statement \(that is user joining is not a bot\). This is called nesting and can be very useful for checking a complex set of conditions. Secondly notice the `-` at use in the internal if-else if-else templates. It is used to trim spaces to the left and right of the templates to aid with formatting. It is discussed in more detail [here](https://golang.org/pkg/text/template/#hdr-Text_and_spaces).
+There are two major takeaways from the above example. Firstly notice how an if-else or if-else if-else statement can be used inside another block. In this case it is executed only of the first condition is false for the outer if statement \(that is user joining is not a bot\). This is called nesting and can be very useful for checking a complex set of conditions. Secondly notice the `-` at use in the internal if-else if-else action. It is used to trim spaces to the left and right of the action to aid with formatting. It is discussed in more detail [here](https://golang.org/pkg/text/template/#hdr-Text_and_spaces).
 
 #### Output :
 
