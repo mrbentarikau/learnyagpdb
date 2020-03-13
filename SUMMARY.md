@@ -13,8 +13,8 @@
   * [Exercises](beginner/control_flow_1/exercises.md)
 * [Inputs 1](beginner/inputs_1/README.md)
   * [Exercises](beginner/inputs_1/exercises.md)
-* [Outputs 2](beginner/outputs-2/README.md)
-  * [Exercises](beginner/outputs-2/exercises.md)
+* [Outputs 2](beginner/outputs_2/README.md)
+  * [Exercises](beginner/outputs_2/exercises.md)
 
 ## 🤖 Programming
 
