@@ -64,11 +64,11 @@ Values of two **different data types** \(eg float64 and int\) are **not comparab
 {% endhint %}
 
 {% hint style="info" %}
-Although it is most common to use numerical values in comparison operators, they can compare strings as well. Strings are compared using the [Unicode values](https://www.tamasoft.co.jp/en/general-info/unicode-decimal.html) of their constituent runes\(codepoints\). If the first codepoints are equal, the second ones are compared and so on.
+Although it is most common to use numerical values in comparison actions, they can compare strings as well. Strings are compared using the [Unicode values](https://www.tamasoft.co.jp/en/general-info/unicode-decimal.html) of their constituent runes\(codepoints\). If the first codepoints are equal, the second ones are compared and so on.
 {% endhint %}
 
 {% hint style="info" %}
-Only basic data types \(int and variants ; float and variants and strings\) can be compared with the comparison operators. The `eq` and `ne` operators can additionally also compare boolean values.
+Only basic data types \(int and variants ; float and variants and strings\) can be compared with the comparison actions. The `eq` and `ne` functions can additionally also compare boolean values.
 {% endhint %}
 
 ## If - Else Branching
@@ -108,7 +108,7 @@ It is important to note here that the else action along with the code to be exec
 Hello! {{$name}}
 ```
 
-In the above example the if **block** will be executed only of `$name` is `"YAGPDB"` . Since condition is `false`, the if **block** is skipped and the bot simply prints the output : `Hello! Peter`.
+In the above example the if [block](https://learn.yagpdb.xyz/beginner/control_flow_1#blocks-and-scope) will be executed only of `$name` is `"YAGPDB"` . Since condition is `false`, the if [block](https://learn.yagpdb.xyz/beginner/control_flow_1#blocks-and-scope) is skipped and the bot simply prints the output : `Hello! Peter`.
 
 ### Blocks and Scope
 
