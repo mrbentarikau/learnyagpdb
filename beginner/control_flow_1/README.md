@@ -10,7 +10,7 @@ Before exploring control flow it is important to understand [boolean logic](http
 
 This is the simplest operation concerning booleans. It simply changes `true` to `false` and vice versa. The action associated with this operation is the `not` function. It accepts a single boolean argument and returns its opposite boolean value.  
   
-**Example :** `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable `$x`. the `not` function then performs a not operation in variable `$x` \(which contains `true`\) returning `false`. Thus eventually `false` is stored in $y.
+**Example :** `{{$x := true}} {{$y := not $x}}` In this code snippet initially `true` is stored in variable `$x`. The `not` function then performs a not operation in variable `$x` \(which contains `true`\) returning `false`. Thus eventually `false` is stored in $y.
 
 ### **2\) AND Operation**: 
 
@@ -46,18 +46,18 @@ The `or` operation similar to `and` operation operates on two boolean literals. 
 **Example :**  
 `{{$x := false}} {{$y := false}} {{$z := true}}  
 {{$Result := or $x $y $z}}`   
-In the above example, first the o of variable `$x` and `$y` results in `false`. Then the `or` of the result and `$z` produces `true`. Hence, finally `true` is stored in variable Result.
+In the above example, first the `or` of variable `$x` and `$y` results in `false`. Then the `or` of the result and `$z` produces `true`. Hence, finally `true` is stored in variable Result.
 
 ## Comparison Actions
 
-Having seen boolean operators it is only logical to explore actions that produce boolean values as output. These actions fall under the general category of comparison actions. The following comparison template-structures are available as a part of standard golang text template package:
+Having seen boolean operators it is only logical to explore actions that produce boolean values as output. These actions fall under the general category of comparison actions. The following comparison functions are available as a part of standard golang text template package:
 
 * `eq` : This function checks for equality and returns `true` if `arg1 == arg2` , that is if both of them are equal. It is worth nothing that for equality to hold both value as well as data type must be same. 
 * `ne` : This function is the reverse of the equality function and returns `true` if `arg1 != arg2` , that is if both of them are unequal, the function returns `true`.
-* `gt` : This returns `true` if `arg1 > arg2` , that is if first argument is strictly greater than second argument.
-* `ge`: This returns `true` if `arg1 >= arg2` , that is if first argument is greater than or equal to second argument.
-* `lt`: This returns `true` if `arg1 < arg2` , that is if first argument is strictly less than second argument.
-* `le`: This returns `true` if `arg1 <= arg2` , that is if first argument is less than or equal to second argument.
+* `gt` : This function returns `true` if `arg1 > arg2` , that is if first argument is strictly greater than second argument.
+* `ge`: This function returns `true` if `arg1 >= arg2` , that is if first argument is greater than or equal to second argument.
+* `lt`: This function returns `true` if `arg1 < arg2` , that is if first argument is strictly less than second argument.
+* `le`: This function returns `true` if `arg1 <= arg2` , that is if first argument is less than or equal to second argument.
 
 {% hint style="danger" %}
 Values of two **different data types** \(eg float64 and int\) are **not comparable**.
