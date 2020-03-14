@@ -156,7 +156,7 @@ In the above example we see a new function called joinStr which belongs to the c
    1. **Example :** `{{$s := split "this-is-what-it-is" "is"}}`  Above action produces a string slice by breaking the string at every occurrence of the separator. It produces the following string slice\(collection\) `["th" "-" "-what-it-" ""]` as output which is stored into the variable called $s.
 
 {% hint style="info" %}
-Note that `joinStraction` ignores the all initial null string characters while forming the final string. Subsequent null string characters after a non null element are not ignored.  
+Note that `joinStr` action ignores the all initial null string characters while forming the final string. Subsequent null string characters after a non null element are not ignored.  
 Example : `{{joinStr "," "" "hehe" "" ""}}` produces the output `hehe,,`
 {% endhint %}
 
