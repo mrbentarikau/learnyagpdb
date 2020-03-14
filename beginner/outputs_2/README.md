@@ -8,7 +8,7 @@ description: Advanced sending and editing messages.
 
 Up until now we have seen how to use the default [response](https://yagpdb.gitbook.io/learnyagpdb/beginner/outputs_1#response) to send an output. However it is sometimes a bit inconvenient to use the response for producing an output. Also the output is always sent in the same channel in which the custom command is running. To solve these issues and offer more flexibility in terms of producing outputs there are specific output actions.
 
-### `sendMessage` Action
+### `sendMessage`
 
 This is the most basic and simple form of an output action. The general syntax for `sendMessage` action is :
 
@@ -56,7 +56,7 @@ Output :
 
 
 
-### `sendMessageNoEscape` Action
+### `sendMessageNoEscape`
 
 As we have already mentioned earlier in case of [response](https://yagpdb.gitbook.io/learnyagpdb/beginner/outputs_1#response), certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` function as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` function. It is important to note that unlike response, using mention based functions such as `mentionHere` does not create a mention with `sendMessage` function. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based function producing no meaningful/usable output.  
   
@@ -77,7 +77,7 @@ In the above example, as already discussed `sendMessage` function never produces
 
 
 
-### `sendMessageRetID` and `sendMessageNoEscapeRetID` Action
+### `sendMessageRetID` and `sendMessageNoEscapeRetID`
 
 These actions are very similar  to their counterparts `sendMessage` and `sendMessageNoEscape` except that they also output the ID of the discord message posted by them during execution. Hence these two actions both perform and action and produce an output placing them under the third category of actions. This is especially useful for editing messages. The ID output by them can be simply captured by any variable just like any other action which produces an output for later use.
 
@@ -106,7 +106,7 @@ The output in these cases is simply an empty string "" which corresponds to the 
 
 We have seen how to send messages. Editing messages is an almost similar except it additionally requires you to also specify the ID of the message to edit. It is important to note that bots can only edit messages sent by the bot itself. 
 
-### `editMessage` Action
+### `editMessage`
 
 This action is very similar to the `sendMessage` function and just requires and additional message ID argument. The syntax is :
 
@@ -127,7 +127,7 @@ The `channel_id` is the ID of the channel in which the message to be edited exis
 
 In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMessageRetID` function is used, the ID of the message posted by the bot is also output by the action and stored in a variable $ID.  Notice the usage of a new action called `sleep`. `sleep` function makes the bot wait without performing any action for a given amount in seconds\(maximum cumulative 60 seconds of sleep per CC\). In this case, `{{sleep 1}}` instructs the bot to not perform any action for 1 second. After that the message posted earlier is edited by using the `editMessage` function. Notice that `editMessage` function requires both the ID of the channel and the message itself to be edited. In the above case the channel id is `nil` since it refers to the same channel in which the CC is executed. The message id is stored in the variable $ID. The final edited output is : `Yag is ... very nice` .
 
-### `editMessageNoEscape` Action
+### `editMessageNoEscape`
 
 `editMessageNoEscape` is very similar to the `sendMessageNoEscape` function and simply requited the message id as an additional argument. Similar to `sendMessage` , `editMessage` function always suppresses/escapes all special mentions in message content \(role mentions or @here or @everyone\). Escape as usual means that the output will not create any mentions and output plain text instead. In order for special mentions to work, `editMessageNoEscape` must be used. 
 
