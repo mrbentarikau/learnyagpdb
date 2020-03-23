@@ -12,8 +12,8 @@ description: >-
 
 A string is a sequence of characters. It simply stores textual data. String literals can be created in two ways:
 
-1. **Using Double Quotes :**  String literals can be created by enclosing a sequence of characters within double quotation marks `"` . It can cannot contain newlines and allows usage of special escape sequences to represent certain characters. Some of them are :  `\n` This produces a newline character \(similar to pressing the enter key\) `\"` This produces a double quotation mark `"` . This allows us to use double quotes inside quoted       string literals. `\\` This creates a backslash character. \(only using a single backslash character denotes an escape sequence hence this is necessary\)  A more detailed list of other escape sequences can be found [here](http://xahlee.info/golang/golang_string_backslash_escape.html). **Example :** `"Yagpdb is a nice bot.\nI like it very much."` 
-2. **Using Backticks :** String literals can also be created in form of a _raw string literal_ by enclosing it in backticks `````. It can contain all characters including newlines except for the backtick character. It does not support any escape sequences and is usually used to conveniently produce string literals which span multiple lines.  **Example :**```Yagpdb is a nice bot. I like it very much\`\`\`
+1.  **Using Double Quotes :**  String literals can be created by enclosing a sequence of characters within double quotation marks `"` . It can cannot contain newlines and allows usage of special escape sequences to represent certain characters. Some of them are :  `\n` This produces a newline character \(similar to pressing the enter key\) `\"` This produces a double quotation mark `"` . This allows us to use double quotes inside quoted       string literals. `\\` This creates a backslash character. \(only using a single backslash character denotes an escape sequence hence this is necessary\)  A more detailed list of other escape sequences can be found [here](http://xahlee.info/golang/golang_string_backslash_escape.html). **Example :** `"Yagpdb is a nice bot.\nI like it very much."` 
+2. **Using Backticks :** String literals can also be created in form of a _raw string literal_ by enclosing it in backticks `````. It can contain all characters including newlines except for the backtick character. It does not support any escape sequences and is usually used to conveniently produce string literals which span multiple lines.  **Example :**  ```Yagpdb is a nice bot. I like it very much```
 
 ### Integer
 
@@ -23,36 +23,36 @@ Integers \(_int_\) – like their mathematical counterpart – are numbers witho
 2. **As a hexadecimal number :** You might have come across [hexadecimal numbers](https://simple.wikipedia.org/wiki/Hexadecimal) while reading about memory locations or hexadecimal codes for colors etc. While specifying a hexadecimal number, we have to precede the number with `0x` to denote that the following number represents a hexadecimal number. You can use digits from `0` to `9` and letters `a` to `e` to specify a hexadecimal number. Capitalization of the letters do not matter. `{{$hex := 0xA1}}` Above statement assigns a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named hex with value : 161\(base-10\) using an integer literal specified in hexadecimal format.
 
 {% hint style="info" %}
-Preceding an integer literal with 0 makes it interpreted as a number specified in [octal](https://simple.wikipedia.org/wiki/Octal) notation \(base-8\).  
-Example : `{{$x := 011}}`  
+Preceding an integer literal with 0 makes it interpreted as a number specified in [octal](https://simple.wikipedia.org/wiki/Octal) notation \(base-8\).   
+Example : `{{$x := 011}}`   
 stores 9 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x and not 11. In fact, `9` is written as `11` in octal notation.
 {% endhint %}
 
 {% hint style="info" %}
 _int64_ is another data type which is very similar to _int_ but is always 64 bits size irrespective of compiler. int64 can be converted to int using the `toInt` function. Reverse can be achieved using `toInt64` function. Type conversion functions are listed [here](https://docs.yagpdb.xyz/reference/templates#type-conversion).
 
-Example : `{{$num := toInt64 105}}`  
+Example :  `{{$num := toInt64 105}}`  
 Stores 105 \(base-10\) in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num but as _int64_ data type and not _int_.  
 By default however \(without explicit `toInt64` conversion\) Integer literals are stored as _int_ data type.
 {% endhint %}
 
 ### Float
 
-Floating point numbers are numbers that contain a decimal component \(real numbers\). They are specified with a number with a decimal point.  
+Floating point numbers are numbers that contain a decimal component \(real numbers\). They are specified with a number with a decimal point.   
 Example : `9.5` `12.3` `0.008`
 
 Floating point literals also support some other formats such as scientific notation etc. elaborated [here](https://golang.org/ref/spec#Floating-point_literals).
 
 {% hint style="info" %}
 Note `10` represents an integer literal while `10.0` represents a floating point literal.  
-Example : `{{num := 20.0}}`  
-Stores 20.0 \(base-10\) in a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num with data type _float64_ and not _int_.
+Example : `{{num := 20.0}}`   
+Stores 20.0 \(base-10\) in a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) called num with data type _float64_ and not _int_. 
 {% endhint %}
 
 {% hint style="info" %}
 function `toFloat` can be used to convert int to _float64_. reverse can be achieved via `toInt` function. However when a float is converted to integer, the decimal part is stripped in place of rounding it to nearest integer.  
-Example : `{{$x := toInt 12.98}}`  
-In the above statement, 12 \(base-10\) is stored in the [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x and not 13.
+Example : `{{$x := toInt 12.98}}`   
+In the above statement, 12 \(base-10\) is stored in the [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x and not 13. 
 {% endhint %}
 
 {% hint style="warning" %}
@@ -62,14 +62,14 @@ Unless otherwise specified, all numbers \(integers/float\) will be base-10 by de
 ### Boolean
 
 A boolean value \(named after George Boole\) is a special 1 bit integer type used to represent true and false \(or on and off\). There are two predefined boolean constants \(both lowercase only\) : `true` and `false` .  
-Boolean values are very critical to control flow and are discussed in further detail there. A logical comparison function \( checking if two numbers are equal, checking if one number is greater than another etc.\) and logical operation based functions \( and , or and not operations\) will produce boolean values as output.
-
-**Example :** `{{$x := true}} {{$y := not $x}}`  
+Boolean values are very critical to control flow and are discussed in further detail there. A logical comparison function \( checking if two numbers are equal, checking if one number is greater than another etc.\) and logical operation based functions \( and , or and not operations\) will produce boolean values as output.  
+  
+**Example :**   `{{$x := true}} {{$y := not $x}}`  
 Above snippet will store `true` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) x and `false` in [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) y.
 
 ## Variables
 
-A variable is a storage location, with a specific type and an associated name. It can be used to store the output of an action or literal values\( string , int , float etc\). Names must start with a letter and may contain letters, numbers or the `_` \(underscore\) symbol. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A action containing just the variable name simply outputs it's contents \(for complex data types it follows certain predefined formats\).
+A variable is a storage location, with a specific type and an associated name. It can be used to store the output of an action or literal values\( string , int , float etc\).  Names must start with a letter and may contain letters, numbers or the `_` \(underscore\) symbol. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A action containing just the variable name simply outputs it's contents \(for complex data types it follows certain predefined formats\).
 
 **Example :**
 
@@ -84,11 +84,11 @@ A variable is a storage location, with a specific type and an associated name. I
 
 **Output :**
 
-`Satty : 1    
-Yagpdb : -1    
-1    
-2    
-3    
+`Satty : 1  
+Yagpdb : -1  
+1  
+2  
+3  
 Done printing code`
 
 **Short Notes :**
@@ -118,10 +118,9 @@ Note: All preceding and trailing white spaces \(eg: space, newlines \) are alway
                     \|vVv(__/,v#\__)V/|/|..`}}
 Hello {{$user_string}}
 Remember that : {{$quote_of_the_day}}
-```{{$smiley}}
+```{{$smiley}}```   
 ```
 
-```text
 #### Output :
 
 ![](../../.gitbook/assets/image%20%2832%29.png)
@@ -147,30 +146,32 @@ Remember that : {{$quote_of_the_day}}
 
 #### Explanation :
 
-Above is an example of how variables can be extremely useful. Notice that by simply changing the value of the number stored in variable x, you can generate it's multiplication table.
+Above is an example of how variables can be extremely useful. Notice that by simply changing the value of the number stored in variable x, you can generate it's multiplication table. 
 
 #### **Mathematical Functions :**
 
-`mult` here is a function type action which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function based actions similar to `mult` accept \(or do their computation on\) are called **arguments**. The data type of the value returned by the `mult` function is the data type of it's first argument.  
-For example : `{{$x := mult 1 2.5}}` stores `2` in variable x.  
-`{{$y := mult 1.0 2.5}}` stores `2.5` in variable y.
-
+`mult` here is a function type action which we have seen before. It multiplies the numbers provided to it \(written after it\) and gives the value of their product. The values that some function based actions similar to `mult` accept \(or do their computation on\) are called **arguments**. The data type of the value returned by the `mult` function is the data type of it's first argument.   
+For example : `{{$x := mult 1 2.5}}`       stores `2` in variable x.  
+                         `{{$y := mult 1.0 2.5}}`   stores `2.5` in variable y.  
+  
 The `mult` function can also accept more than 2 arguments and works exactly the same way.  
-For example : `{{$z := mult 2.2 2 4}}` stores `17.6` in variable z.  
+For example : `{{$z := mult 2.2 2 4}}`   stores `17.6` in variable z.   
 There are other mathematical function for addition, subtraction, division, exponentiation etc. which work very similar to the `mult` function elaborated in the [docs](https://docs.yagpdb.xyz/reference/templates#math-functions).  
-Further Example : `{{$z := div 12 5}}` stores `2` in variable z.  
-`{{$z := div (toFloat 12) 5}}` stores `2.4` in variable z.
+Further Example : `{{$z := div 12 5}}`  stores `2` in variable z.  
+                                `{{$z := div (toFloat 12) 5}}`  stores `2.4` in variable z.
 
 #### Output :
 
-![](../../.gitbook/assets/image-10%20%281%29.png)
+![](../../.gitbook/assets/image%20%2810%29.png)
 
 {% hint style="success" %}
-**Pro Tip :** You can use the printf function to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).
-
-**Example :** `{{$x := 1.5}} Type : {{printf "%T" $x}} Value : {{printf "%v" $x}}`  
-The above code snippet will output :  
+**Pro Tip :** You can use the printf function to check the value\( with %v\) contained by a variable and it's datatype\(with %T\).  
+  
+**Example :**  `{{$x := 1.5}} Type : {{printf "%T" $x}} Value : {{printf "%v" $x}}`  
+The above code snippet will output :   
 `Type : float64 Value : 1.5`  
 Notice how printf can accept arguments as well. More on printf can be found [here](https://golang.org/pkg/fmt/).
 {% endhint %}
+
+
 
