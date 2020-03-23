@@ -129,7 +129,7 @@ In the above snippet, bot first sends a message : `Yag is ...` . Since `sendMess
 
 ### `editMessageNoEscape`
 
-`editMessageNoEscape` is very similar to the `sendMessageNoEscape` function and simply requited the message id as an additional argument. Similar to `sendMessage` , `editMessage` function always suppresses/escapes all special mentions in message content \(role mentions or @here or @everyone\). Escape as usual means that the output will not create any mentions and output plain text instead. In order for special mentions to work, `editMessageNoEscape` must be used. 
+`editMessageNoEscape` is very similar to the `sendMessageNoEscape` function and simply requited the message id as an additional argument. Similar to `sendMessage` , `editMessage` function always suppresses/escapes all special mentions in message content \(role mentions or @here or @everyone\). Escape as usual means that the output will not create any pings or highlight. In order for special mentions to work, `editMessageNoEscape` must be used. 
 
 **Example :**
 
