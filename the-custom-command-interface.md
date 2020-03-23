@@ -38,8 +38,7 @@ When you create a new custom command, the above is what you will be seeing \(or 
 
 The trigger type is the type of trigger you want to use. By default, this is `Command`. All the available types are listed below in no particular order:
 
-// `None` is also a trigger type, Jonas "forgot" to activate it : \)
-
+* `None` Type : This is a trigger type with which the custom command cannot be triggered from within discord directly and can only be triggered manually or from within another custom command.  
 * `Command` Type: This is the one that you'll likely be using for a lot of your own custom commands, as it's the same as a built-in command. It can be executed with either the prefix set for your server, or by mentioning YAGPDB with the command name. If the command name is `foobar`, we could execute it either by typing `@YAGPDB.xyz foobar` or `-foobar`. **Note:** with the `Command` trigger type, you do not have to add the prefix at the start of your trigger - if the command is named `foobar`, the trigger would be just `foobar`, not `-foobar`. 
 * `Starts With` Type: This one is rather self explanatory. Anything that starts with the trigger will trigger this custom command. For example, if our trigger is `hello`, `hello YAGPDB` would trigger our command but `YAGPDB, hello!` would not. 
 * `Contains` Type: This type is also quite self explanatory. Anything that contains the trigger will trigger this custom command. For example, if our trigger is `hello`, _both_ `Hello YAGPDB` and `YAGPDB, hello!` would trigger our command. 
