@@ -39,7 +39,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 
 **Output :**
 
-![](../.gitbook/assets/image-12.png)
+![](../.gitbook/assets/image-12%20%281%29.png)
 
 **Explanation :**
 
