@@ -28,7 +28,7 @@ It is important to note that `sendMessage` template by itself is an **action typ
 
 **Output:**
 
-![](https://github.com/mrbentarikau/learnyagpdb/tree/3bbd6d54cc5a5e41eeecd0098ec6e9a33f02b447/.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image.png)
 
 **Explanation :**  
 As discussed earlier, the `sendMessage` template here simply sends the string as output message in the same channel as the one in which the custom command is running.
@@ -39,7 +39,7 @@ As discussed earlier, the `sendMessage` template here simply sends the string as
 
 **Output :**
 
-![](../.gitbook/assets/image-12%20%281%29.png)
+![](../.gitbook/assets/image-16.png)
 
 **Explanation :**
 

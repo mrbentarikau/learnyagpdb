@@ -85,9 +85,9 @@ In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted t
 
 **Output :**
 
-![Output for Member with Nickname](../../.gitbook/assets/image-27.png)
+![](../../.gitbook/assets/image-22.png)
 
-![Output for Member without Nickname](../../.gitbook/assets/image-28.png)
+![](../../.gitbook/assets/image-27.png)
 
 **Explanation :**
 
