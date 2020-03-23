@@ -14,6 +14,7 @@ This section presents most commonly used short literals from ****[**support serv
 **CP** - Control Panel of YAGPDB.  
 **DB** - in context of YAGPDB it generally means its own lightweight [database](https://docs.yagpdb.xyz/reference/templates#database). So dbquery, dbvalue etc... are all usually describing YAG's database.  
 **hex** - [Hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) is a positional system representing numbers using a base of 16.  
+**PR** - Pull Request is a method submitting contributions to an open development project. In YAG's context submitting new content to Github.  
 **postgres** - [PostgreSQL](https://www.postgresql.org/), also known as Postgres, is a free and open-source relational database management system which holds YAGPDB's main database.  
 **redbar** - red error bar top of the screen YAGPDB's control panel displays if any error is detected.  
 **redis** - The name [Redis](https://github.com/antirez/redis) means REmote DIctionary Server.  is an in-memory data structure project implementing a distributed, in-memory key-value database with optional durability.  
