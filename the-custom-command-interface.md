@@ -53,6 +53,12 @@ Hopefully, after reading this, you have a good understanding of what the trigger
 
 When using specific types of custom command, you will be able to set restrictions on who is able to trigger your custom command. You can ignore / only run in specific channels and ignore / only run for specific roles.
 
+{% hint style="warning" %}
+A common mistake that users make is to either set the required roles to require no roles or require no channel. If you want the restrictions to be none, you **must** set the restriction on **ignore \(channels / roles\)** rather than **require \(channels / roles\)**, otherwise, it will not respond.
+
+You can take advantage of this if you want to disable a command, but in many cases users do this by accident and are unable to use their CC for apparently no reason.
+{% endhint %}
+
 ### Custom Command Group
 
 When you have more custom commands, you may want to group them. This is when the `Custom command group` option comes in. After you make a group, it will be available as a group. All commands are ungrouped by default.
