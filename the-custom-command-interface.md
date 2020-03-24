@@ -6,6 +6,8 @@ description: >-
 
 # The Custom Command Interface
 
+
+
 To make a custom command, we'll follow a set of easy steps \(which really are quite simple\).
 
 1. Go to the [dashboard](https://yagpdb.xyz/manage), log in, and select your server.
@@ -20,7 +22,7 @@ If you want to go ahead and create your first custom command, click **Create a n
 
 Other than the `Response` or code of the custom command, there are several other options available. We'll go over these one by one.
 
-![](.gitbook/assets/image%20%281%29.png)
+![](.gitbook/assets/image%20%2825%29.png)
 
 When you create a new custom command, the above is what you will be seeing \(or something close to it\). We'll be going over all the options available. If you are more of a visual learner, the options are numbered on the image. The numbers correspond to:
 
@@ -50,6 +52,12 @@ Hopefully, after reading this, you have a good understanding of what the trigger
 ### Restrictions
 
 When using specific types of custom command, you will be able to set restrictions on who is able to trigger your custom command. You can ignore / only run in specific channels and ignore / only run for specific roles.
+
+{% hint style="warning" %}
+A common mistake that users make is to either set the required roles to require no roles or require no channel. If you want the restrictions to be none, you **must** set the restriction on **ignore \(channels / roles\)** rather than **require \(channels / roles\)**, otherwise, it will not respond.
+
+You can take advantage of this if you want to disable a command, but in many cases users do this by accident and are unable to use their CC for apparently no reason.
+{% endhint %}
 
 ### Custom Command Group
 
