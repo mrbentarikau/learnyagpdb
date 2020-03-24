@@ -13,7 +13,9 @@ This section presents most commonly used short literals from ****[**support serv
 **CC** - A Custom Command used by YAGPDB,  
 **CP** - Control Panel of YAGPDB.  
 **DB** - in context of YAGPDB it generally means its own lightweight [database](https://docs.yagpdb.xyz/reference/templates#database). So dbquery, dbvalue etc... are all usually describing YAG's database.  
+**GO** - [Go](https://golang.org/) is an open source programming language and YAGPDB is written in GO aka golang.  
 **hex** - [Hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) is a positional system representing numbers using a base of 16.  
+**oct** - [Octal ](https://en.wikipedia.org/wiki/Octal#In_computers)is a positional system representing numbers using a base of 8 in GO language and YAGPDB.  
 **PR** - Pull Request is a method submitting contributions to an open development project. In YAG's context submitting new content to [Github](https://github.com/jonas747/yagpdb/).  
 **postgres** - [PostgreSQL](https://www.postgresql.org/), also known as Postgres, is a free and open-source relational database management system which holds YAGPDB's main database.  
 **redbar** - red error bar top of the screen YAGPDB's control panel displays if any error is detected.  
