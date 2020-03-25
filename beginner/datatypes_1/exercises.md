@@ -6,7 +6,7 @@
    1.  `{{$x := 10.0}}`
    2.  `{{$x := .Server.MemberCount}}`
    3.  `{{$x := 0xAB11615E}}`
-   4.  `{{$x := .Channel.name}}`
+   4.  `{{$x := .Channel.Name}}`
    5.  `{{$x := div 5 2.3}}`
    6.  `{{$x := currentTime}}`
    7.  `{{$x := .Member.Roles}}`
