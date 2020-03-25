@@ -12,8 +12,9 @@
    7.  `{{$x := .Member.Roles}}`
    8.  `{{$x := .User}}`
    9.  `{{$x := "ab\nc\\\"\n\\"}}`
-   10.  `{{$x := .Guild.EmbedEnabled}}`
-   11. 
+   10.  `{{$x := .DoesNotExist}}`
+   11.  `{{$x := .Guild.EmbedEnabled}}`
+   12. 
                 ``{{$x := ` ok  
    hi  
    hello  
