@@ -17,6 +17,7 @@
 
 ## Intermediate
 
+* [\[WIP\] Control Flow 2](intermediate/control-flow-2.md)
 * [Exercises level 2](intermediate/exercises-level-2/README.md)
   * [Simple Counting Algorithm](intermediate/exercises-level-2/simple_count_algorithm.md)
   * [Finding Primes](intermediate/exercises-level-2/finding-primes.md)

@@ -6,8 +6,6 @@ description: >-
 
 # The Custom Command Interface
 
-
-
 To make a custom command, we'll follow a set of easy steps \(which really are quite simple\).
 
 1. Go to the [dashboard](https://yagpdb.xyz/manage), log in, and select your server.
@@ -22,7 +20,7 @@ If you want to go ahead and create your first custom command, click **Create a n
 
 Other than the `Response` or code of the custom command, there are several other options available. We'll go over these one by one.
 
-![](.gitbook/assets/image%20%2825%29.png)
+![](.gitbook/assets/image-25.png)
 
 When you create a new custom command, the above is what you will be seeing \(or something close to it\). We'll be going over all the options available. If you are more of a visual learner, the options are numbered on the image. The numbers correspond to:
 
