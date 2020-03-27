@@ -69,8 +69,7 @@ Above snippet will store `true` in [variable](https://yagpdb.gitbook.io/learnyag
 
 ## Variables
 
-A variable is a storage location, with a specific type and an associated name. It can be used to store the output of an action or literal values\( string , int , float etc\). Variable names may contain letters, numbers or the `_` \(underscore\) symbol. A good programming habit is to start a variable name with a letter. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A action containing just the variable name simply outputs it's contents \(for complex data types it follows certain predefined formats\).  
-Note : Empty variable name is also allowed, that is  `{{$ := "a"}}` is valid.
+A variable is a storage location, with a specific type and an associated name. It can be used to store the output of an action or literal values\( string , int , float etc\). Variable names may contain letters, numbers or the `_` \(underscore\) symbol. A good programming habit is to start a variable name with a letter. In Custom Command codes, all variable names should be preceded by the dollar sign `$` to identify it as a variable. A action containing just the variable name simply outputs it's contents \(for complex data types it follows certain predefined formats\).
 
 **Example :**
 
