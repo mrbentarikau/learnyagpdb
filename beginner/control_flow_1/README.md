@@ -183,7 +183,7 @@ In the above example there are 3 different blocks which are conditionally execut
     {{- else if eq .Server.MemberCount 500 -}}
         You are our 500th member!!
     {{- else if eq .Server.MemberCount 1000 -}}
-        You are our 500th member!!
+        You are our 1000th member!!
     {{end}}
 {{end}}
 ```
