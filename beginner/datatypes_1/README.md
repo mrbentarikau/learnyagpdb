@@ -100,6 +100,10 @@ In the above code snippet you can notice the `:=` operator. This operator is use
 Note: All preceding and trailing white spaces \(eg: space, newlines \) are always trimmed away in final output matching discord behavior.
 {% endhint %}
 
+{% hint style="info" %}
+Note : Empty variable name is also allowed, that is`{{$ := "a"}}`is valid.
+{% endhint %}
+
 ## Example Codes
 
 ### Example 1
