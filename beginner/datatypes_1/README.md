@@ -45,6 +45,8 @@ Example : `9.5` `12.3` `0.008`
 
 Floating point literals also support some other formats such as scientific notation etc. elaborated [here](https://golang.org/ref/spec#Floating-point_literals).
 
+The _`float64`_ is the most common datatype you will encounter in Yagpdb for storing floating point literals.
+
 {% hint style="info" %}
 Note `10` represents an integer literal while `10.0` represents a floating point literal.  
 Example : `{{num := 20.0}}`   
