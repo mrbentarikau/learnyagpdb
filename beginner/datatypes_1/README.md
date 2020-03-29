@@ -6,7 +6,7 @@ description: >-
 
 # Data Types 1
 
-## Basic data types
+## Literals and Basic data types
 
 ### String
 
@@ -15,9 +15,11 @@ A string is a sequence of characters. It simply stores textual data. String lite
 1.  **Using Double Quotes :**  String literals can be created by enclosing a sequence of characters within double quotation marks `"` . It can cannot contain newlines and allows usage of special escape sequences to represent certain characters. Some of them are :  `\n` This produces a newline character \(similar to pressing the enter key\) `\"` This produces a double quotation mark `"` . This allows us to use double quotes inside quoted       string literals. `\\` This creates a backslash character. \(only using a single backslash character denotes an escape sequence hence this is necessary\)  A more detailed list of other escape sequences can be found [here](http://xahlee.info/golang/golang_string_backslash_escape.html). **Example :** `"Yagpdb is a nice bot.\nI like it very much."` 
 2. **Using Backticks :** String literals can also be created in form of a _raw string literal_ by enclosing it in backticks `````. It can contain all characters including newlines except for the backtick character. It does not support any escape sequences and is usually used to conveniently produce string literals which span multiple lines.  **Example :**  ```Yagpdb is a nice bot. I like it very much```
 
+The _`string`_ datatype is the most common Data Type for storing string literals.
+
 ### Integer
 
-Integers \(_int_\) – like their mathematical counterpart – are numbers without a decimal component. In Yagpdb templating code, the maximum range of int data type is from : -9223372036854775808 to 9223372036854775807. There are [different ways](https://golang.org/ref/spec#Integer_literals) in which an integer literal can be created/specified but irrespective of how they are specified, they all belong to the same data type and represent an unique number. Some common ways are :
+Integers – like their mathematical counterpart – are numbers without a decimal component. In Yagpdb templating code, the maximum range of _int_ data type is from : -9223372036854775808 to 9223372036854775807. There are [different ways](https://golang.org/ref/spec#Integer_literals) in which an integer literal can be created/specified but irrespective of how they are specified, they represent an unique number. _`int`_ datatype is the most common Data Type for storing integer literals. Some common ways to specify integer literals are :
 
 1. **As base 10 number :** As intimidating as it sounds, these are our normal plain numbers. So normal digits can be used to create number literals \(remember that the first digit should be non zero for syntax reasons\).  `{{$x := 105}}` Above statement assigns a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named x with value 105 \(base-10\) 
 2. **As a hexadecimal number :** You might have come across [hexadecimal numbers](https://simple.wikipedia.org/wiki/Hexadecimal) while reading about memory locations or hexadecimal codes for colors etc. While specifying a hexadecimal number, we have to precede the number with `0x` to denote that the following number represents a hexadecimal number. You can use digits from `0` to `9` and letters `a` to `e` to specify a hexadecimal number. Capitalization of the letters do not matter. `{{$hex := 0xA1}}` Above statement assigns a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes_1#variables) named hex with value : 161\(base-10\) using an integer literal specified in hexadecimal format.
