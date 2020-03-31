@@ -91,7 +91,7 @@ In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted t
 
 **Explanation :**
 
-In the above example, the command accepts two arguments- a member and a string. Member argument can be passed by providing the underlying user's id or by mentioning the user. The rest of the text following the first argument is parsed as string. If the member has a nickname , their nickname is used at the start of the message , otherwise their username is used. The rest of the message is then output as is.
+In the above example, the command accepts two arguments- a member and a string. Member argument can be passed by providing the underlying user's id or by mentioning the user. The rest of the text following the first argument is parsed as string. If the member has a nickname , their nickname is used at the start of the message , otherwise their username is used. The rest of the message is then output as is. Note: here that all the text following the first argument including spaces is parsed as one single string argument.
 
 ### `IsSet`
 
