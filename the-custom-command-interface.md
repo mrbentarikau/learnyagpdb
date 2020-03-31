@@ -45,7 +45,7 @@ The trigger type is the type of trigger you want to use. By default, this is `Co
 * `Regex` Type: Anything that matches the trigger as a regex will execute this custom command. For example, if we had the trigger `\bhey\b`, `hey there YAGPDB` would trigger the custom command but `heya YAGPDB` would not. [Using Regex](https://docs.yagpdb.xyz/reference/regex) is covered in the documentation, so we will leave it at that. 
 * `Exact Match` Type: Anything that matches the trigger \(not case sensitive\) will trigger this custom command. Let's take the example of a custom command with the trigger `test`. Both `test` and `TEST` would trigger the custom command, while `test YAGPDB` would not. 
 * `Reaction` Type: A special type of custom command that triggers only on reactions. When this trigger type is used, the `.` has an additional property called `Reaction`, which is documented [here](https://docs.yagpdb.xyz/reference/templates#reaction). When using this, instead of the trigger, you can see 3 other options which are `Added + Removed reactions`, `Added reactions only`, and `Removed reactions only`. By default, it is `Added + Removed reactions` which will trigger on all reactions. We will talk more about this in a later chapter. 
-* `Hourly` and `Minute` interval: This custom command is ran on an interval in a given channel. You may optionally ignore specific hours and weekdays.
+* `Hourly` and `Minute` interval: This custom command is ran on an interval in a given channel. You may optionally ignore specific hours and weekdays. Channel selection must be present for this trigger to work.
 
 Hopefully, after reading this, you have a good understanding of what the trigger type is and what trigger type you wish to use for your custom command.
 
