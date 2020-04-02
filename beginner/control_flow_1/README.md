@@ -112,7 +112,7 @@ In the above example the if [block](https://learn.yagpdb.xyz/beginner/control_fl
 
 ### Blocks and Scope
 
-While learning the if-else action you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else action as an example, the statements following `{{if (condition}}` and before `{{else}}` \(or `{{end}}` if there is no else action\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
+While learning the if-else action you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else action as an example, the statements following `{{if (condition)}}` and before `{{else}}` \(or `{{end}}` if there is no else action\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
 
 So why are these blocks important anyway? They are important because of an important property of variables called **scope**. A variable declared in a particular block ceases to exist outside it. This can be illustrated as follows:  
 `{{if eq 1 1}}  
