@@ -170,7 +170,7 @@ Following is a simple announce command.
 (carg "channel" "channel to send to")
 (carg "string" "text to send")}}
 
-{{sendMessageNoEscape ($args.Get 0) ($args.Get 1)}}
+{{sendMessageNoEscape ($args.Get 0).ID ($args.Get 1)}}
 ```
 
 #### Explanation :
