@@ -13,7 +13,11 @@ We are going to teach you how to read code as well as how to write it. After all
 So don't worry, **you are doing great!**
 
 {% hint style="info" %}
-**Be sure to use these lessons here in conjunction with** [**reference documentation**](https://docs.yagpdb.xyz/reference/templates)**.**
+Be sure to use these lessons here in conjunction with [reference documentation](https://docs.yagpdb.xyz/reference/templates).
+{% endhint %}
+
+{% hint style="danger" %}
+Before executing random code you copied from "someone" - code you can't read or do not understand, do consult voluntary support on YAGPDB's [support server](https://discord.gg/0vYlUK2XBKldPSMY).
 {% endhint %}
 
 
