@@ -8,7 +8,7 @@ This section presents most commonly used short literals from ****[**support serv
 
 **YAGPDB** - Yet Another General Purpose Discord Bot, users tend to call it YAG as well  
   
-**amV2/BAM** - auto-moderators YAGPDB has, Automoderator V2 and Basic Automoderator.  
+**amV2/BAM** - auto-moderators aka **amVs** YAGPDB has, Automoderator V2 and Basic Automoderator.  
 **ASCII** - [ASCII ](https://ascii.cl/)stands for American Standard Code for Information Interchange.  
 **CC** - A Custom Command used by YAGPDB,  
 **CP** - Control Panel of YAGPDB.  
