@@ -1,3 +1,7 @@
+---
+description: '"Dots... thou have been connected"'
+---
+
 # General Tips
 
 * New users should start running and learning YAGPDB in a testing environment, not on live-servers; that way you avoid a lot of problems.
