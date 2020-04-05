@@ -1,5 +1,5 @@
 ---
-description: '"Dots... thou have been connected"'
+description: '"Dots... thou have been connected."'
 ---
 
 # General Tips
