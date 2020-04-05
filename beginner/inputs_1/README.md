@@ -91,7 +91,7 @@ In YAGPDB and coding in general, indexes start from 0, not 1, so if you wanted t
 
 **Explanation :**
 
-In the above example, the command accepts two arguments- a member and a string. Member argument can be passed by providing the underlying user's id or by mentioning the user. The rest of the text following the first argument is parsed as string. If the member has a nickname , their nickname is used at the start of the message , otherwise their username is used. The rest of the message is then output as is.
+In the above example, the command accepts two arguments- a member and a string. Member argument can be passed by providing the underlying user's id or by mentioning the user. The rest of the text following the first argument is parsed as string. If the member has a nickname , their nickname is used at the start of the message , otherwise their username is used. The rest of the message is then output as is. Note: here that all the text following the first argument including spaces is parsed as one single string argument.
 
 ### `IsSet`
 
@@ -145,7 +145,7 @@ In the above example we see a new function called joinStr which belongs to the c
 
    Other characters which do not have a defined upper\(title\) case remain unaffected.  
 
-3. `title` : Syntax is `title string`. It returns a string with the first letter of each word capitalized\(in title case\). Subsequent characters in the word remain unaffected. Note that word here is not delimited by only whitespace. Some other characters \(like ; or \#\) behave have word separators and the first letter following them is capitalized as well.     **Example:** `{{title "hellO World! | @m g00d o_k. ää##spam;a"}}` ****will return      Above will return : `HellO World! | @M G00d O_k. Ää##Spam;A` . 
+3. `title` : Syntax is `title string`. It returns a string with the first letter of each word capitalized\(in title case\). Subsequent characters in the word remain unaffected. Note that word here is not delimited by only whitespace. Some other characters \(like ; or \#\) behave as word separators and the first letter following them is capitalized as well.     **Example:** `{{title "hellO World! | @m g00d o_k. ää##spam;a"}}` ****will return      Above will return : `HellO World! | @M G00d O_k. Ää##Spam;A` . 
 4. `joinStr` : Syntax is `joinStr separator string_or_string_slice(s)`. This is a very useful action used for joining strings or string slices together into a single string. Separator is the character\(s\) that is inserted between each element while forming the final string. It can be a null string `""` as well which simply joins all elements together without placing any extra character in between while joining them. Note that separator is a string itself and should be enclosed in `""` or ```````` if specified as a string literal.  
  
 

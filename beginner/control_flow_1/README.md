@@ -60,7 +60,7 @@ Having seen boolean operators it is only logical to explore actions that produce
 * `le`: This function returns `true` if `arg1 <= arg2` , that is if first argument is less than or equal to second argument.
 
 {% hint style="danger" %}
-Values of two **different data types** \(eg float64 and int\) are **not comparable**.
+Values of two **different data types** \(eg _float64_ and _int_\) are **not comparable**.
 {% endhint %}
 
 {% hint style="info" %}
@@ -68,7 +68,7 @@ Although it is most common to use numerical values in comparison actions, they c
 {% endhint %}
 
 {% hint style="info" %}
-Only basic data types \(int and variants ; float and variants and strings\) can be compared with the comparison actions. The `eq` and `ne` functions can additionally also compare boolean values.
+Only basic data types \(_int_ and variants ; _float64_ and variants and _string_\) can be compared with the comparison actions. The `eq` and `ne` functions can additionally also compare boolean values.
 {% endhint %}
 
 ## If - Else Branching
@@ -112,7 +112,7 @@ In the above example the if [block](https://learn.yagpdb.xyz/beginner/control_fl
 
 ### Blocks and Scope
 
-While learning the if-else action you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else action as an example, the statements following `{{if (condition}}` and before `{{else}}` \(or `{{end}}` if there is no else action\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
+While learning the if-else action you must have noticed the term "block". A **block** is simply a collection of statements or code. With the simple if-else action as an example, the statements following `{{if (condition)}}` and before `{{else}}` \(or `{{end}}` if there is no else action\) consists of the a single block which can be called the if block. Similarly the statements following `{{else}}` and before `{{end}}` consists of the else block. 
 
 So why are these blocks important anyway? They are important because of an important property of variables called **scope**. A variable declared in a particular block ceases to exist outside it. This can be illustrated as follows:  
 `{{if eq 1 1}}  
