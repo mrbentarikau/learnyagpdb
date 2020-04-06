@@ -16,6 +16,7 @@ description: '"Dots... thou have been connected."'
 
   Keep these in mind... they will come in handy sooner rather than later!"
 
-* 
+* ...
+
 
 
