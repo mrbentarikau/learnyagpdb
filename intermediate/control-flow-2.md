@@ -10,7 +10,7 @@ In Control Flow 2, you will learn two very useful ways which can help optimize y
 
 ## The Range Action
 
-_If you're worked with other programming languages in the past, `range` is like a `for` loop._   
+_If you're worked with other programming languages in the past, `range` is like a `for` loop._    
   
 The `range` action is defined like the following:
 
