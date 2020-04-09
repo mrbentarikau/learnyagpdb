@@ -27,6 +27,7 @@ This may seem quite confusing at first, so we'll go over each of the required ar
 2. `<error message>` - This is the message that YAGPDB will send if the command was used with incorrect arguments. You can leave this blank for YAGPDB to automatically construct an error message from the descriptions of the `carg`s provided \(we'll talk about this later\).
 3. `...cargs` - parseArgs is a variadic function of sorts, which means it can allow as many or as little `carg`s as you wish. `carg` is a function itself, describing the argument you want to parse. It takes the syntax `carg <type> <description>`, where type is one of the following types \(enclosed in quotes, like `"int"`\):
    * `int` \(whole number\)
+   * `float` \(decimal number\)
    * `string` \(text\)
    * `user` \(user mentions, resolves to the [user](https://docs.yagpdb.xyz/reference/templates#user) structure\)
    * `userid` \(mentions or user IDs, resolves to the ID itself\)
