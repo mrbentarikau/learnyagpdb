@@ -174,7 +174,7 @@ What's this Narutp magic doing here?! Actually, it turns out that this is nothin
 Remember that `$` is a variable \(which you can write to\). This means that if you added `{{ $ := "hello world!" }}` in the above code, $ would no longer have the properties `User` and all the other properties on `.`
 {% endhint %}
 
-### Range Use Two: Looping over values to produce output
+### Range Use Two: Putting the output of range into a variable
 
 Let's say you have a _slice_ of fictional users, like this.
 
@@ -186,15 +186,90 @@ Let's say you have a _slice_ of fictional users, like this.
 }}
 ```
 
-How would we loop over these users to produce a "leaderboard" output like this?
+How would we loop over these users to produce an embed output like this?
 
-_Expected output:_
+![](../.gitbook/assets/image%20%282%29.png)
 
-```yaml
-1. Bob: 15 years old
-2. Joe: 16 years old
-3. Bobby Joe: 17 years old
+The first hint is the sentence itself - _loop over_. We should use `range` - but how? Try it yourself, and if you can't do it, feel free to come back.
+
+What this involves is putting the output of `range` into a variable, however, the method of doing so might not be the most obvious at first. Let's take a look:
+
+```go
+{{ $data := cslice
+    (sdict "name" "Bob" "age" 15)
+    (sdict "name" "Joe" "age" 16)
+    (sdict "name" "Bobby Joe" "age" 17)
+}}
+{{ $var := "" }}
+{{- range $data }}
+    {{ $var = joinStr "" $var "\n" "**" .name ":** " .age " years old" }}
+{{- end }}
+{{ sendMessage nil (cembed "description" $data) }}
 ```
 
-The first hint is the sentence itself - _loop over_. We should use `range` - but how? Here's our first attempt at doing this: \[TBA\]
+Essentially, what we are doing is writing to a variable and joining it every iteration with `joinStr`. Note the use of `=` rather than `:=` \(refer to Control Flow 1\).
+
+## Bonus: The With Operator
+
+If you've seen some other yagpdb CCs, chances are that you've wandered upon the `with` operator. What is it? What does it do? That's what this bonus chapter will cover.
+
+`with` is an action, just like `if`. It checks whether the pipeline provided is truthy, if so, it continues - but with one difference. It changes the value of the `.` inside the `with` action to the pipeline provided to `with`. Look at this example for more details:
+
+```go
+{{ with 1 }}
+    {{ . }} // > 1
+    {{ .User }} // Errors, as . is 1, and does not have User property
+    {{ $.User }} // This works fine
+{{ end }}
+```
+
+{% hint style="info" %}
+`else if` cannot be used with the `with` action, only `else`. In the optional `else` clause, the dot is left unaffected. See below:
+{% endhint %}
+
+```go
+{{ with false }} // false is not truthy, so the following is not run
+    {{ . }} // This is not run
+{{ else }}
+    {{ .User }} // Works fine, as . is not affected here. Prints out your user tag
+{{ end }}
+```
+
+### When should we use `with`?
+
+Be extremely careful to not overuse `with`. It is a tool to help shorten your code in some cases, but it does not help readability for others who might not know what `with` is. Avoid it unless you know exactly what it does. For example, let's show two cases where `with` is used:
+
+**Bad use case:**
+
+```go
+{{ with .CmdArgs }}
+    {{ with reFind `^\d+` (joinStr " " .) }}
+        You sent the number {{ . }}!
+    {{ else }}
+        Not a valid number!
+    {{ end }}
+{{ else }}
+    Please provide a valid number!
+{{ end }}
+```
+
+The flow here is a little hard to follow, as `.` is used extensively and it's not too clear what it is at first glance \(there are two `with` actions, nested within each other\). A better way to write this code would be to write it normally with `if`, as `with` does not provide any tangible advantage here.
+
+**Good use case:**
+
+```go
+{{ if .StrippedMsg }}
+    {{ $user := 0 }} {{ $chan := "" }}
+    {{ with reFindAllSubmatches `<@!?(\d+)> <#(\d+)>` .StrippedMsg }}
+        {{ $user = toInt64 (index . 0 1) }}
+        {{ $chan = toInt64 (index . 0 2) }}
+    {{ end }}
+{{ end }}
+```
+
+Note that here we do not use `with` for the first statement, rather, it is only used for the `reFindAllSubmatches` call. This is a much better use case, because if we simply used `if`, we would have to repeat that line of code. With `with`, in this case, we shorten our code, save function calls, and keep readability.
+
+{% hint style="success" %}
+**Pro Tip:** Did you know that `index` can be called with more than 2 arguments? `index X 0 1` is equivalent to calling `index (index X 0) 1` and so on. This works well with `reFindAllSubmatches`, as it returns a 2D array of matches rather than a normal array.
+{% endhint %}
 
