@@ -14,5 +14,5 @@ $$
 
 **Write a CC for finding the sum of n-terms of an arithmetic sequence** requiring these three parameters **a,** **d,** **n** mentioned above from user input, let those be integers. Your task is to write it using `range` function to sum these parameters, but in addition write a verification code using math functions according to given formula.
 
-Example solution.
+[Example solution](https://pastebin.com/n4nMu1mL)
 

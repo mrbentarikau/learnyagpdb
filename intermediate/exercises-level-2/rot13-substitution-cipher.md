@@ -11,5 +11,5 @@ description: >-
 Write a CC that takes any string and returns the ROT13 version of the string; you may assume that the character set is ASCII and let "space" character be counted as well. If there are any numbers, don't use them in the ciphering process.  
 What is the meaning of “**lntcqo vf gur orfg obg va qvfpbeq**”
 
-Example solution.
+[Example solution](https://pastebin.com/JKWFqSqp)
 
