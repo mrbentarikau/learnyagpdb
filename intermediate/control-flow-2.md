@@ -11,7 +11,7 @@ In Control Flow 2, you will learn two very useful ways which can help optimize y
 ## The Range Action __ The `range` action is defined like the following:
 
 {% hint style="info" %}
-If you're worked with other programming languages in the past, you can think of `range` as a `for` loop.
+If you've worked with other programming languages in the past, you can think of `range` as a `for` loop.
 {% endhint %}
 
 ```go
