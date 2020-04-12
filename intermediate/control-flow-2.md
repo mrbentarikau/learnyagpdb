@@ -69,7 +69,7 @@ These two functions remove roles from a given user ID, using the role name and I
 Sometimes, you may wish to do actions based on whether a user has or does not have a given role. How do we do this?
 
 {% hint style="info" %}
-**Note:** All the functions below return a _bool_, that is, true or false. This means that if you wanted to check whether a user _does not_ have a role, you can simply negate the boolean using the `not` operator - i.e `not (hasRoleID 123456789).`
+**Note:** All the functions below return a _bool_, that is, true or false. This means that if you wanted to check whether a user _does not_ have a role, you can simply negate the Boolean using the `not` operator - i.e `not (hasRoleID 123456789).`
 {% endhint %}
 
 #### `hasRoleID <role id>` and `hasRoleName <role name>`
@@ -118,7 +118,7 @@ The first, and arguably the simplest use of `range` is to reduce repetitive code
 Let's go through our code step-by-step, as this may read like gibberish to you at first - _What's that . doing there? What the heck are those hyphens after {{ doing??_
 
 1. `{{ $ids := cslice x y z a b c }}`: We construct a slice or array of role IDs. Very straightforward. 
-2. `{{- range $ids }}`: Here is where the fun really starts. Let's start with the `{{-` rather than just `{{`: **White space is rendered as output in a range action,** meaning that if you have newlines or indents and are ranging over a large enough set of data, you may find that you're getting a "Response exceeded 2K characters" error for apparently no reason. `{{-` before the opening range action and before the end clause solves this issue. As to why this works, it is because `{{-` or `-}}` strip white space in a given direction, meaning that the - before the opening range statement would strip whitespace to the right, same with the - before the closing end statement.  In this specific case, we do not necessarily need these as there 1\) is not enough data for it to hit a 2K character error and 2\) we send no text afterwards, so newlines would not be an issue. However, it's good practice and prevents some frustration when you see that strange "Response exceeded 2K characters" error without apparent cause.  Finally, the `range $ids` part declares the range statement itself. We declare it with the `range pipeline` syntax rather than `range $key, $value := pipeline` syntax as in this specific case we do not need the index of the slice we are iterating over. 
+2. `{{- range $ids }}`: Here is where the fun really starts. Let's start with the `{{-` rather than just `{{`: **White space is rendered as output in a range action,** meaning that if you have newlines or indents and are ranging over a large enough set of data, you may find that you're getting a "Response exceeded 2K characters" error for apparently no reason. `{{-` before the opening range action and before the end clause solves this issue. As to why this works, it is because `{{-` or `-}}` strip white space in a given direction, meaning that the - before the opening range statement would strip white space to the right, same with the - before the closing end statement.  In this specific case, we do not necessarily need these as there 1\) is not enough data for it to hit a 2K character error and 2\) we send no text afterwards, so newlines would not be an issue. However, it's good practice and prevents some frustration when you see that strange "Response exceeded 2K characters" error without apparent cause.  Finally, the `range $ids` part declares the range statement itself. We declare it with the `range pipeline` syntax rather than `range $key, $value := pipeline` syntax as in this specific case we do not need the index of the slice we are iterating over. 
 3. `{{ addRoleID . }}` What's this? We see the `addRoleID` function, but we also see this `.`. Normally, the dot refers to all the data available in CCs: for example, `.Guild`. However, when in a `range` or `with` action \(covered later in this section\) the dot is changed to the **current iteration value**. In this case, `.` would be either x, y, z, a, b or c, as those are the values of the slice `$ids`. 
 4. Lastly, we have this `{{- end }}`. The `end` action closes off the range action, and the `{{-` strips all white space to the left \(read above for why this is necessary\).
 
@@ -211,9 +211,9 @@ Essentially, what we are doing is writing to a variable and joining it every ite
 
 ## Bonus: The With Operator
 
-If you've seen some other yagpdb CCs, chances are that you've wandered upon the `with` operator. What is it? What does it do? That's what this bonus chapter will cover.
+If you've seen some other YAGPDB CCs, chances are that you've wandered upon the `with` operator. What is it? What does it do? That's what this bonus chapter will cover.
 
-`with` is an action, just like `if`. It checks whether the pipeline provided is truthy, if so, it continues - but with one difference. It changes the value of the `.` inside the `with` action to the pipeline provided to `with`. Look at this example for more details:
+`with` is an action, just like `if`. It checks whether the pipeline provided is true, if so, it continues - but with one difference. It changes the value of the `.` inside the `with` action to the pipeline provided to `with`. Look at this example for more details:
 
 ```go
 {{ with 1 }}
