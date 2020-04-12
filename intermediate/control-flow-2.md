@@ -267,7 +267,7 @@ The flow here is a little hard to follow, as `.` is used extensively and it's no
 {{ end }}
 ```
 
-Note that here we do not use `with` for the first statement, rather, it is only used for the `reFindAllSubmatches` call. This is a much better use case, because if we simply used `if`, we would have to repeat that line of code. With `with`, in this case, we shorten our code, save function calls, and keep readability.
+Note that here we do not use `with` for the first statement, rather, it is only used for the `reFindAllSubmatches` call. This is a much better use case, because, if we simply used `if`, we would have to repeat that line of code. With `with`, in this case, we shorten our code, save function calls, and keep readability.
 
 {% hint style="success" %}
 **Pro Tip:** Did you know that `index` can be called with more than 2 arguments? `index X 0 1` is equivalent to calling `index (index X 0) 1` and so on. This works well with `reFindAllSubmatches`, as it returns a 2D slice of matches rather than a normal slice.
