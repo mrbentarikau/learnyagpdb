@@ -1,6 +1,7 @@
 # Table of contents
 
 * [YAGPDB learning resources](README.md)
+* [General Tips](general-tips.md)
 * [The Custom Command Interface](the-custom-command-interface.md)
 
 ## Beginner
@@ -19,6 +20,13 @@
 ## Intermediate
 
 * [Control Flow 2](intermediate/control-flow-2.md)
+* [Exercises level 2](intermediate/exercises-level-2/README.md)
+  * [Simple Counting Algorithm](intermediate/exercises-level-2/simple-counting-algorithm.md)
+  * [Sum of Arithmetic Sequence](intermediate/exercises-level-2/sum-of-arithmetic-sequence.md)
+  * [ROT13 substitution cipher](intermediate/exercises-level-2/rot13-substitution-cipher.md)
+  * [Duplicates in a List](intermediate/exercises-level-2/duplicates-in-a-list.md)
+  * [Finding Primes](intermediate/exercises-level-2/finding-primes.md)
+  * [Generalizing Repetitions - Stars](intermediate/exercises-level-2/generalizing-repetitions-stars.md)
 
 ## 🤖 Programming
 
