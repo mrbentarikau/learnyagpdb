@@ -4,7 +4,7 @@ description: >-
   Follow it. Never rush." // The Void
 ---
 
-# Exercises level 2
+# Exercises Level 2
 
 These exercises address all the key areas discussed in sections above.
 
