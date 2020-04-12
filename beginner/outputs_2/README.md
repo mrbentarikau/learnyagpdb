@@ -58,7 +58,7 @@ Output :
 
 ### `sendMessageNoEscape`
 
-As we have already mentioned earlier in case of [response](https://yagpdb.gitbook.io/learnyagpdb/beginner/outputs_1#response), certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` function as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` function. It is important to note that unlike response, using mention based functions such as `mentionHere` does not create a mention with `sendMessage` function. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based function producing no meaningful/usable output.  
+As we have already mentioned earlier in case of [response](https://learn.yagpdb.xyz/beginner/outputs_1#mentions-and-custom-emojis), certain mentions such as role mentions, `@everyone` and `@here` are escaped by default. This is also valid for `sendMessage` function as well. However if you want these mentions to be not escaped you should use `sendMessageNoescape` function. It is important to note that unlike response, using mention based functions such as `mentionHere` does not create a mention with `sendMessage` function. You must use `sendMessageNoEscape` for these special mentions to work. Also, just like `sendMessage` , `sendMessageNoEscape` is a purely action based function producing no meaningful/usable output.  
   
 **Example :**
 
