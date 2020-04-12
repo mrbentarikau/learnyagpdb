@@ -18,6 +18,7 @@ description: '"Dots... thou have been connected."'
 
 * YAGPDB has a control panel, not a dash-board.
 * Start simple, never over-complicate things on the first run. This even goes for command triggers.
+* Custom commands will get more lengthy for you in the future, it's good to get accustomed writing them inside some text-editors or IDEs.
 
 
 
