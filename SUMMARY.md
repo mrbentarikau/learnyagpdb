@@ -16,6 +16,10 @@
 * [Outputs 2](beginner/outputs_2/README.md)
   * [Exercises](beginner/outputs_2/exercises.md)
 
+## Intermediate
+
+* [Control Flow 2](intermediate/control-flow-2.md)
+
 ## 🤖 Programming
 
 * [The Seven Steps of Programming](programming/the-seven-steps-of-programming.md)
