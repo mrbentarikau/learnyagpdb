@@ -110,16 +110,22 @@ The first, and arguably the simplest use of `range` is to reduce repetitive code
 
 ```go
 {{ $ids := cslice x y z a b c }}
-{{- range $ids }}
-    {{ addRoleID . }}
+{{ range $ids }}
+    {{- addRoleID . -}}
 {{- end }}
 ```
 
 Let's go through our code step-by-step, as this may read like gibberish to you at first - _What's that . doing there? What the heck are those hyphens after {{ doing??_
 
 1. `{{ $ids := cslice x y z a b c }}`: We construct a slice of role IDs. Very straightforward. 
-2. `{{- range $ids }}`: Here is where the fun really starts. Let's start with the `{{-` rather than just `{{`: **White space is rendered as output in a range action,** meaning that if you have newlines or indents and are ranging over a large enough set of data, you may find that you're getting a "Response exceeded 2K characters" error for apparently no reason. `{{-` before the opening range action and before the end clause solves this issue. As to why this works, it is because `{{-` or `-}}` strip white space in a given direction, meaning that the - before the opening range statement would strip white space to the right, same with the - before the closing end statement.  In this specific case, we do not necessarily need these as there 1\) is not enough data for it to hit a 2K character error and 2\) we send no text afterwards, so newlines would not be an issue. However, it's good practice and prevents some frustration when you see that strange "Response exceeded 2K characters" error without apparent cause.  Finally, the `range $ids` part declares the range statement itself. We declare it with the `range pipeline` syntax rather than `range $key, $value := pipeline` syntax as in this specific case we do not need the index of the slice we are iterating over. 
-3. `{{ addRoleID . }}` What's this? We see the `addRoleID` function, but we also see this `.`. Normally, the dot refers to all the data available in CCs: for example, `.Guild`. However, when in a `range` or `with` action \(covered later in this section\) the dot is changed to the **current iteration value**. In this case, `.` would be either x, y, z, a, b or c, as those are the values of the slice `$ids`. 
+2. `{{ range $ids }}`: Here is where the fun really starts. The `range $ids` part declares the range statement itself. We declare it with the `range pipeline` syntax rather than `range $key, $value := pipeline` syntax as in this specific case we do not need the index of the slice we are iterating over. 
+3. `{{- addRoleID . -}}` Let's start with the `{{-` rather than just `{{`: **White space is rendered as output in a range action,** meaning that if you have newlines or indents and are ranging over a large enough set of data, you may find that you're getting a "Response exceeded 2K characters" error for apparently no reason. For this reason, we strip the whitespace in both directions in every iteration, instead of at just the start and end. You will need to add this \(`{{-` and `-}}`\) for every line in your `range` action.  
+  
+   In this specific case, we do not necessarily need these as there 1\) is not enough data for it to hit a 2K character error and 2\) we send no text afterwards, so newlines would not be an issue. However, it's good practice and prevents some frustration when you see that strange "Response exceeded 2K characters" error without apparent cause.  
+
+
+   Lastly, the `addRoleID` function itself. We see the `addRoleID` function, but we also see this `.`. Normally, the dot refers to all the data available in CCs: for example, `.Guild`. However, when in a `range` or `with` action \(covered later in this section\) the dot is changed to the **current iteration value**. In this case, `.` would be either x, y, z, a, b or c, as those are the values of the slice `$ids`.  
+
 4. Lastly, we have this `{{- end }}`. The `end` action closes off the range action, and the `{{-` strips all white space to the left \(read above for why this is necessary\).
 
 That wasn't too hard, was it? Let's now go to a common mistake that users make when working with range.
@@ -136,8 +142,8 @@ The following code is **intentionally** left broken. Try to find out where we we
 
 ```go
 {{ $rolenames := x y z a b c d }}
-{{- range $rolenames }}
-    {{ giveRoleName .User.ID . }}
+{{ range $rolenames }}
+    {{- giveRoleName .User.ID . -}}
 {{- end }}
 ```
 
@@ -151,8 +157,8 @@ The first, and most obvious approach is to define the user ID outside of the ran
 ```go
 {{ $rolenames := x y z a b c d }}
 {{ $user := .User.ID }}
-{{- range $rolenames }}
-    {{ giveRoleName $user . }}
+{{ range $rolenames }}
+    {{- giveRoleName $user . -}}
 {{- end }}
 ```
 
@@ -163,8 +169,8 @@ Let's just look at the resulting code first, and we'll explain how exactly it wo
 
 ```go
 {{ $rolenames := x y z a b c d }}
-{{- range $rolenames }}
-    {{ giveRoleName $.User.ID . }}
+{{ range $rolenames }}
+    {{- giveRoleName $.User.ID . -}}
 {{- end }}
 ```
 
@@ -199,8 +205,8 @@ What this involves is putting the output of `range` into a variable, however, th
     (sdict "name" "Bobby Joe" "age" 17)
 }}
 {{ $var := "" }}
-{{- range $data }}
-    {{ $var = joinStr "" $var "\n" "**" .name ":** " .age " years old" }}
+{{ range $data }}
+    {{- $var = joinStr "" $var "\n" "**" .name ":** " .age " years old" -}}
 {{- end }}
 {{ sendMessage nil (cembed "description" $data) }}
 ```
