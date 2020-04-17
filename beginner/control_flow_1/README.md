@@ -158,7 +158,7 @@ Note : you are not limited to only two else-if blocks but they can be as many as
 ```go
 {{$marks := 95}}
 {{if gt $marks 90}}
-    You Passed with Disctiction.
+    You Passed with distinction.
 {{else if gt $marks 35}}
     You Passed.
 {{else}}
@@ -166,7 +166,7 @@ Note : you are not limited to only two else-if blocks but they can be as many as
 {{end}}
 ```
 
-In the above example there are 3 different blocks which are conditionally executed depending on the value of $marks. For the above example, `You Passed with Disctiction` will be printed as output by bot.
+In the above example there are 3 different blocks which are conditionally executed depending on the value of $marks. For the above example, `You Passed with distinction` will be printed as output by bot.
 
 ## Example Codes
 
