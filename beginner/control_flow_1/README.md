@@ -126,13 +126,13 @@ Defining a variable which already exists makes a local copy of that variable whi
 Example :  
  `{{$a := 1}}{{$b:= 2}}  
        {{if eq $b 2}}  
-           {{$a := 3}}{{$b = 2}}{{$a}},{{$b}}  
+           {{$a := 3}}{{$b = 5}}{{$a}},{{$b}}  
 {{end}}  
 {{$a}},{{$b}}`  
 The above code will Output:  
-`3,2  
+`3,5  
   
-1,2`
+1,5`
 {% endhint %}
 
 ### If - Else If - Else Branching
