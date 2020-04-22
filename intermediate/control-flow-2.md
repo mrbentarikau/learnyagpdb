@@ -141,7 +141,7 @@ The following code is **intentionally** left broken. Try to find out where we we
 {% endhint %}
 
 ```go
-{{ $rolenames := x y z a b c d }}
+{{ $rolenames := cslice "x" "y" "z" "a" "b" "c" "d"}}
 {{ range $rolenames }}
     {{- giveRoleName .User.ID . -}}
 {{- end }}
@@ -155,7 +155,7 @@ Alright. If you were paying close attention to our line-by-line analysis of the 
 The first, and most obvious approach is to define the user ID outside of the range action, where it will not be affected. For example:
 
 ```go
-{{ $rolenames := x y z a b c d }}
+{{ $rolenames :=cslice "x" "y" "z" "a" "b" "c" "d"}}
 {{ $user := .User.ID }}
 {{ range $rolenames }}
     {{- giveRoleName $user . -}}
@@ -168,7 +168,7 @@ This works fine, and it's short and simple. But there's an even better way of do
 Let's just look at the resulting code first, and we'll explain how exactly it works after.
 
 ```go
-{{ $rolenames := x y z a b c d }}
+{{ $rolenames := cslice "x" "y" "z" "a" "b" "c" "d"}}
 {{ range $rolenames }}
     {{- giveRoleName $.User.ID . -}}
 {{- end }}
