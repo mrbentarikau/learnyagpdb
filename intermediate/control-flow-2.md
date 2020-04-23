@@ -15,20 +15,21 @@ If you've worked with other programming languages in the past, you can think of 
 {% endhint %}
 
 ```go
-// Iterating over values
+{{/* Iterating over values */}}
 {{ range pipeline }}
-    // Action executed with each value of this pipeline
-{{ else }} // Note that this is optional, you can skip to the end clause
-    // Action executed when the length of the pipeline is 0
+    {{/* Action executed with each value of this pipeline */}}
+{{ else }} {{/* Note that this is optional, you can skip to the end clause */}}
+    {{/* Action executed when the length of the pipeline is 0 */}}
 {{ end }}
 
-// Iterating over key-value pairs
-{{ range $key, $value := pipeline }} // $key and $value can be any variable
-    // Here, $key is the key (for maps / sdicts/ dicts) and the index, 
-    // starting from 0 for arrays / slices. $value will be the corresponding
-    // value.
-{{ else }} // Optional
-    // Action executed when length of pipeline is 0.
+{{/* Iterating over key-value pairs */}}
+{{ range $key, $value := pipeline }}
+    {{/* $key and $value can be any variable */ }}
+    {{/* Here, $key is the key (for maps / sdicts/ dicts) and the index, */}} 
+    {{/* starting from 0 for arrays / slices. $value will be the corresponding */}}
+    {{/* value. */}}
+{{ else }} {{/* Optional */}}
+    {{/* Action executed when length of pipeline is 0. */}}
 {{ end }}
 ```
 
@@ -155,7 +156,7 @@ Alright. If you were paying close attention to our line-by-line analysis of the 
 The first, and most obvious approach is to define the user ID outside of the range action, where it will not be affected. For example:
 
 ```go
-{{ $rolenames :=cslice "x" "y" "z" "a" "b" "c" "d"}}
+{{ $rolenames := cslice "x" "y" "z" "a" "b" "c" "d" }}
 {{ $user := .User.ID }}
 {{ range $rolenames }}
     {{- giveRoleName $user . -}}
