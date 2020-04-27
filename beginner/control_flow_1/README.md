@@ -34,7 +34,7 @@ In the above example, first the `and` of variables `$x` and `$y` results in `tru
 
 The `or` operation similar to `and` operation operates on two boolean literals. It results in `false` when both the operands are `false` and otherwise results in `true` . The following table captures the working of the `or` operation.
 
-| Operand 1 | Operand 2 | operand 3 |
+| Operand 1 | Operand 2 | Result |
 | :--- | :--- | :--- |
 | true | true | true |
 | true  | false | true |
