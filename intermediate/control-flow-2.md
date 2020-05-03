@@ -107,7 +107,7 @@ Some might have stopped here \(I sure did when I did this the first time\). But 
 
 ### Range Use Case 1: Reducing repetitive code
 
-The first, and arguably the simplest use of `range` is to reduce repetitive code. Given a template or function which is executed multiple times \(in our case, `addRoleID` with varying arguments, we can put these arguments into a cslice and then loop over it with range, calling the function each iteration. We'll explain the abstract part of this later, but here's the simplified code for the above:
+The first, and arguably the simplest use of `range` is to reduce repetitive code. Given a template or function which is executed multiple times \(in our case, `addRoleID` \) with varying arguments, we can put these arguments into a cslice and then loop over it with range, calling the function each iteration. We'll explain the abstract part of this later, but here's the simplified code for the above:
 
 ```go
 {{ $ids := cslice x y z a b c }}
