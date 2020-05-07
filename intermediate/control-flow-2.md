@@ -188,7 +188,7 @@ Let's say you have a _slice_ of fictional users, like this.
 
 How would we loop over these users to produce an embed output like this?
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
 
 The first hint is the sentence itself - _loop over_. We should use `range` - but how? Try it yourself, and if you can't do it, feel free to come back.
 
