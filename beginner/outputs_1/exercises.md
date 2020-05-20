@@ -7,5 +7,5 @@
 
 * Make a command to tag an user, direct him to a channel with channel link and also mention @here and your staff role.  Example output is as follows:
 
-![](../../.gitbook/assets/image%20%2816%29.png)
+![](../../.gitbook/assets/image%20%2815%29%20%281%29.png)
 

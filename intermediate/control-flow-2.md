@@ -224,9 +224,9 @@ If you've seen some other YAGPDB CCs, chances are that you've wandered upon the 
 
 ```go
 {{ with 1 }}
-    {{ . }} // > 1
-    {{ .User }} // Errors, as . is 1, and does not have User property
-    {{ $.User }} // This works fine
+    {{ . }} {{/* 1 */}}
+    {{ .User }} {{/* Errors, as . is 1, and does not have User property */}}
+    {{ $.User }} {{/* This works fine */}}
 {{ end }}
 ```
 
@@ -235,10 +235,10 @@ If you've seen some other YAGPDB CCs, chances are that you've wandered upon the 
 {% endhint %}
 
 ```go
-{{ with false }} // false is not truthy, so the following is not run
-    {{ . }} // This is not run
+{{ with false }} {{/* false is not truthy, so the following is not run */}}
+    {{ . }} {{/* This is not ran */
 {{ else }}
-    {{ .User }} // Works fine, as . is not affected here. Prints out your user tag
+    {{ .User }} {{/* Works fine, as . is not affected here. Prints out your user tag */}}
 {{ end }}
 ```
 
