@@ -1,5 +1,7 @@
 ---
-description: '"Look upward and share the wonders I''ve seen." // John Crichton'
+description: >-
+  "The first thing you gotta discard, whenever you're learning about something,
+  is your ego." // Luke Smith
 ---
 
 # YAGPDB learning resources
