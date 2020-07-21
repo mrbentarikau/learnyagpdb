@@ -181,6 +181,39 @@ What's this Narutp magic doing here?! Actually, it turns out that this is nothin
 Remember that `$` is a variable \(which you can write to\). This means that if you added `{{ $ := "hello world!" }}` in the above code, $ would no longer have the properties `User` and all the other properties on `.`
 {% endhint %}
 
+{% hint style="success" %}
+What if, instead of running _similar_ code, you want to instead run the same action multiple times? This is where `seq` comes in. `seq` has the syntax `seq start end` where `start < end`. It generates a sequence which can be expressed as`[start, end)`. If you're not familiar with this notation, it simply means that `start` is included while `end` is not. For example - `seq 0 5` produces `[0, 1, 2, 3, 4]`.
+
+Enough talk - let's get into an example.
+
+```go
+{{ range seq 0 5 }}
+    {{- /* The dot is set to the current element of the slice generated */}}
+    {{- print . ": Hello world\n" -}}
+{{ end }}
+
+{{/* This prints: */}}
+
+{{/* > 0: Hello world */}}
+{{/* > 1: Hello world */}}
+{{/* > 2: Hello world */}}
+{{/* > 3: Hello world */}}
+{{/* > 4: Hello world */}}
+```
+
+Without `range`, our code would have looked like this:
+
+```go
+0. Hello world
+1. Hello world
+2. Hello world
+3. Hello world
+4. Hello world
+```
+
+This doesn't seem too bad, right? But imagine you want 100 "Hello world"s instead of just 5, and then what if you want to change the message? With the first one, you simply change one line, while in the second you need to change 100.
+{% endhint %}
+
 ### Range Use Two: Putting the output of range into a variable
 
 Let's say you have a _slice_ of fictional users, like this.
