@@ -18,6 +18,7 @@
 
 ## Intermediate
 
+* [Data Types 2](intermediate/data-types-2.md)
 * [Control Flow 2](intermediate/control-flow-2.md)
 * [Time](intermediate/time.md)
 * [Exercises level 2](intermediate/exercises-level-2/README.md)
