@@ -163,7 +163,7 @@ Example : `{{joinStr "," "" "hehe" "" ""}}` produces the output `hehe,,`
 
 ### Working with `.CmdArgs`
 
-As `.CmdArgs` is an array, to get a given argument, use `index` with the index of the CmdArg you want. Note that as we said before, indexes start at zero, so if you wanted to get the first argument, you would do `(index .CmdArgs 0)`.
+As `.CmdArgs` is an slice \(similar to an array\) , to get a given argument, use `index` with the index of the CmdArg you want. Note that as we said before, indexes start at zero, so if you wanted to get the first argument, you would do `(index .CmdArgs 0)`.
 
 {% hint style="info" %}
 If you wanted to get all the arguments from a given index and beyond, you could use `(slice .CmdArgs <index>)` - for example, `joinStr " " (slice .CmdArgs 1)` would give you `world YAGPDB` if you ran it with `-command hello world YAGPDB`.
