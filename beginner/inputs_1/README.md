@@ -126,7 +126,7 @@ Here are some ideas for what you can do with `parseArgs`:
 
 ## `.CmdArgs`
 
-Sometimes, you will want to use `.CmdArgs` instead of `parseArgs`. `.CmdArgs` is much less complicated than `parseArgs` - it's simply an array of all the arguments the user provided just like YAGPDB sees them. For example, take this basic `seeargs` command and paste in the following code:
+Sometimes, you will want to use `.CmdArgs` instead of `parseArgs`. `.CmdArgs` is much less complicated than `parseArgs` - it's simply a slice of all the arguments the user provided just like YAGPDB sees them. For example, take this basic `seeargs` command and paste in the following code:
 
 ```go
 {{ $allArgs := .CmdArgs }}
@@ -135,7 +135,7 @@ Sometimes, you will want to use `.CmdArgs` instead of `parseArgs`. `.CmdArgs` is
 
 Let's say we used `-seeargs "hello world"`. As YAGPDB sees text enclosed in quotations as one argument, it would repeat back to us `hello world!`. However, let's say we used `-seeargs hello world` instead. Instead of giving us the same output, it would instead repeat `hello, world`.
 
-There's nothing too crazy about `.CmdArgs` - it's simply a slice\(collection\) or array of string arguments that are unparsed\(in their original state\). If you want to parse the arguments, you will have to do it manually. This will be explored in a later chapter.
+There's nothing too crazy about `.CmdArgs` - it's simply a slice\(collection similar to an array\)  of string arguments that are unparsed\(in their original state\). If you want to parse the arguments, you will have to do it manually. This will be explored in a later chapter.
 
 ### String Manipulation Action
 
