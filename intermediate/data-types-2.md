@@ -119,6 +119,6 @@ Up until now we have been hearing about generic slices but it is interesting to 
 {% endhint %}
 
 {% hint style="info" %}
-Note that we have [already seen](https://learn.yagpdb.xyz/intermediate/control-flow-2#lets-go-deeper) the usage of the seq function in performing a repeated task a known number of times. However did you know that seq actually also produces a slice. It is of type _\[\]int_ and contains integers greater than equal to the firrst argument \(start\) upto one less than the second argument \(stop\).
+Note that we have [already seen](https://learn.yagpdb.xyz/intermediate/control-flow-2#lets-go-deeper) the usage of the `seq` function in performing a repeated task a known number of times. However, did you know that seq actually also produces a slice. It is of type _\[\]int_ and contains integers greater than equal to the first argument \(start\) upto one less than the second argument \(stop\).
 {% endhint %}
 
