@@ -38,6 +38,7 @@
 
 ## Other
 
+* [Custom Command Limits](other/custom-command-limits.md)
 * [Abbreviations & Acronyms](other/abbreviations-and-acronyms.md)
 * [Acknowledgement](other/acknowledgement.md)
 * [Disclaimer](other/disclaimer.md)
