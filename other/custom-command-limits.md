@@ -14,8 +14,8 @@ description: >-
 * **Limit writer:** 25kb
 * **Max operations:** 1/2.5kk \(free/prem\)
 * **Response Character Limit:** 2k
-* **Generic API based Action call limit :** 100 per CC
-* **State Lock based Actions :** 500 per CC \(mentionRoleName/ID ; hasRoleName ; targetHasRoleName/ID\)
+* **Generic API based Action call limit:** 100 per CC
+* **State Lock based Actions:** 500 per CC \(mentionRoleName/ID ; hasRoleName ; targetHasRoleName/ID\)
 
 ## CALLING A CC
 
