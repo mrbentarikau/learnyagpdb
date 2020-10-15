@@ -244,7 +244,7 @@ What this involves is putting the output of `range` into a variable, however, th
 {{ range $data }}
     {{- $var = joinStr "" $var "\n" "**" .name ":** " .age " years old" -}}
 {{- end }}
-{{ sendMessage nil (cembed "description" $data) }}
+{{ sendMessage nil (cembed "description" $var) }}
 ```
 
 Essentially, what we are doing is writing to a variable and joining it every iteration with `joinStr`. Note the use of `=` rather than `:=` \(refer to [Control Flow 1](https://learn.yagpdb.xyz/beginner/control_flow_1#blocks-and-scope) for why we do this\).
