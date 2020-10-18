@@ -19,8 +19,8 @@
 
 ## Intermediate
 
-* [Control Flow 2](intermediate/control-flow-2.md)
 * [Data Types 2](intermediate/data-types-2.md)
+* [Control Flow 2](intermediate/control-flow-2.md)
 * [Exercises Level 2](intermediate/exercises-level-2/README.md)
   * [Simple Counting Algorithm](intermediate/exercises-level-2/simple-counting-algorithm.md)
   * [Sum of Arithmetic Sequence](intermediate/exercises-level-2/sum-of-arithmetic-sequence.md)
