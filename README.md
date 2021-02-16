@@ -6,6 +6,8 @@ description: >-
 
 # YAGPDB learning resources
 
+Copyright © 2020-2021 YAGPDB Community's Learning Resources Authors and YAGPDB.
+
 This is your playground!   
   
 We are going to teach you how to read code as well as how to write it. After all, how can you **write** if you can't **read?** Learn to read, learn to problem solve, and learn to enjoy the process. The community is there to help, as long as you put in some effort yourself.
