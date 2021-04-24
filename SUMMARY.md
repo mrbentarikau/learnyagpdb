@@ -28,6 +28,7 @@
   * [Duplicates in a List](intermediate/exercises-level-2/duplicates-in-a-list.md)
   * [Finding Primes](intermediate/exercises-level-2/finding-primes.md)
   * [Generalizing Repetitions - Stars](intermediate/exercises-level-2/generalizing-repetitions-stars.md)
+* [Custom Command Database](intermediate/custom-command-database.md)
 
 ## 🤖 Programming
 
@@ -39,7 +40,6 @@
 ## Other
 
 * [Custom Command Limits](other/custom-command-limits.md)
-* [Custom Command Database](other/custom-command-database.md)
 * [Abbreviations & Acronyms](other/abbreviations-and-acronyms.md)
 * [Acknowledgement](other/acknowledgement.md)
 * [Disclaimer](other/disclaimer.md)
