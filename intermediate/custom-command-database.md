@@ -230,3 +230,12 @@ This is because custom types, namely `sdict` and `cslice`, are being converted t
 
 They can be easily converted back to their original type by using their constructor method `sdict` or `cslice` when receiving them. For a more elaborate explanation, visit the [documentation](https://docs.yagpdb.xyz/reference/templates#custom-types).
 
+### Storing IDs
+
+You might have noticed that, whenever you're storing a user ID, channel ID, etc. into your database, it will come back as a weird value, such as `5.241379415938826e+17`. This is because they're saved as floats, hence it being messed up. To prevent this, simply convert them to a string before storing and converting back to an int upon retrieving, like so:
+
+```go
+{{dbSet 2000 "someKey" (str .User.ID)}}
+{{$userID_received := toInt (dbGet 2000 "someKey").Value}}
+```
+
