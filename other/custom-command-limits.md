@@ -71,7 +71,7 @@ description: >-
 * **addReactions:** 20 calls per CC -&gt; counter key "add\_reaction\_trigger". Each reaction added counts towards the limit.
 * **addResponseReactions:** 20 calls per CC -&gt; counter key "add\_reaction\_response". Each reaction added counts towards the limit.
 * **addMessageReactions:** 20 calls per CC -&gt; counter key "add\_reaction\_message". Each reaction added counts towards the limit.
-* **delMessageReaction: 1**0 calls per CC -&gt; counter key "del\_reaction\_message". Each removed added counts towards the limit.
+* **deleteMessageReaction: 1**0 calls per CC -&gt; counter key "del\_reaction\_message". Each removed added counts towards the limit.
 * **editChannelName/Topic:** 10 calls per CC -&gt; counter key "edit\_channel"
 * **regex cache limit:** 10 \(this means you cant have more than 10 different regexes on a CC\)
 * **onlineCount:** 1 call per cc -&gt; counter key "online\_users"
