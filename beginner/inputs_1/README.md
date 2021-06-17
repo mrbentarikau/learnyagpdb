@@ -33,6 +33,7 @@ This may seem quite confusing at first, so we'll go over each of the required ar
    * `userid` \(mentions or user IDs, resolves to the ID itself\)
    * `member` \(mentions or user IDs, resolves to the [member](https://docs.yagpdb.xyz/reference/templates#member) structure\)
    * `channel` \(channel mention or ID, resolves to the channel structure\)
+   * `role` \(role name or ID, resolves as type _\*discordgo.Role_\)
    * `duration` \(duration that is human-readable, i.e `10h5m` or `10 hour 5 minutes` would both resolve to the same duration\)
 
      The `<description>` of the `carg` is what we were talking about earlier: If a user does not execute a command with the arguments expect, YAGPDB with construct an error message from this description.
