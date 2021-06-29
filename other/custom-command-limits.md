@@ -12,7 +12,7 @@ description: >-
 * **Max CCs that can be triggered by a single action:** 3/5 \(free/prem\)
 * **Character limit:** 10k \(5k for join/leave msg, warn dm, etc...\)
 * **Limit writer:** 25kb
-* **Max operations:** 1/2.5kk \(free/prem\)
+* **Max operations:** 1M/2.5M \(free/prem\)
 * **Response Character Limit:** 2k
 * **Generic API based Action call limit:** 100 per CC
 * **State Lock based Actions:** 500 per CC \(mentionRoleName/ID ; hasRoleName ; targetHasRoleName/ID\)
