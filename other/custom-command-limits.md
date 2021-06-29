@@ -11,7 +11,7 @@ description: >-
 * **Max amount of CCs:** 100/250 \(free/prem\)
 * **Max CCs that can be triggered by a single action:** 3/5 \(free/prem\)
 * **Character limit:** 10k \(5k for join/leave msg, warn dm, etc...\)
-* **Limit writer:** 25kb
+* **Limit writer:** 25kB
 * **Max operations:** 1M/2.5M \(free/prem\)
 * **Response Character Limit:** 2k
 * **Generic API based Action call limit:** 100 per CC
@@ -42,7 +42,7 @@ description: >-
 * **Max amount of DBs:** Membercount \*50\*1/10\(free/prem\)
 * **Key length limit:** 256
 * **Expire limit:** int64 limit \(292 years\)
-* **Value size limit:** 100kb
+* **Value size limit:** 100kB
 
 ### Database Interactions
 
@@ -64,8 +64,8 @@ description: >-
 
 ## CONTEXT
 
-* **Max file size \(complexMessage\):** 100kb
-* **joinStr max string length:** 1000kb
+* **Max file size \(complexMessage\):** 100kB
+* **joinStr max string length:** 1000kB
 * **sendDM:** 1 call per CC -&gt; counter key "send\_dm"
 * **sendTemplate/sendTemplateDM:** 3 calls per CC -&gt; counter key "exec\_child"
 * **addReactions:** 20 calls per CC -&gt; counter key "add\_reaction\_trigger". Each reaction added counts towards the limit.
