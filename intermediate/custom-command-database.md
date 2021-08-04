@@ -1,3 +1,7 @@
+---
+description: '"Data is the new oil." // Clive Humby'
+---
+
 # Custom Command Database
 
 Databases are used for storing persistent data that you want to keep between custom command executions. You access and manipulate them with functions which we are going to elaborate on in this guide.
@@ -114,10 +118,10 @@ As you see, using only basic functions essentially requires you to waste a datab
 Now you might want to set entries which get deleted after a while. You could of course use a delay using `execCC`, or use `dbSetExpire`. Why is it worth to use `dbSetExpire`? You don't have to waste an `execCC` to delete the entry later on. As we recall from the beginning, the `.ExpiresAt` field is of type `time.Time`, so the related functions are available to us. Let's take a glimpse at the syntax:
 
 ```go
-{{dbSetExpire <UserID> <Key> <Value> <Expires in>}}
+{{dbSetExpire <userID> <Key> <Value> <Expires in>}}
 ```
 
-The `Expires in` is given in seconds, the rest is standard stuff as explained under [Basic Interactions]().
+The `Expires in` is given in seconds, the rest is standard stuff as explained under [Basic Interactions](custom-command-database.md#basic-interactions).
 
 A common use case for this function is a cooldown: As long as the entry exists, the command is still on cooldown.
 
@@ -146,12 +150,15 @@ This is the only function interacting with multiple entries not returning a slic
 {{dbCount <userID>}}
 {{/* or */}}
 {{dbCount <key>}}
+{{/* or */}}
+{{dbCount (sdict "userID" <userID> "key" <key>}}
 ```
 
-This should be pretty clear: Count the entries either for the given user ID or the given Key.   
- Please note that this function returns the amount of entries, so to avoid random spam, you'd have to store it into a variable. Apart from that, this function is very simple to use and might come in handy for a few things.
+This should be pretty clear: Count the entries either for the given user ID or the given Key. Alternatively, you can make it count entries under the given key for a given user by passing in a `sdict` with the keys `userID` for the ID and `key` for the key that's been counted.
 
-### dbTopEntries and dbBottomEntries
+Please note that this function returns the amount of entries, so to avoid random spam, you'd have to store it into a variable. Apart from that, this function is very simple to use and might come in handy for a few things.
+
+### dbTopEntries / dbBottomEntries
 
 These functions return a slice of entry objects, in case of `dbTopEntries` ordered by descending value, in case of `dbBottomEntries` in ascending order. You cannot retrieve more than 100 elements in one call - honestly though, 100 entries in one go is definitely a lot, probably more you would have to actually deal with.
 
@@ -173,7 +180,7 @@ What's new here are three things: `pattern`, `amount`, and `nSkip.` Let's walk t
 In analogy to the above code example, you can access any other field as well.  
  These functions might come in handy when you are for example trying to compose a leaderboard.
 
-### dbGetPattern and dbGetPatternReverse
+### dbGetPattern / dbGetPatternReverse
 
 These two functions allow you to get multiple entries under one user ID with matching keys, again using patterns. They return a slice of entries sorted by value, just as the above functions. The only difference here is only the limitation to one user/ID instead of all IDs.
 
@@ -183,8 +190,52 @@ These two functions allow you to get multiple entries under one user ID with mat
 {{dbGetPatternReverse <userID> <pattern> <amount> <nSkip>}}
 ```
 
-Just as above, we range over the given slice to access fields of the entry object. For simplicity's sake however, no code example, as it should be pretty clear how to do this.  
+Just as above, we range over the given slice to access fields of the entry object. For simplicity's sake however, no code example, as it should be pretty clear how to do this.
 
+### dbDelMultiple
+
+This function allows you to delete multiple entries in one go, making `dbDel` spam no longer necessary. Its syntax is a little more intricate than other functions:
+
+```go
+{{dbDelMultiple <query> <amount> <skip>}}
+```
+
+`query` is a sdict with the following keys:
+
+* `userID`: delete entries under this user ID. If this key is not provided, it'll default to all IDs.
+* `pattern`: delete entries with keys matching this pattern.
+* `reverse`:if true, start deleting entries with lowest value first. Defaults to `false`.
+
+`amount` specifies how many entries should be deleted in one go, maxing out at 100. `skip` specifies how many of matching entries should be skipped.  
+Please note that this function returns the amount of deleted entries, so to avoid random messages popping up, catch it by assigning it to a variable. With all that in mind, you could use the following code to delete up to 100 matching entries the pattern `test%` under the current user:
+
+```go
+{{$deleted := dbDelMultiple (sdict "userID" .User.ID "pattern" "test%") 100 0}}
+Deleted {{$deleted}} entries!
+```
+
+### dbRank
+
+This function returns the rank of a specified entry in the set of entries matching criteria provided by `query`.
+
+```go
+{{dbRank <query> <userID> <key>}}
+```
+
+`query` is as above a sdict with the following options:
+
+* `userID`: search only through entries stored under this ID. Will default to all IDs, if not provided.
+* `pattern`: only count entries with matching keys; defaults to entries with any key.
+* `reverse`: if true, lower valued entries will have a higher \(better\) rank. Default is `false`.
+
+As an example, to find the rank of the entry with the key `test` for the current user in all of this user's entries, you may want to use the following code:
+
+```go
+{{$rank := dbRank (sdict "userID" .User.ID) .User.ID "test"}}
+The specified entry's rank is {{{$rank}}.
+```
+
+Note that this function **returns** the rank, so to avoid random spam, don't forget to assign it to a variable.
 
 ## Appendix
 
@@ -216,19 +267,23 @@ This pattern matches words such as `hello`, `helgo`, `heloo`. I think it is pret
 #### Task
 
 1. Write a pattern that matches any string ending in `er`. 
-2. Write a pattern that matches string having `h` as the second character, any at the start and lastly ending in `l`. Tip: between `h` and `l` you need to match any character sequence.
+2. Write a pattern that matches string having `h` as the second character, any at the start and lastly ending in `l`. Tip: between `h` and `l` you need to match any character sequence
 
 ### Serialization
 
-As you might have noticed from time to time, people have some "weird" code, such as the following:
+Saving values with custom types to database may result in their values being _serialized_ to a different type, meaning that you might have to convert it back to its original type when retrieving. For example, saving the result of a `cembed` to call to database will result in it becoming a `map[string] interface{}`.   
+The following code will showcase this behaviour:
 
 ```go
-{{$sdict_received := sdict (dbGet 2000 "someKey").Value}}
+{{$embed := cembed "description" "Serialization!"}}
+{{printf "Type before storing: %T" $embed}}
+{{dbSet .User.ID "serialization_example" $embed}}
+{{$embed_retrieved := (dbGet .User.ID "serialization_example").Value}}
+{{printf "Type after retrieving, before converting: %T" $embed_retrieved}}
+{{printf "Type afer retrieving, after converting: %T" (cembed $embed_retrieved)}}
 ```
 
-This is because custom types, namely `sdict` and `cslice`, are being converted to their underlying data types `map[string]interface{}` and `[]interface{}` respectively.
-
-They can be easily converted back to their original type by using their constructor method `sdict` or `cslice` when receiving them. For a more elaborate explanation, visit the [documentation](https://docs.yagpdb.xyz/reference/templates#custom-types).
+However, most commonly used types will be saved with their type information intact, meaning that there will be no need to convert them after retrieval. In particular, `sdict`s, `dict`s, and `cslice`s may be saved directly to database and will retain their original types. 
 
 ### Storing IDs
 
