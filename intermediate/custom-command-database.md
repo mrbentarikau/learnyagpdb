@@ -135,7 +135,7 @@ A common use case for this function is a cooldown: As long as the entry exists, 
 {{end}}
 ```
 
-What's really interesting to note here though, is that once the entry expires, it is still in the system, but will be considered gone.
+As a side effect, expired entries will be considered gone \(i.e. deleted\) by YAGPDB, but still remain in the underlying database.
 
 ## Multiple Interactions
 
