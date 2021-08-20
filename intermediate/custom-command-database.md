@@ -200,7 +200,7 @@ This function allows you to delete multiple entries in one go, making `dbDel` sp
 {{dbDelMultiple <query> <amount> <skip>}}
 ```
 
-`query` is a sdict with the following keys:
+`query` is a `sdict` with the following keys:
 
 * `userID`: delete entries under this user ID. If this key is not provided, it'll default to all IDs.
 * `pattern`: delete entries with keys matching this pattern.
@@ -222,7 +222,7 @@ This function returns the rank of a specified entry in the set of entries matchi
 {{dbRank <query> <userID> <key>}}
 ```
 
-`query` is as above a sdict with the following options:
+`query` is as above a `sdict` with the following options:
 
 * `userID`: search only through entries stored under this ID. Will default to all IDs, if not provided.
 * `pattern`: only count entries with matching keys; defaults to entries with any key.
@@ -281,16 +281,18 @@ The following code will showcase this behaviour:
 {{$embed_retrieved := (dbGet .User.ID "serialization_example").Value}}
 {{printf "Type after retrieving, before converting: %T" $embed_retrieved}}
 {{printf "Type afer retrieving, after converting: %T" (cembed $embed_retrieved)}}
+{{dbDel .User.ID "serialization_example"}}
 ```
 
-However, most commonly used types will be saved with their type information intact, meaning that there will be no need to convert them after retrieval. In particular, `sdict`s, `dict`s, and `cslice`s may be saved directly to database and will retain their original types. 
+However, most commonly used types will be saved with their type information intact, meaning that there will be no need to convert them after retrieval. In particular, `sdict`, `dict`, and `cslice` may be saved directly to database and will retain their original types. 
 
 ### Storing IDs
 
-You might have noticed that, whenever you're storing a user ID, channel ID, etc. into your database, it will come back as a weird value, such as `5.241379415938826e+17`. This is because they're saved as floats, hence it being messed up. To prevent this, simply convert them to a string before storing and converting back to an int upon retrieving, like so:
+You might have noticed that, whenever you're storing a user ID, channel ID, etc. into your database, it will come back as a weird value, such as `5.241379415938826e+17`. This is because they're saved as floats, hence it being messed up. To prevent this, simply convert them to a string before storing and converting back to an `int` upon retrieving, like so:
 
 ```go
 {{dbSet 2000 "someKey" (str .User.ID)}}
 {{$userID_received := toInt (dbGet 2000 "someKey").Value}}
+{{dbDel 2000 "someKey"}}
 ```
 
