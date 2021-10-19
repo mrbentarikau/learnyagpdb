@@ -14,35 +14,35 @@ This section covers the structure of a database entry, the database's size limit
 
 A database entry has the following structure:
 
-| Field | Description |
-| :--- | :--- |
-| .ID | The ID of this entry. Not to be confused with the User ID. |
-| .GuildID | The server ID. |
-| .UserID | ID of the associated user. |
-| .User | The associated user object. |
-| .CreatedAt | When this entry was firstly created. |
-| .UpdatedAt | When this entry was lastly updated. |
-| .ExpiresAt | When this entry will expire. |
-| .Key | The key of this entry. |
-| .Value | The value of this entry. |
+| Field      | Description                                                |
+| ---------- | ---------------------------------------------------------- |
+| .ID        | The ID of this entry. Not to be confused with the User ID. |
+| .GuildID   | The server ID.                                             |
+| .UserID    | ID of the associated user.                                 |
+| .User      | The associated user object.                                |
+| .CreatedAt | When this entry was firstly created.                       |
+| .UpdatedAt | When this entry was lastly updated.                        |
+| .ExpiresAt | When this entry will expire.                               |
+| .Key       | The key of this entry.                                     |
+| .Value     | The value of this entry.                                   |
 
 {% hint style="info" %}
 This can also be found in the [documentation](https://docs.yagpdb.xyz/reference/templates#dbentry).
 {% endhint %}
 
-It is to note that the user ID doesn't actually have to point to a valid user - it can be any integer. If you for example used `2000` as ID, this will be `.UserID`. If you used a non-user ID, the `.User` object will be invalid.  
- The fields `.CreatedAt`, `.UpdatedAt`, and `.ExpiresAt` all evaluate to the `time.Time` structure and can therefore be used with `time.Time` related methods, which can be found [here](https://docs.yagpdb.xyz/reference/templates#time).
+It is to note that the user ID doesn't actually have to point to a valid user - it can be any integer. If you for example used `2000` as ID, this will be `.UserID`. If you used a non-user ID, the `.User` object will be invalid.\
+&#x20;The fields `.CreatedAt`, `.UpdatedAt`, and `.ExpiresAt` all evaluate to the `time.Time` structure and can therefore be used with `time.Time` related methods, which can be found [here](https://docs.yagpdb.xyz/reference/templates#time).
 
 ### Size Limitations
 
 As everything that has to do with computers and data, there are limitations. Our YAGPDB database is no exception. However, we tried to make them as large as possible, whilst still remaining somewhat conservative and not going completely overboard.
 
-In general, you can have `50 * Members` values \(entries\) in your server's database. If your server has premium activated, this increases to `500 * Members`. Note that this will not immediately change as this value is cached, should your members leave or newly join. If you go above your maximum entries, all new write functions will fail. Honestly though, already `50 * Members` is a lot to deal with, so you are safe for a while.  
- Please note though that this is not 50 \(or 500 with premium\) entries _per user_, but rather for everything. This of course means that one user could take up every entry there is. So, be careful with your database!
+In general, you can have `50 * Members` values (entries) in your server's database. If your server has premium activated, this increases to `500 * Members`. Note that this will not immediately change as this value is cached, should your members leave or newly join. If you go above your maximum entries, all new write functions will fail. Honestly though, already `50 * Members` is a lot to deal with, so you are safe for a while.\
+&#x20;Please note though that this is not 50 (or 500 with premium) entries _per user_, but rather for everything. This of course means that one user could take up every entry there is. So, be careful with your database!
 
-Database keys are strings and are limited to 256 bytes in length \(aka 256 characters\). If used with `dbSet` or `dbSetExpire`, the key argument will be internally converted to a string, so you can actually pass whatever you want.
+Database keys are strings and are limited to 256 bytes in length (aka 256 characters). If used with `dbSet` or `dbSetExpire`, the key argument will be internally converted to a string, so you can actually pass whatever you want.
 
-Lastly, each value can hold up to 100kB, which is, considering we only deal with characters \(mostly\), a lot. Try writing a `.txt` document that is 100kB large, then you know how much this seemingly small space can actually hold.
+Lastly, each value can hold up to 100kB, which is, considering we only deal with characters (mostly), a lot. Try writing a `.txt` document that is 100kB large, then you know how much this seemingly small space can actually hold.
 
 ### Interaction Limits
 
@@ -62,12 +62,12 @@ To start, let's take a look at the syntax:
 {{dbSet <UserID> <Key> <Value>}}
 ```
 
-We've already covered `UserID` and `Key` further up. As a small refresher: `UserID` can be any integer, and `Key` is a string, the name of the entry so to say.  
- Now, what exactly is that `Value`? You surely know how variables work in YAGPDB-CC, and the value is nothing else. Just that it is persistent between custom command executions, and variables are not.
+We've already covered `UserID` and `Key` further up. As a small refresher: `UserID` can be any integer, and `Key` is a string, the name of the entry so to say.\
+&#x20;Now, what exactly is that `Value`? You surely know how variables work in YAGPDB-CC, and the value is nothing else. Just that it is persistent between custom command executions, and variables are not.
 
 ### dbGet
 
-Okay, we can now set a value into the database, but how on earth are we going to retrieve it? Well, this is where `dbGet` comes in handy. As its name already suggests, it gets an entry \(not the value!\) from the database with the given Key and ID.
+Okay, we can now set a value into the database, but how on earth are we going to retrieve it? Well, this is where `dbGet` comes in handy. As its name already suggests, it gets an entry (not the value!) from the database with the given Key and ID.
 
 ```go
 {{dbGet <UserID> <Key>}}
@@ -89,20 +89,20 @@ Write a custom command that sets an entry `"Database is cool!"` under the key `y
 
 ## Advanced Interactions
 
-Now, you might want to become a little more special with your database - That's why we have a few more functions, `dbIncr` and `dbSetExpire`.  
- With these functions, you are able to add a whole new layer to your custom commands, so let's get started!
+Now, you might want to become a little more special with your database - That's why we have a few more functions, `dbIncr` and `dbSetExpire`.\
+&#x20;With these functions, you are able to add a whole new layer to your custom commands, so let's get started!
 
 ### dbIncr
 
-`dbIncr` is quite a handy function, as it increases the value inside the entry by the given increment and returns the increased value in the same moment, allowing you to save it to a variable.  
- You might ask yourself, what exactly is the increment? This argument can be any valid number, so integers and floats. Please note however that the return type of `dbIncr` is always a float. So if you are using integers as increment and plan to use them as such, please don't forget to convert them. Now let us take a quick look at the syntax.
+`dbIncr` is quite a handy function, as it increases the value inside the entry by the given increment and returns the increased value in the same moment, allowing you to save it to a variable.\
+&#x20;You might ask yourself, what exactly is the increment? This argument can be any valid number, so integers and floats. Please note however that the return type of `dbIncr` is always a float. So if you are using integers as increment and plan to use them as such, please don't forget to convert them. Now let us take a quick look at the syntax.
 
 ```go
 {{dbIncr <UserID> <Key> <Increment>}}
 ```
 
-What's also noteworthy is the fact that `dbIncr` sets the value to the given increment, shouldn't the entry exist already.  
- Try thinking about how you would implement a custom command that increases a given entry by a set amount, gets the value, but also sets a new entry if it doesn't already exist. I think you can see how helpful `dbIncr` really is, considering that this function can condense the following code into one function call.
+What's also noteworthy is the fact that `dbIncr` sets the value to the given increment, shouldn't the entry exist already.\
+&#x20;Try thinking about how you would implement a custom command that increases a given entry by a set amount, gets the value, but also sets a new entry if it doesn't already exist. I think you can see how helpful `dbIncr` really is, considering that this function can condense the following code into one function call.
 
 ```go
 {{$db := dbGet .User.ID "someKey"}}
@@ -111,7 +111,7 @@ What's also noteworthy is the fact that `dbIncr` sets the value to the given inc
 {{$add}}
 ```
 
-As you see, using only basic functions essentially requires you to waste a database function call you can probably use elsewhere. And as we discussed in the beginning, those are limited at 10 \(50 with premium\), so quite a precious resource that should not be wasted.
+As you see, using only basic functions essentially requires you to waste a database function call you can probably use elsewhere. And as we discussed in the beginning, those are limited at 10 (50 with premium), so quite a precious resource that should not be wasted.
 
 ### dbSetExpire
 
@@ -135,11 +135,11 @@ A common use case for this function is a cooldown: As long as the entry exists, 
 {{end}}
 ```
 
-As a side effect, expired entries will be considered gone \(i.e. deleted\) by YAGPDB, but still remain in the underlying database.
+As a side effect, expired entries will be considered gone (i.e. deleted) by YAGPDB, but still remain in the underlying database.
 
 ## Multiple Interactions
 
-Lastly there are special functions which allow you to get multiple entries. We call those coincidentally multiple entry interactions. Every function except one returns a slice of entries. Depending on what function you use, this slice is sorted by certain criteria.  
+Lastly there are special functions which allow you to get multiple entries. We call those coincidentally multiple entry interactions. Every function except one returns a slice of entries. Depending on what function you use, this slice is sorted by certain criteria.\
 
 
 ### dbCount
@@ -167,8 +167,8 @@ These functions return a slice of entry objects, in case of `dbTopEntries` order
 {{dbBottomEntries <pattern> <amount> <nSkip>}}
 ```
 
-What's new here are three things: `pattern`, `amount`, and `nSkip.` Let's walk through them one by one. For `pattern`, we use basic PostgreSQL patterns, you can read on them further down. The `amount` specifies how many entries we want to retrieve. Lastly, you tell YAGPDB how many entries it should skip using the `nSkip` argument.  
- Now to retrieve the value of each entry, we range over the given slice and access the `.Value` field:
+What's new here are three things: `pattern`, `amount`, and `nSkip.` Let's walk through them one by one. For `pattern`, we use basic PostgreSQL patterns, you can read on them further down. The `amount` specifies how many entries we want to retrieve. Lastly, you tell YAGPDB how many entries it should skip using the `nSkip` argument.\
+&#x20;Now to retrieve the value of each entry, we range over the given slice and access the `.Value` field:
 
 ```go
 {{$entries := dbTopEntries "someKey" 10 0}}
@@ -177,8 +177,8 @@ What's new here are three things: `pattern`, `amount`, and `nSkip.` Let's walk t
 {{end}}
 ```
 
-In analogy to the above code example, you can access any other field as well.  
- These functions might come in handy when you are for example trying to compose a leaderboard.
+In analogy to the above code example, you can access any other field as well.\
+&#x20;These functions might come in handy when you are for example trying to compose a leaderboard.
 
 ### dbGetPattern / dbGetPatternReverse
 
@@ -206,7 +206,7 @@ This function allows you to delete multiple entries in one go, making `dbDel` sp
 * `pattern`: delete entries with keys matching this pattern.
 * `reverse`:if true, start deleting entries with lowest value first. Defaults to `false`.
 
-`amount` specifies how many entries should be deleted in one go, maxing out at 100. `skip` specifies how many of matching entries should be skipped.  
+`amount` specifies how many entries should be deleted in one go, maxing out at 100. `skip` specifies how many of matching entries should be skipped.\
 Please note that this function returns the amount of deleted entries, so to avoid random messages popping up, catch it by assigning it to a variable. With all that in mind, you could use the following code to delete up to 100 matching entries the pattern `test%` under the current user:
 
 ```go
@@ -226,7 +226,7 @@ This function returns the rank of a specified entry in the set of entries matchi
 
 * `userID`: search only through entries stored under this ID. Will default to all IDs, if not provided.
 * `pattern`: only count entries with matching keys; defaults to entries with any key.
-* `reverse`: if true, lower valued entries will have a higher \(better\) rank. Default is `false`.
+* `reverse`: if true, lower valued entries will have a higher (better) rank. Default is `false`.
 
 As an example, to find the rank of the entry with the key `test` for the current user in all of this user's entries, you may want to use the following code:
 
@@ -252,13 +252,13 @@ Quite easy, actually:
 
 Okay, with that in mind, let's take a look at an example. The following pattern will match anything that starts with the letter `l` and ends in `n`.
 
-```text
+```
 l%n
 ```
 
 The following example showcases the usage of `_`.
 
-```text
+```
 hel_o
 ```
 
@@ -266,12 +266,12 @@ This pattern matches words such as `hello`, `helgo`, `heloo`. I think it is pret
 
 #### Task
 
-1. Write a pattern that matches any string ending in `er`. 
+1. Write a pattern that matches any string ending in `er`.&#x20;
 2. Write a pattern that matches string having `h` as the second character, any at the start and lastly ending in `l`. Tip: between `h` and `l` you need to match any character sequence
 
 ### Serialization
 
-Saving values with custom types to database may result in their values being _serialized_ to a different type, meaning that you might have to convert it back to its original type when retrieving. For example, saving the result of a `cembed` to call to database will result in it becoming a `map[string] interface{}`.   
+Saving values with custom types to database may result in their values being _serialized_ to a different type, meaning that you might have to convert it back to its original type when retrieving. For example, saving the result of a `cembed` to call to database will result in it becoming a `map[string] interface{}`. \
 The following code will showcase this behaviour:
 
 ```go
@@ -295,4 +295,3 @@ You might have noticed that, whenever you're storing a user ID, channel ID, etc.
 {{$userID_received := toInt (dbGet 2000 "someKey").Value}}
 {{dbDel 2000 "someKey"}}
 ```
-

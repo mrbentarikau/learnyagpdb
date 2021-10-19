@@ -8,7 +8,7 @@ In this exercise we're going to plan and write a CC that takes one integer N and
 
 So first you have to learn/search for what is a prime number; then test out finding different, larger primes, recognizing the patterns and generalizing it to code. Our example case of 7 would be written down on paper like this:
 
-```text
+```
 7/2 = 3 remainder 1
 7/3 = 2 remainder 1
 7/4 = 1 remainder 3
@@ -16,11 +16,11 @@ So first you have to learn/search for what is a prime number; then test out find
 7/6 = 1 remainder 1
 ```
 
-Because we've tried all numbers from 2 to 6 and found that 7 is not divisible by any of them, so we can say 7 is a prime \(why don't we use 1?\). Do the same for 13 or 42. What differs?
+Because we've tried all numbers from 2 to 6 and found that 7 is not divisible by any of them, so we can say 7 is a prime (why don't we use 1?). Do the same for 13 or 42. What differs?
 
 Generalized algorithm would go like this:
 
-```text
+```
 Check if N is less than or equal to 1, if so return "N is not a prime"
 count from 2 to N (exclusive)
     call each number i or use dot
@@ -34,4 +34,3 @@ So your task for this exercise is to translate this algorithm to CC-code.
 Hint: Remember `seq` function's max limit.
 
 [Example solution](https://pastebin.com/rcYbgdAf)
-
