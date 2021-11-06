@@ -295,3 +295,41 @@ You might have noticed that, whenever you're storing a user ID, channel ID, etc.
 {{$userID_received := toInt (dbGet 2000 "someKey").Value}}
 {{dbDel 2000 "someKey"}}
 ```
+
+### Global vs. User Entries
+
+When you've been using the database for quite a while now, you surely have heard of so-called "global" and "per-user" entries.
+
+These terms are often used and help getting the point across when explaining the _effect_, but when it comes to understanding the workings behind it, this is not the right way to think about it.
+
+When you do so, you exclude all possible variations and just think "If I have a `0` as the userID, it's a global db and if it's `.User.ID`, it becomes a per-user db". You block yourself from creating systems that are case-dependant, over-complicate things and confuse yourself.&#x20;
+
+The way to go about this is to think of it in terms of the database entries themselves, and how they're used/going to be used in your system. As I talk about this further, I do so with the assumption that you have used at least a few database functions already. If not, consider reading from the top of this page instead of jumping around on it.
+
+#### Understanding a Database Entry Vaguely
+
+In a `sdict`, or `dict`, you have key-value pairs, where each value corresponds to its key. Database entries work in a similar fashion, **except each value corresponds to the combination of the userID and key**. Basically, two database entries are identical (rather, the same) when they both have the same userID and key.&#x20;
+
+Each of the following line corresponds to and returns different database entries, since they don't share the same set of userID and key.
+
+```go
+{{ dbGet 20 "apple" }}
+{{ dbGet 20 "banana" }}
+{{ dbGet 30 "apple" }}
+```
+
+#### What do These Terms Mean?
+
+Having understood DB entries, we can now define these terms in a better way:
+
+* **Global Entries**: If everyone/everything refers to the same database entry, we conventionally call it a global entry.
+* **User/Channel-specific entries**: If different users/channels refer to different entries based on any set conditions, we call them per-user entries, or similar terms.
+
+Before you write your code, you need to decide how your command will use databases and then take action accordingly.
+
+Need a different database entry in each channel that is independent of the user? Use `dbSet channelID "key" value`.
+
+Need different database entries in separate channels that are dependent on the user? Use `dbSet .User.ID "channelID" value` or `dbSet channelID (str .User.ID) value` depending on what kind of data you're expecting to get from `dbTopEntries`, or just any other custom command.&#x20;
+
+It's all about playing with the `userID` and `key` to get what you need. This should hopefully give you a little better idea and push you to think in the right direction.
+
