@@ -232,7 +232,7 @@ As an example, to find the rank of the entry with the key `test` for the current
 
 ```go
 {{$rank := dbRank (sdict "userID" .User.ID) .User.ID "test"}}
-The specified entry's rank is {{{$rank}}.
+The specified entry's rank is {{$rank}}.
 ```
 
 Note that this function **returns** the rank, so to avoid random spam, don't forget to assign it to a variable.
