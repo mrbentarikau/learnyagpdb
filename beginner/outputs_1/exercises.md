@@ -8,7 +8,7 @@
 
 ![](<../../.gitbook/assets/image (2).png>)
 
-* Make a command to tag an user, direct him to a channel with channel link and also mention @here and your staff role. \
+* Make a command to tag a user, direct him to a channel with channel link and also mention @here and your staff role. \
   Example output is as follows:
 
 ![](<../../.gitbook/assets/image (3).png>)
