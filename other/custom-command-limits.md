@@ -52,8 +52,6 @@ description: >-
   * dbGet
   * dbDel/dbDelByID
   * dbIncr
-  * dbGetPattern/dbTopEntries
-  * dbCount
 
 ### Database Multiple Entry Interactions
 
