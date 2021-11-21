@@ -48,12 +48,14 @@ description: >-
 
 * **Calls per CC:** 10/50 (free/prem) -> counter key "db\_interactions"
 * Valid for all database commands ->
-  * dbSet/dbSetExpire
-  * dbGet
   * dbDel/dbDelByID
+  * dbGet
   * dbIncr
+  * dbSet/dbSetExpire
 
 ### Database Multiple Entry Interactions
+
+Multiple entries all count to general "db\_interactions" limit as well.
 
 * **Calls per CC:** 2/10 (free/prem) -> counter key "db\_multiple"
 * Valid for all database multiple entry related commands ->
