@@ -15,7 +15,7 @@ description: >-
 * **Max operations:** 1M/2.5M (free/prem)
 * **Response Character Limit:** 2k
 * **Generic API based Action call limit:** 100 per CC
-* \*\*State Lock based Actions: \*\*500 per CC (mentionRoleName/ID ; hasRoleName ; targetHasRoleName/ID)
+* **State Lock based Actions:** 500 per CC (mentionRoleName/ID ; hasRoleName ; targetHasRoleName/ID)
 
 ## CALLING A CC
 
@@ -72,8 +72,8 @@ Multiple entries all count to general "db\_interactions" limit as well.
 * **sendDM:** 1 call per CC -> counter key "send\_dm"
 * **sendTemplate/sendTemplateDM:** 3 calls per CC -> counter key "exec\_child"
 * **addReactions:** 20 calls per CC -> counter key "add\_reaction\_trigger". Each reaction added counts towards the limit.
-* \*\*addResponseReactions: \*\*20 calls per CC -> counter key "add\_reaction\_response". Each reaction added counts towards the limit.
-* \*\*addMessageReactions: \*\*20 calls per CC -> counter key "add\_reaction\_message". Each reaction added counts towards the limit.
+* **addResponseReactions:** 20 calls per CC -> counter key "add\_reaction\_response". Each reaction added counts towards the limit.
+* **addMessageReactions:** 20 calls per CC -> counter key "add\_reaction\_message". Each reaction added counts towards the limit.
 * **deleteMessageReaction: 1**0 calls per CC -> counter key "del\_reaction\_message". Each removed added counts towards the limit.
 * **editChannelName/Topic:** 10 calls per CC -> counter key "edit\_channel"
 * **regex cache limit:** 10 (this means you cant have more than 10 different regexes on a CC)
