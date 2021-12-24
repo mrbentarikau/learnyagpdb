@@ -4,7 +4,7 @@ description: “You can't take over the world without a good acronym.” // C.S.
 
 # Abbreviations & Acronyms
 
-This section presents most commonly used short literals from\*\* [**support server**](https://discord.gg/4udtcA5) \*\*that are not directly in code's context.
+This section presents most commonly used short literals from [**support server**](https://discord.gg/4udtcA5) that are not directly in code's context.
 
 **YAGPDB**- Yet Another General Purpose Discord Bot, users tend to call it YAG as well\
 \
