@@ -9,9 +9,9 @@ You've got to this point so far, and you've learned many, if not all, of the bas
 In Control Flow 2, you will learn two very useful ways which can help optimize your code - make it shorter, while doing the same thing, in addition to allowing you to do things that you couldn't have done before. How do we do this?
 
 The Range Action\
-__\
-__The `range` action is defined like the following:
----------------------------------------------------
+\_\_\
+\_\_The `range` action is defined like the following:
+-----------------------------------------------------
 
 {% hint style="info" %}
 If you've worked with other programming languages in the past, you can think of `range` as a `for` loop.
@@ -36,16 +36,16 @@ If you've worked with other programming languages in the past, you can think of 
 {{ end }}
 ```
 
-There's a lot of lingo here that might be new for you. `pipeline` is either an slice (a _cslice_ or normal _slice_)  or map (a _dict _or _sdict_). We also refer to maps as key-value pairs, as that is what they are (keys corresponding to values). `Iterating` is a fancy word for "looping over", or doing an action for every element in the pipeline.
+There's a lot of lingo here that might be new for you. `pipeline` is either an slice (a _cslice_ or normal _slice_) or map (a \_dict \_or _sdict_). We also refer to maps as key-value pairs, as that is what they are (keys corresponding to values). `Iterating` is a fancy word for "looping over", or doing an action for every element in the pipeline.
 
-This really isn't the most useful example, so let's jump right in with a practical example of when you might use `range`.&#x20;
+This really isn't the most useful example, so let's jump right in with a practical example of when you might use `range`.
 
 ## How do we manage roles in YAGPDB CC? Introducing the role functions:
 
 Before starting off with these examples, let's introduce some functions that we'll be using throughout our examples.
 
 {% hint style="info" %}
-**Info: **Remember that IDs should always be of type _int64_, and should not be quoted: `addRoleID "123456789"` is incorrect and a bad practice (even though it works, as YAGPDB handles the string in this particular example). The correct way would be `addRoleID 123456789`. What is this `addRoleID` function we see here? Look no further...
+**Info:** Remember that IDs should always be of type _int64_, and should not be quoted: `addRoleID "123456789"` is incorrect and a bad practice (even though it works, as YAGPDB handles the string in this particular example). The correct way would be `addRoleID 123456789`. What is this `addRoleID` function we see here? Look no further...
 {% endhint %}
 
 ### Removing and adding roles
@@ -82,16 +82,16 @@ This particular function checks whether the triggering user has the role of the 
 
 #### `targetHasRoleID <user id> <role id>` and `targetHasRoleName <user id> <role name>`
 
-These two functions check whether a given user has the role ID or name provided.&#x20;
+These two functions check whether a given user has the role ID or name provided.
 
 Alright, now that we've learnt the role functions, let's begin on our journey of learning range!
 
 ## Adding multiple roles to users with the join message
 
-It's likely a problem many of us have dealt with when we started our servers. You might have first started to look at Autorole to help. Unfortunately, it only supports giving one role. You might have ended there, but you may also have looked to join message, and the `addRoleID` template (or a similar template).&#x20;
+It's likely a problem many of us have dealt with when we started our servers. You might have first started to look at Autorole to help. Unfortunately, it only supports giving one role. You might have ended there, but you may also have looked to join message, and the `addRoleID` template (or a similar template).
 
 {% hint style="success" %}
-**Pro Tip: **A simpler way of adding multiple roles to a user on join is using AutomoderatorV2 and an "On member joined" trigger with "give role" effect, but for educational purposes, this example will use join message.
+**Pro Tip:** A simpler way of adding multiple roles to a user on join is using AutomoderatorV2 and an "On member joined" trigger with "give role" effect, but for educational purposes, this example will use join message.
 {% endhint %}
 
 Your final code in join message might have ended up looking a little bit like this (where x, y, z, a, b, and c are placeholders for IDs).
@@ -121,17 +121,13 @@ The first, and arguably the simplest use of `range` is to reduce repetitive code
 
 Let's go through our code step-by-step, as this may read like gibberish to you at first - _What's that . doing there? What the heck are those hyphens after {{ doing??_
 
-1. `{{ $ids := cslice x y z a b c }}`: We construct a slice of role IDs. Very straightforward.\
-
-2. `{{ range $ids }}`: Here is where the fun really starts. The `range $ids` part declares the range statement itself. We declare it with the `range pipeline` syntax rather than `range $key, $value := pipeline` syntax as in this specific case we do not need the index of the slice we are iterating over.\
-
+1. `{{ $ids := cslice x y z a b c }}`: We construct a slice of role IDs. Very straightforward.\\
+2. `{{ range $ids }}`: Here is where the fun really starts. The `range $ids` part declares the range statement itself. We declare it with the `range pipeline` syntax rather than `range $key, $value := pipeline` syntax as in this specific case we do not need the index of the slice we are iterating over.\\
 3.  `{{- addRoleID . -}}` Let's start with the `{{-` rather than just `{{`: **White space is rendered as output in a range action,** meaning that if you have newlines or indents and are ranging over a large enough set of data, you may find that you're getting a "Response exceeded 2K characters" error for apparently no reason. For this reason, we strip the whitespace in both directions in every iteration, instead of at just the start and end. You will need to add this (`{{-` and `-}}`) for every line in your `range` action. Note that if you have multiple lines in your range action, `-}}` only needs to be added for the last line in the range action, and the ones before it can stay as `}}`. Note that if you nest your range actions, you will need to strip that as well.\
     \
-    In this specific case, we do not necessarily need these as there 1) is not enough data for it to hit a 2K character error and 2) we send no text afterwards, so newlines would not be an issue. However, it's good practice and prevents some frustration when you see that strange "Response exceeded 2K characters" error without apparent cause.\
+    In this specific case, we do not necessarily need these as there 1) is not enough data for it to hit a 2K character error and 2) we send no text afterwards, so newlines would not be an issue. However, it's good practice and prevents some frustration when you see that strange "Response exceeded 2K characters" error without apparent cause.\\
 
-
-    Lastly, the `addRoleID` function itself. We see the `addRoleID` function, but we also see this `.`. Normally, the dot refers to all the data available in CCs: for example, `.Guild`. However, when in a `range` or `with` action (covered later in this section) the dot is changed to the **current iteration value**. In this case, `.` would be either x, y, z, a, b or c, as those are the values of the slice `$ids`.\
-
+    Lastly, the `addRoleID` function itself. We see the `addRoleID` function, but we also see this `.`. Normally, the dot refers to all the data available in CCs: for example, `.Guild`. However, when in a `range` or `with` action (covered later in this section) the dot is changed to the **current iteration value**. In this case, `.` would be either x, y, z, a, b or c, as those are the values of the slice `$ids`.\\
 4. Lastly, we have this `{{- end }}`. The `end` action closes off the range action, and the `{{-` strips all white space to the left (read above for why this is necessary).
 
 That wasn't too hard, was it? Let's now go to a common mistake that users make when working with range.
@@ -155,10 +151,10 @@ The following code is **intentionally** left broken. Try to find out where we we
 
 Try to see why the above code is broken.
 
-Alright. If you were paying close attention to our line-by-line analysis of the last code provided, you would see that `.` is changed to the current iteration value in the range action. This means that in the above code, `.` is either x, y, z, a, b, c, or d. This means that it is a _string. _Strings do not have a user property, meaning that this will error. But how will we access the user ID?
+Alright. If you were paying close attention to our line-by-line analysis of the last code provided, you would see that `.` is changed to the current iteration value in the range action. This means that in the above code, `.` is either x, y, z, a, b, c, or d. This means that it is a \_string. \_Strings do not have a user property, meaning that this will error. But how will we access the user ID?
 
 **Method 1: Defining values outside of range**\
-****The first, and most obvious approach is to define the user ID outside of the range action, where it will not be affected. For example:
+The first, and most obvious approach is to define the user ID outside of the range action, where it will not be affected. For example:
 
 ```go
 {{ $rolenames := cslice "x" "y" "z" "a" "b" "c" "d" }}
@@ -171,7 +167,7 @@ Alright. If you were paying close attention to our line-by-line analysis of the 
 This works fine, and it's short and simple. But there's an even better way of doing this.
 
 **Method 2: Using $. instead of .**\
-****Let's just look at the resulting code first, and we'll explain how exactly it works after.
+Let's just look at the resulting code first, and we'll explain how exactly it works after.
 
 ```go
 {{ $rolenames := cslice "x" "y" "z" "a" "b" "c" "d"}}
@@ -315,5 +311,5 @@ The flow here is a little hard to follow, as `.` is used extensively and it's no
 Note that here we do not use `with` for the first statement, rather, it is only used for the `reFindAllSubmatches` call. This is a much better use case, because if we simply used `if`, we would have to repeat that line of code. With `with`, in this case, we shorten our code, save function calls, and keep readability.
 
 {% hint style="success" %}
-**Pro Tip: **Did you know that `index` can be called with more than 2 arguments? `index X 0 1` is equivalent to calling `index (index X 0) 1` and so on. This works well with `reFindAllSubmatches`, as it returns a 2D slice of matches rather than a normal slice.
+\*\*Pro Tip: \*\*Did you know that `index` can be called with more than 2 arguments? `index X 0 1` is equivalent to calling `index (index X 0) 1` and so on. This works well with `reFindAllSubmatches`, as it returns a 2D slice of matches rather than a normal slice.
 {% endhint %}

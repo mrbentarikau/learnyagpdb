@@ -33,7 +33,7 @@ This may seem quite confusing at first, so we'll go over each of the required ar
    * `userid` (mentions or user IDs, resolves to the ID itself)
    * `member` (mentions or user IDs, resolves to the [member](https://docs.yagpdb.xyz/reference/templates#member) structure)
    * `channel` (channel mention or ID, resolves to the channel structure)
-   * `role `(role name or ID, resolves as type _\*discordgo.Role_)
+   * `role` (role name or ID, resolves as type _\*discordgo.Role_)
    *   `duration` (duration that is human-readable, i.e `10h5m` or `10 hour 5 minutes` would both resolve to the same duration)
 
        The `<description>` of the `carg` is what we were talking about earlier: If a user does not execute a command with the arguments expect, YAGPDB with construct an error message from this description.
@@ -42,7 +42,7 @@ This may seem quite confusing at first, so we'll go over each of the required ar
 
 Here are some examples of possible usage of `parseArgs`, in case you are still confused:
 
-* `parseArgs 2 "Syntax is  " (carg "channel" "channel to send to") (carg "string" "text to send")` _This was taken from the _[_documentation_](https://docs.yagpdb.xyz/reference/custom-command-examples#parseargs-example)
+* `parseArgs 2 "Syntax is " (carg "channel" "channel to send to") (carg "string" "text to send")` \_This was taken from the \_[_documentation_](https://docs.yagpdb.xyz/reference/custom-command-examples#parseargs-example)
 * `parseArgs 1 "" (carg "user" "user to see")`
 
 Alright then, now you understand the format of `parseArgs`. However, it's really quite useless in it's current state, as we don't know how to retrieve the parsed arguments yet!
@@ -112,11 +112,11 @@ Let's explain this line by line.
 
 1. `{{ $args := parseArgs 0 "" (carg "user" "target user") }}` - Here, we put the output of parseArgs into a variable. Note the minimum number of arguments here is `0`, meaning that the user is optional. We'll see why in the next line.
 2. `{{ if $args.IsSet 0 }}` - In this line, we check whether the first argument exists. If so, we send `{{ ($args.Get 0).Mention }}, hello world!`
-3. ` {{ else }} ... {{ end }}`This block is executed when the optional user argument is not there. We default to mentioning the triggering user.
+3. `{{ else }} ... {{ end }}`This block is executed when the optional user argument is not there. We default to mentioning the triggering user.
 
 ![](<../../.gitbook/assets/image (2) (1).png>)
 
-` IsSet` is extremely useful if you have several optional arguments and you want to check whether they exist / were provided by the user quickly.
+`IsSet` is extremely useful if you have several optional arguments and you want to check whether they exist / were provided by the user quickly.
 
 ### Activities
 
@@ -136,38 +136,30 @@ Sometimes, you will want to use `.CmdArgs` instead of `parseArgs`. `.CmdArgs` is
 
 Let's say we used `-seeargs "hello world"`. As YAGPDB sees text enclosed in quotations as one argument, it would repeat back to us `hello world!`. However, let's say we used `-seeargs hello world` instead. Instead of giving us the same output, it would instead repeat `hello, world`.
 
-There's nothing too crazy about `.CmdArgs` - it's simply a slice(collection similar to an array)  of string arguments that are unparsed(in their original state). If you want to parse the arguments, you will have to do it manually. This will be explored in a later chapter.
+There's nothing too crazy about `.CmdArgs` - it's simply a slice(collection similar to an array) of string arguments that are unparsed(in their original state). If you want to parse the arguments, you will have to do it manually. This will be explored in a later chapter.
 
 ### String Manipulation Action
 
 In the above example we see a new function called joinStr which belongs to the category of string manipulation function documented [here](https://docs.yagpdb.xyz/reference/templates#string-manipulation). Some basic string manipulation function with usage will be explained below :
 
-1. `lower` : Syntax is `lower string` . This is a action which converts all letters into lower case. Other characters which do not have a defined lower case remain unaffected.\
+1. `lower` : Syntax is `lower string` . This is a action which converts all letters into lower case. Other characters which do not have a defined lower case remain unaffected.\\
+2.  `upper` : Syntax is `upper string` . This is a a which converts all letters into upper(title) case.
 
-2.  `upper` : Syntax is `upper string` . This is a a which converts all letters into upper(title) case.&#x20;
-
-    Other characters which do not have a defined upper(title) case remain unaffected.\
-
+    Other characters which do not have a defined upper(title) case remain unaffected.\\
 3. `title` : Syntax is `title string`. It returns a string with the first letter of each word capitalized(in title case). Subsequent characters in the word remain unaffected. Note that word here is not delimited by only whitespace. Some other characters (like ; or #) behave as word separators and the first letter following them is capitalized as well.\
-   &#x20;   **Example: **`{{title "hellO World! | @m g00d o_k. ää##spam;a"}}`** **will return \
-   &#x20;   Above will return : `HellO World! | @M G00d O_k. Ää##Spam;A` .\
+   Example: `{{title "hellO World! | @m g00d o_k. ää##spam;a"}}` will return\
+   Above will return : `HellO World! | @M G00d O_k. Ää##Spam;A` .\\
+4. `joinStr` : Syntax is `joinStr separator string_or_string_slice(s)`. This is a very useful action used for joining strings or string slices together into a single string. Separator is the character(s) that is inserted between each element while forming the final string. It can be a null string `""` as well which simply joins all elements together without placing any extra character in between while joining them. Note that separator is a string itself and should be enclosed in `""` or ` `` ` if specified as a string literal.\
 
-4.  `joinStr` : Syntax is `joinStr separator string_or_string_slice(s)`. This is a very useful action used for joining strings or string slices together into a single string. Separator is the character(s) that is inserted between each element while forming the final string. It can be a null string `""` as well which simply joins all elements together without placing any extra character in between while joining them. Note that separator is a string itself and should be enclosed in `""` or ` `` ` if specified as a string literal.\
-    &#x20;
-
-    1. **Example 1 :**\
-       ****`{{$x := joinStr "," "word1" "word no 2" "" "3"}}{{$x}}`** **\
-       ****Above code will create a single string `word1,word no 2,,3` and assign it to variable $x which is output as response. Note how each element is joined by the separator `,` . Also note how while joining blank strings, multiple separators are simply placed side-by-side.\
-
-    2. **Example 2 :**\
-       ****`{{$s := joinStr "++" "0" .CmdArgs "last"}}{{$s}}`** **\
-       ****In the above code, let us assume we invoke the code with following Arguments : `one two 3`.\
-       `joinStr` action will produce a single string `0++one++two++3++last`. Note how the separator can be multiple characters. Also note that each entry of the slice(collection) `.CmdArgs` is treated as a separate element.
-
-
-5. `split` : Syntax is `split string separator`This is almost the reverse of the `joinStr` action and it splits a string at the specified separator producing a string slice. Note that separator is a string itself and should be enclosed in `""` or ` `` ` if specified as a string literal. Separator can be multiple characters.\
-
-   1. **Example : **`{{$s := split "this-is-what-it-is" "is"}}` \
+   1. **Example 1 :**\
+      `{{$x := joinStr "," "word1" "word no 2" "" "3"}}{{$x}}` \
+      Above code will create a single string `word1,word no 2,,3` and assign it to variable $x which is output as response. Note how each element is joined by the separator `,` . Also note how while joining blank strings, multiple separators are simply placed side-by-side.\\
+   2. **Example 2:**\
+      ****`{{$s := joinStr "++" "0" .CmdArgs "last"}}{{$s}}`\
+      In the above code, let us assume we invoke the code with following Arguments : `one two 3`.\
+      `joinStr` action will produce a single string `0++one++two++3++last`. Note how the separator can be multiple characters. Also note that each entry of the slice(collection) `.CmdArgs` is treated as a separate element.
+5. `split` : Syntax is `split string separator`This is almost the reverse of the `joinStr` action and it splits a string at the specified separator producing a string slice. Note that separator is a string itself and should be enclosed in `""` or ` `` ` if specified as a string literal. Separator can be multiple characters.\\
+   1. **Example:**`{{$s := split "this-is-what-it-is" "is"}}`\
       Above action produces a string slice by breaking the string at every occurrence of the separator. It produces the following string slice(collection) `["th" "-" "-what-it-" ""]` as output which is stored into the variable called $s.
 
 {% hint style="info" %}
@@ -214,10 +206,10 @@ Voila! No more errors. You can do this with any comparison operator you want. No
 Hopefully this chapter helped you understand retrieving and parsing user input a little better. Good luck!
 
 {% hint style="success" %}
-**Pro Tip : **A good way to view string slices is using the printf action as follows. \
+**Pro Tip:** A good way to view string slices is using the printf action as follows.\
 `{{printf "%q" $slice}}.`
 
-**Example: ** `{{printf "%q" (split "ok.gg." ".")}}`\
+**Example:** `{{printf "%q" (split "ok.gg." ".")}}`\
 Produces the output : `["ok" "gg" ""]`\
 %q stands for quoted string. Thus, it outputs each element in form of of a quoted string making it easier to spot invisible characters and spaces. Also note that the output might represent certain special characters using escape sequences as discussed earlier.
 {% endhint %}
