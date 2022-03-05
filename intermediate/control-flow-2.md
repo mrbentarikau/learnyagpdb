@@ -9,9 +9,9 @@ You've got to this point so far, and you've learned many, if not all, of the bas
 In Control Flow 2, you will learn two very useful ways which can help optimize your code - make it shorter, while doing the same thing, in addition to allowing you to do things that you couldn't have done before. How do we do this?
 
 The Range Action\
-\_\_\
-\_\_The `range` action is defined like the following:
------------------------------------------------------
+\
+The `range` action is defined like the following:
+-------------------------------------------------
 
 {% hint style="info" %}
 If you've worked with other programming languages in the past, you can think of `range` as a `for` loop.
@@ -119,7 +119,7 @@ The first, and arguably the simplest use of `range` is to reduce repetitive code
 {{- end }}
 ```
 
-Let's go through our code step-by-step, as this may read like gibberish to you at first - _What's that . doing there? What the heck are those hyphens after {{ doing??_
+Let's go through our code step-by-step, as this may read like gibberish to you at first - _What's that . doing there? What the heck are those hyphens after \{{ doing??_
 
 1. `{{ $ids := cslice x y z a b c }}`: We construct a slice of role IDs. Very straightforward.\\
 2. `{{ range $ids }}`: Here is where the fun really starts. The `range $ids` part declares the range statement itself. We declare it with the `range pipeline` syntax rather than `range $key, $value := pipeline` syntax as in this specific case we do not need the index of the slice we are iterating over.\\
