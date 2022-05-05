@@ -31,14 +31,14 @@ This can also be found in the [documentation](https://docs.yagpdb.xyz/reference/
 {% endhint %}
 
 It is to note that the user ID doesn't actually have to point to a valid user - it can be any integer. If you for example used `2000` as ID, this will be `.UserID`. If you used a non-user ID, the `.User` object will be invalid.\
-&#x20;The fields `.CreatedAt`, `.UpdatedAt`, and `.ExpiresAt` all evaluate to the `time.Time` structure and can therefore be used with `time.Time` related methods, which can be found [here](https://docs.yagpdb.xyz/reference/templates#time).
+The fields `.CreatedAt`, `.UpdatedAt`, and `.ExpiresAt` all evaluate to the `time.Time` structure and can therefore be used with `time.Time` related methods, which can be found [here](https://docs.yagpdb.xyz/reference/templates#time).
 
 ### Size Limitations
 
 As everything that has to do with computers and data, there are limitations. Our YAGPDB database is no exception. However, we tried to make them as large as possible, whilst still remaining somewhat conservative and not going completely overboard.
 
 In general, you can have `50 * Members` values (entries) in your server's database. If your server has premium activated, this increases to `500 * Members`. Note that this will not immediately change as this value is cached, should your members leave or newly join. If you go above your maximum entries, all new write functions will fail. Honestly though, already `50 * Members` is a lot to deal with, so you are safe for a while.\
-&#x20;Please note though that this is not 50 (or 500 with premium) entries _per user_, but rather for everything. This of course means that one user could take up every entry there is. So, be careful with your database!
+Please note though that this is not 50 (or 500 with premium) entries _per user_, but rather for everything. This of course means that one user could take up every entry there is. So, be careful with your database!
 
 Database keys are strings and are limited to 256 bytes in length (aka 256 characters). If used with `dbSet` or `dbSetExpire`, the key argument will be internally converted to a string, so you can actually pass whatever you want.
 
@@ -63,7 +63,7 @@ To start, let's take a look at the syntax:
 ```
 
 We've already covered `UserID` and `Key` further up. As a small refresher: `UserID` can be any integer, and `Key` is a string, the name of the entry so to say.\
-&#x20;Now, what exactly is that `Value`? You surely know how variables work in YAGPDB-CC, and the value is nothing else. Just that it is persistent between custom command executions, and variables are not.
+Now, what exactly is that `Value`? You surely know how variables work in YAGPDB-CC, and the value is nothing else. Just that it is persistent between custom command executions, and variables are not.
 
 ### dbGet
 
@@ -90,19 +90,19 @@ Write a custom command that sets an entry `"Database is cool!"` under the key `y
 ## Advanced Interactions
 
 Now, you might want to become a little more special with your database - That's why we have a few more functions, `dbIncr` and `dbSetExpire`.\
-&#x20;With these functions, you are able to add a whole new layer to your custom commands, so let's get started!
+With these functions, you are able to add a whole new layer to your custom commands, so let's get started!
 
 ### dbIncr
 
 `dbIncr` is quite a handy function, as it increases the value inside the entry by the given increment and returns the increased value in the same moment, allowing you to save it to a variable.\
-&#x20;You might ask yourself, what exactly is the increment? This argument can be any valid number, so integers and floats. Please note however that the return type of `dbIncr` is always a float. So if you are using integers as increment and plan to use them as such, please don't forget to convert them. Now let us take a quick look at the syntax.
+You might ask yourself, what exactly is the increment? This argument can be any valid number, so integers and floats. Please note however that the return type of `dbIncr` is always a float. So if you are using integers as increment and plan to use them as such, please don't forget to convert them. Now let us take a quick look at the syntax.
 
 ```go
 {{dbIncr <UserID> <Key> <Increment>}}
 ```
 
 What's also noteworthy is the fact that `dbIncr` sets the value to the given increment, shouldn't the entry exist already.\
-&#x20;Try thinking about how you would implement a custom command that increases a given entry by a set amount, gets the value, but also sets a new entry if it doesn't already exist. I think you can see how helpful `dbIncr` really is, considering that this function can condense the following code into one function call.
+Try thinking about how you would implement a custom command that increases a given entry by a set amount, gets the value, but also sets a new entry if it doesn't already exist. I think you can see how helpful `dbIncr` really is, considering that this function can condense the following code into one function call.
 
 ```go
 {{$db := dbGet .User.ID "someKey"}}
@@ -139,8 +139,7 @@ As a side effect, expired entries will be considered gone (i.e. deleted) by YAGP
 
 ## Multiple Interactions
 
-Lastly there are special functions which allow you to get multiple entries. We call those coincidentally multiple entry interactions. Every function except one returns a slice of entries. Depending on what function you use, this slice is sorted by certain criteria.\
-
+Lastly there are special functions which allow you to get multiple entries. We call those coincidentally multiple entry interactions. Every function except one returns a slice of entries. Depending on what function you use, this slice is sorted by certain criteria.\\
 
 ### dbCount
 
@@ -151,7 +150,7 @@ This is the only function interacting with multiple entries not returning a slic
 {{/* or */}}
 {{dbCount <key>}}
 {{/* or */}}
-{{dbCount (sdict "userID" <userID> "key" <key>}}
+{{dbCount (sdict "userID" <userID> "key" <key>)}}
 ```
 
 This should be pretty clear: Count the entries either for the given user ID or the given Key. Alternatively, you can make it count entries under the given key for a given user by passing in a `sdict` with the keys `userID` for the ID and `key` for the key that's been counted.
@@ -168,7 +167,7 @@ These functions return a slice of entry objects, in case of `dbTopEntries` order
 ```
 
 What's new here are three things: `pattern`, `amount`, and `nSkip.` Let's walk through them one by one. For `pattern`, we use basic PostgreSQL patterns, you can read on them further down. The `amount` specifies how many entries we want to retrieve. Lastly, you tell YAGPDB how many entries it should skip using the `nSkip` argument.\
-&#x20;Now to retrieve the value of each entry, we range over the given slice and access the `.Value` field:
+Now to retrieve the value of each entry, we range over the given slice and access the `.Value` field:
 
 ```go
 {{$entries := dbTopEntries "someKey" 10 0}}
@@ -178,7 +177,7 @@ What's new here are three things: `pattern`, `amount`, and `nSkip.` Let's walk t
 ```
 
 In analogy to the above code example, you can access any other field as well.\
-&#x20;These functions might come in handy when you are for example trying to compose a leaderboard.
+These functions might come in handy when you are for example trying to compose a leaderboard.
 
 ### dbGetPattern / dbGetPatternReverse
 
@@ -266,12 +265,12 @@ This pattern matches words such as `hello`, `helgo`, `heloo`. I think it is pret
 
 #### Task
 
-1. Write a pattern that matches any string ending in `er`.&#x20;
+1. Write a pattern that matches any string ending in `er`.
 2. Write a pattern that matches string having `h` as the second character, any at the start and lastly ending in `l`. Tip: between `h` and `l` you need to match any character sequence
 
 ### Serialization
 
-Saving values with custom types to database may result in their values being _serialized_ to a different type, meaning that you might have to convert it back to its original type when retrieving. For example, saving the result of a `cembed` to call to database will result in it becoming a `map[string] interface{}`. \
+Saving values with custom types to database may result in their values being _serialized_ to a different type, meaning that you might have to convert it back to its original type when retrieving. For example, saving the result of a `cembed` to call to database will result in it becoming a `map[string] interface{}`.\
 The following code will showcase this behaviour:
 
 ```go
@@ -284,7 +283,7 @@ The following code will showcase this behaviour:
 {{dbDel .User.ID "serialization_example"}}
 ```
 
-However, most commonly used types will be saved with their type information intact, meaning that there will be no need to convert them after retrieval. In particular, `sdict`, `dict`, and `cslice` may be saved directly to database and will retain their original types. 
+However, most commonly used types will be saved with their type information intact, meaning that there will be no need to convert them after retrieval. In particular, `sdict`, `dict`, and `cslice` may be saved directly to database and will retain their original types.�
 
 ### Storing IDs
 
@@ -302,13 +301,13 @@ When you've been using the database for quite a while now, you surely have heard
 
 These terms are often used and help getting the point across when explaining the _effect_, but when it comes to understanding the workings behind it, this is not the right way to think about it.
 
-When you do so, you exclude all possible variations and just think "If I have a `0` as the userID, it's a global db and if it's `.User.ID`, it becomes a per-user db". You block yourself from creating systems that are case-dependant, over-complicate things and confuse yourself.&#x20;
+When you do so, you exclude all possible variations and just think "If I have a `0` as the userID, it's a global db and if it's `.User.ID`, it becomes a per-user db". You block yourself from creating systems that are case-dependant, over-complicate things and confuse yourself.
 
 The way to go about this is to think of it in terms of the database entries themselves, and how they're used/going to be used in your system. As I talk about this further, I do so with the assumption that you have used at least a few database functions already. If not, consider reading from the top of this page instead of jumping around on it.
 
 #### Understanding a Database Entry Vaguely
 
-In a `sdict`, or `dict`, you have key-value pairs, where each value corresponds to its key. Database entries work in a similar fashion, **except each value corresponds to the combination of the userID and key**. Basically, two database entries are identical (rather, the same) when they both have the same userID and key.&#x20;
+In a `sdict`, or `dict`, you have key-value pairs, where each value corresponds to its key. Database entries work in a similar fashion, **except each value corresponds to the combination of the userID and key**. Basically, two database entries are identical (rather, the same) when they both have the same userID and key.
 
 Each of the following line corresponds to and returns different database entries, since they don't share the same set of userID and key.
 
@@ -329,7 +328,6 @@ Before you write your code, you need to decide how your command will use databas
 
 Need a different database entry in each channel that is independent of the user? Use `dbSet channelID "key" value`.
 
-Need different database entries in separate channels that are dependent on the user? Use `dbSet .User.ID "channelID" value` or `dbSet channelID (str .User.ID) value` depending on what kind of data you're expecting to get from `dbTopEntries`, or just any other custom command.&#x20;
+Need different database entries in separate channels that are dependent on the user? Use `dbSet .User.ID "channelID" value` or `dbSet channelID (str .User.ID) value` depending on what kind of data you're expecting to get from `dbTopEntries`, or just any other custom command.
 
 It's all about playing with the `userID` and `key` to get what you need. This should hopefully give you a little better idea and push you to think in the right direction.
-
