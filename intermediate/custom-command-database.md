@@ -148,12 +148,12 @@ This is the only function interacting with multiple entries not returning a slic
 ```go
 {{dbCount <userID>}}
 {{/* or */}}
-{{dbCount <key>}}
-{{/* or */}}
-{{dbCount (sdict "userID" <userID> "key" <key>)}}
+{{dbCount <pattern>}}
+{{/* or as query */}}
+{{dbCount (sdict "userID" <userID> "pattern" <pattern>)}}
 ```
 
-This should be pretty clear: Count the entries either for the given user ID or the given Key. Alternatively, you can make it count entries under the given key for a given user by passing in a `sdict` with the keys `userID` for the ID and `key` for the key that's been counted.
+dbCount counts the entries either for the given database userID or the pattern for database keys. Alternatively, you can make it count entries as one query by passing in an `sdict` with the keys `userID` for the ID and `pattern` for database keys that are to be counted.
 
 Please note that this function returns the amount of entries, so to avoid random spam, you'd have to store it into a variable. Apart from that, this function is very simple to use and might come in handy for a few things.
 
