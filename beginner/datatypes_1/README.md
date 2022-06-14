@@ -12,7 +12,7 @@ description: >-
 
 A string is a sequence of characters. It simply stores textual data. String literals can be created in two ways:
 
-1. **Using Double Quotes:** String literals can be created by enclosing a sequence of characters within double quotation marks `"` . It can cannot contain newlines and allows usage of special escape sequences to represent certain characters. Some of them are :\
+1. **Using Double Quotes:** String literals can be created by enclosing a sequence of characters within double quotation marks `"` . It cannot contain newlines and allows usage of special escape sequences to represent certain characters. Some of them are :\
    \
    &#x20;This produces a newline character (similar to pressing the enter key)\
    `\"` This produces a double quotation mark `"` . This allows us to use double quotes inside quoted string literals.\
