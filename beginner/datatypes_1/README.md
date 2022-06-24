@@ -64,7 +64,7 @@ The _`float64`_ is the most common datatype you will encounter in Yagpdb for sto
 
 {% hint style="info" %}
 Note `10` represents an integer literal while `10.0` represents a floating point literal.\
-Example : `{{num := 20.0}}`\
+Example : `{{$num := 20.0}}`\
 Stores 20.0 (base-10) in a [variable](https://yagpdb.gitbook.io/learnyagpdb/beginner/datatypes\_1#variables) called num with data type _float64_ and not _int_.
 {% endhint %}
 
